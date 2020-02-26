@@ -873,12 +873,12 @@
             this.credLabel.BackColor = System.Drawing.Color.Transparent;
             this.credLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.credLabel.LinkColor = System.Drawing.Color.DimGray;
-            this.credLabel.Location = new System.Drawing.Point(469, 568);
+            this.credLabel.Location = new System.Drawing.Point(451, 567);
             this.credLabel.Name = "credLabel";
-            this.credLabel.Size = new System.Drawing.Size(39, 13);
+            this.credLabel.Size = new System.Drawing.Size(59, 13);
             this.credLabel.TabIndex = 41;
             this.credLabel.TabStop = true;
-            this.credLabel.Text = "Credits";
+            this.credLabel.Text = "Information";
             this.credLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.credLabel_LinkClicked);
             // 
             // launchButton

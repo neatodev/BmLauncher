@@ -30,8 +30,14 @@ namespace BmLauncherWForm
             Process.Start("https://steamcommunity.com/id/EV3RGREEN");
         }
 
-        private void CreditsWindow_Load(object sender, EventArgs e)
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Process.Start("https://steamcommunity.com/sharedfiles/filedetails/?id=1159691355");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/neatodev/BmLauncher");
         }
     }
 }
