@@ -10,23 +10,27 @@ using BmLauncherWForm.Properties;
 
 namespace BmLauncherWForm
 {
-    ///
     /// Factory that read and writes all of the accessed files.
     /// Applies various fixes and executes the NVSetter file if conditions are met.
-    ///
     class Factory
     {
         // location of the BmEngine configuration file
-        private static readonly string configFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\BmEngine.ini";
+        private static readonly string configFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+                                                    "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\BmEngine.ini";
 
         // location of the UserEngine configuration file
-        private static readonly string userEngineFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\UserEngine.ini";
+        private static readonly string userEngineFile =
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+            "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\UserEngine.ini";
 
         // location of the UserInput configuration file
-        public static string inputFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\UserInput.ini";
+        public static string inputFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+                                         "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\UserInput.ini";
 
         // folder containing all configuration files
-        private static readonly string configDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\";
+        private static readonly string configDirectory =
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+            "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\";
 
         // form associated to the factory
         private static BmLauncherForm client;
@@ -53,21 +57,28 @@ namespace BmLauncherWForm
         private static readonly string userInputPremade = Resources.UserInput;
 
         // string array containing all lines that need to be changed for the GPUnity texturepack to work
-        private static readonly string[] texFixLines = {"TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
-                                                        "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
-                                                        "TEXTUREGROUP_Cinematic=(MinLODSize=1,MaxLODSize=4096,LODBias=0)",
-                                                        "TEXTUREGROUP_World_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)",
-                                                        "TEXTUREGROUP_WorldNormalMap_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)",
-                                                        "PoolSize=4096"};
+        private static readonly string[] texFixLines =
+        {
+            "TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
+            "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
+            "TEXTUREGROUP_Cinematic=(MinLODSize=1,MaxLODSize=4096,LODBias=0)",
+            "TEXTUREGROUP_World_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)",
+            "TEXTUREGROUP_WorldNormalMap_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)", "PoolSize=4096"
+        };
 
         // string array containing all lines to disable startup movies
-        private static readonly string[] startUpMovieLines = { ";StartupMovies=baa_logo_run_v5_h264", ";StartupMovies=UTlogo", ";StartupMovies=Legal", ";StartupMovies=Black" };
+        private static readonly string[] startUpMovieLines =
+        {
+            ";StartupMovies=baa_logo_run_v5_h264", ";StartupMovies=UTlogo", ";StartupMovies=Legal",
+            ";StartupMovies=Black"
+        };
 
         // keybind form associated to the factory
         public KeybindForm keybinds = new KeybindForm();
 
         /// <summary>
-        /// Constructor for the Factory class. Initializes the client and GPU name and extracts the NvAPIWrapper for NVIDIA GPUs
+        ///     Constructor for the Factory class. Initializes the client and GPU name and extracts the NvAPIWrapper for NVIDIA
+        ///     GPUs
         /// </summary>
         public Factory(BmLauncherForm form)
         {
@@ -77,7 +88,7 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// Method that executes the other read methods.
+        ///     Method that executes the other read methods.
         /// </summary>
         public void readFiles()
         {
@@ -87,8 +98,8 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// This method is especially (and probably only) useful when first launching the game.
-        /// It will create the config directory and place prepackaged configuration files in there.
+        ///     This method is especially (and probably only) useful when first launching the game.
+        ///     It will create the config directory and place prepackaged configuration files in there.
         /// </summary>
         private void readDirectory()
         {
@@ -131,13 +142,12 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// Reads the each line of BmEngine and saves it to a string list.
-        /// Overwrites pre-existing file if it's not created by Launcher.
-        /// Initializes the GUI after every parameter has been read.
+        ///     Reads the each line of BmEngine and saves it to a string list.
+        ///     Overwrites pre-existing file if it's not created by Launcher.
+        ///     Initializes the GUI after every parameter has been read.
         /// </summary>
         private void readConfigFile()
         {
-
             // creates files if they don't exist
             if (!File.Exists(configFile))
             {
@@ -147,6 +157,7 @@ namespace BmLauncherWForm
                     file.Write(bmEnginePremade);
                 }
             }
+
             if (!File.Exists(userEngineFile))
             {
                 File.Create(userEngineFile).Dispose();
@@ -155,6 +166,7 @@ namespace BmLauncherWForm
                     file.Write(userEnginePremade);
                 }
             }
+
             string[] confLines = File.ReadAllLines(configFile);
 
             // if-condition only relevant if BmEngine was not created by the Launcher. Will overwrite existing file
@@ -168,6 +180,7 @@ namespace BmLauncherWForm
                     file.Write(bmEnginePremade);
                     configInfo.IsReadOnly = true;
                 }
+
                 File.Delete(userEngineFile);
                 using (StreamWriter file = new StreamWriter(userEngineFile))
                 {
@@ -182,16 +195,16 @@ namespace BmLauncherWForm
                 configList.Add(line);
                 GraphicsInterpreter.interpretGraphics(line, true);
             }
+
             GuiInitializer.init();
         }
 
         /// <summary>
-        /// Reads the UserInput file and saves the lines to a string list.
-        /// Overwrites pre-existing file if it's not created by Launcher.
+        ///     Reads the UserInput file and saves the lines to a string list.
+        ///     Overwrites pre-existing file if it's not created by Launcher.
         /// </summary>
         public void readInputFile()
         {
-
             // creates file if it doesn't exist
             if (!File.Exists(inputFile))
             {
@@ -201,6 +214,7 @@ namespace BmLauncherWForm
                     file.Write(userInputPremade);
                 }
             }
+
             string[] inputLines = File.ReadAllLines(inputFile);
 
             // if-condition only relevant if UserInput was not created by the Launcher. Will overwrite existing file
@@ -211,8 +225,10 @@ namespace BmLauncherWForm
                 {
                     file.Write(userInputPremade);
                 }
+
                 inputLines = File.ReadAllLines(inputFile);
             }
+
             for (int i = 0; i < inputLines.Length; i++)
             {
                 inputList.Add(inputLines[i]);
@@ -224,11 +240,11 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// Method is called when 'Apply Settings' or 'Start Game' gets pressed.
-        /// Utilizes GraphicsWriter helper class to change Parameters in Graphics class.
-        /// GraphicsInterpreter is used to write Graphics parameters to file.
-        /// This method also controls the readonly functionality.
-        /// After the writing procedure is done, file is made readonly.
+        ///     Method is called when 'Apply Settings' or 'Start Game' gets pressed.
+        ///     Utilizes GraphicsWriter helper class to change Parameters in Graphics class.
+        ///     GraphicsInterpreter is used to write Graphics parameters to file.
+        ///     This method also controls the readonly functionality.
+        ///     After the writing procedure is done, file is made readonly.
         /// </summary>
         public void writeGraphFile()
         {
@@ -243,11 +259,13 @@ namespace BmLauncherWForm
                     file.WriteLine(newLine);
                 }
             }
+
             configInfo.IsReadOnly = true;
         }
 
         /// <summary>
-        /// Saves Keybinds to UserInput file. Only interprets the first 51 lines, to allow for customization by the users after that.
+        ///     Saves Keybinds to UserInput file. Only interprets the first 51 lines, to allow for customization by the users after
+        ///     that.
         /// </summary>
         public void writeInputFile()
         {
@@ -268,7 +286,7 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// Calls texfix method to change Texturegroup parameters in BmEngine file.
+        ///     Calls texfix method to change Texturegroup parameters in BmEngine file.
         /// </summary>
         public void applyTexfix()
         {
@@ -282,14 +300,15 @@ namespace BmLauncherWForm
                     file.WriteLine(newLine);
                 }
             }
+
             texApplied();
             configInfo.IsReadOnly = true;
             Application.Restart();
         }
 
         /// <summary>
-        /// Checks string and changes it to appropriate string from array.
-        /// Used by applyTexfix() method.
+        ///     Checks string and changes it to appropriate string from array.
+        ///     Used by applyTexfix() method.
         /// </summary>
         /// <param name="lineToCheck">Line that gets checked</param>
         /// <returns>Corrected line</returns>
@@ -300,38 +319,44 @@ namespace BmLauncherWForm
                 lineToCheck = texFixLines[0];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("TEXTUREGROUP_CharacterNormalMap=(MinLODSize="))
             {
                 lineToCheck = texFixLines[1];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("TEXTUREGROUP_Cinematic=(MinLODSize="))
             {
                 lineToCheck = texFixLines[2];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("TEXTUREGROUP_World_Hi=(MinLODSize="))
             {
                 lineToCheck = texFixLines[3];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("TEXTUREGROUP_WorldNormalMap_Hi=(MinLODSize="))
             {
                 lineToCheck = texFixLines[4];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio"))
             {
                 lineToCheck = texFixLines[5];
                 return lineToCheck;
             }
+
             return lineToCheck;
         }
 
         /// <summary>
-        /// Method that disables texgroupButton.
-        /// Used by Factory for applyTexfix() method.
-        /// Is called by GraphicsInterpreter if conditions are met.
+        ///     Method that disables texgroupButton.
+        ///     Used by Factory for applyTexfix() method.
+        ///     Is called by GraphicsInterpreter if conditions are met.
         /// </summary>
         public void texApplied()
         {
@@ -340,8 +365,8 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// Works exactly like applyTexfix().
-        /// Calls introFix() method to correct the input string.
+        ///     Works exactly like applyTexfix().
+        ///     Calls introFix() method to correct the input string.
         /// </summary>
         public void applyIntroFix()
         {
@@ -355,14 +380,15 @@ namespace BmLauncherWForm
                     file.WriteLine(newLine);
                 }
             }
+
             introApplied();
             configInfo.IsReadOnly = true;
             Application.Restart();
         }
 
         /// <summary>
-        /// Checks string and changes it to appropriate string from array.
-        /// Used by applyIntroFix() method.
+        ///     Checks string and changes it to appropriate string from array.
+        ///     Used by applyIntroFix() method.
         /// </summary>
         /// <param name="lineToCheck">Line that gets checked</param>
         /// <returns>Corrected line</returns>
@@ -373,28 +399,32 @@ namespace BmLauncherWForm
                 lineToCheck = startUpMovieLines[0];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("StartupMovies=UTlogo"))
             {
                 lineToCheck = startUpMovieLines[1];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("StartupMovies=Legal"))
             {
                 lineToCheck = startUpMovieLines[2];
                 return lineToCheck;
             }
+
             if (lineToCheck.Contains("StartupMovies=Black"))
             {
                 lineToCheck = startUpMovieLines[3];
                 return lineToCheck;
             }
+
             return lineToCheck;
         }
 
         /// <summary>
-        /// Method that disables disableIntroButton.
-        /// Used by Factory for applyIntroFix() method.
-        /// Is called by GraphicsInterpreter if conditions are met.
+        ///     Method that disables disableIntroButton.
+        ///     Used by Factory for applyIntroFix() method.
+        ///     Is called by GraphicsInterpreter if conditions are met.
         /// </summary>
         public void introApplied()
         {
@@ -403,8 +433,8 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// Utilizes ManagementObjectSearcher to gather GPU information.
-        /// Changes gpInfoLabel accordingly. Called in Constructor.
+        ///     Utilizes ManagementObjectSearcher to gather GPU information.
+        ///     Changes gpInfoLabel accordingly. Called in Constructor.
         /// </summary>
         private void setGPUname()
         {
@@ -420,10 +450,12 @@ namespace BmLauncherWForm
                     }
                 }
             }
+
             if (gpu.Contains("NVIDIA"))
             {
                 client.gpInfoLabel.ForeColor = Color.Green;
             }
+
             if (gpu.Contains("Radeon") || gpu.Contains("AMD") || gpu.Contains("Intel"))
             {
                 gpu = gpu + " (PhysX not recommended)";
@@ -436,11 +468,12 @@ namespace BmLauncherWForm
                     client.gpInfoLabel.ForeColor = Color.Blue;
                 }
             }
+
             client.gpInfoLabel.Text = gpu;
         }
 
         /// <summary>
-        /// Used to extract the NvAPIWrapper.dll resource needed for NVIDIA GPUs to modify AO settings
+        ///     Used to extract the NvAPIWrapper.dll resource needed for NVIDIA GPUs to modify AO settings
         /// </summary>
         private void extractWrapper()
         {
@@ -454,9 +487,9 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        /// Executes helper application that requires admin privileges.
-        /// Application sets HBAO+ compatibility flags in NVIDIA profile.
-        /// Called by GraphicsWriter if conditions are met.
+        ///     Executes helper application that requires admin privileges.
+        ///     Application sets HBAO+ compatibility flags in NVIDIA profile.
+        ///     Called by GraphicsWriter if conditions are met.
         /// </summary>
         public void execNVSetter()
         {
@@ -470,6 +503,7 @@ namespace BmLauncherWForm
                     stream.Write(bytes, 0, bytes.Length);
                 }
             }
+
             ProcessStartInfo nvProcess = new ProcessStartInfo("NVSetter.exe");
             nvProcess.Verb = "runas";
             Process.Start(nvProcess);

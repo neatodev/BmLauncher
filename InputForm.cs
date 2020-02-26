@@ -13,8 +13,7 @@ namespace BmLauncherWForm
         readonly string[] bannedKeys =
         {
             "OEM8", "LWIN", "RWIN", "OEM7", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D0", "SCROLL",
-            "OEM1", "OEMTILDE", "OEM7", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8",
-            "F9", "F10", "F11", "F12"
+            "OEM1", "OEMTILDE", "OEM7", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"
         };
 
         // currently selected button

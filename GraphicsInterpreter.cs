@@ -36,6 +36,7 @@
                 {
                     lineToCheck = "Fullscreen=" + Graphics.isFullScreen();
                 }
+
                 return lineToCheck;
             }
 
@@ -49,6 +50,7 @@
                 {
                     lineToCheck = "UseVsync=" + Graphics.isVsync();
                 }
+
                 return lineToCheck;
             }
 
@@ -62,6 +64,7 @@
                 {
                     lineToCheck = "ResX=" + Graphics.getResolutionX();
                 }
+
                 return lineToCheck;
             }
 
@@ -75,6 +78,7 @@
                 {
                     lineToCheck = "ResY=" + Graphics.getResolutionY();
                 }
+
                 return lineToCheck;
             }
 
@@ -89,6 +93,7 @@
                 {
                     lineToCheck = "ScreenPercentage=" + Graphics.getScreenPercentageUIScale();
                 }
+
                 return lineToCheck;
             }
 
@@ -102,6 +107,7 @@
                 {
                     lineToCheck = "DetailMode=" + Graphics.getDetailMode();
                 }
+
                 return lineToCheck;
             }
 
@@ -115,6 +121,7 @@
                 {
                     lineToCheck = "MaxMultisamples=" + Graphics.getMultiSampling();
                 }
+
                 return lineToCheck;
             }
 
@@ -128,6 +135,7 @@
                 {
                     lineToCheck = "DepthOfField=" + Graphics.isDepthOfField();
                 }
+
                 return lineToCheck;
             }
 
@@ -141,6 +149,7 @@
                 {
                     lineToCheck = "AmbientOcclusion=" + Graphics.isAmbientOcclusion();
                 }
+
                 return lineToCheck;
             }
 
@@ -154,6 +163,7 @@
                 {
                     lineToCheck = "Bloom=" + Graphics.isBloom();
                 }
+
                 return lineToCheck;
             }
 
@@ -167,6 +177,7 @@
                 {
                     lineToCheck = "UseHighQualityBloom=" + Graphics.isBloom();
                 }
+
                 return lineToCheck;
             }
 
@@ -180,6 +191,7 @@
                 {
                     lineToCheck = "LensFlares=" + Graphics.isLensFlares();
                 }
+
                 return lineToCheck;
             }
 
@@ -193,6 +205,7 @@
                 {
                     lineToCheck = "MotionBlur=" + Graphics.isMotionBlur();
                 }
+
                 return lineToCheck;
             }
 
@@ -206,6 +219,7 @@
                 {
                     lineToCheck = "MaxAnisotropy=" + Graphics.getMaxAnisotropy();
                 }
+
                 return lineToCheck;
             }
 
@@ -219,6 +233,7 @@
                 {
                     lineToCheck = "DynamicShadows=" + Graphics.isDynamicShadows();
                 }
+
                 return lineToCheck;
             }
 
@@ -232,6 +247,7 @@
                 {
                     lineToCheck = "MaxShadowResolution=" + Graphics.getMaxShadowResolution();
                 }
+
                 return lineToCheck;
             }
 
@@ -245,6 +261,7 @@
                 {
                     lineToCheck = "ShadowFilterRadius=" + Graphics.getShadowFilterRadius();
                 }
+
                 return lineToCheck;
             }
 
@@ -258,6 +275,7 @@
                 {
                     lineToCheck = "MaxSmoothedFrameRate=" + Graphics.getMaxSmoothedFramerate();
                 }
+
                 return lineToCheck;
             }
 
@@ -271,6 +289,7 @@
                 {
                     lineToCheck = "DisableSphericalHarmonicLights=" + Graphics.isDisableSphericalHarmonicLights();
                 }
+
                 return lineToCheck;
             }
 
@@ -284,6 +303,7 @@
                 {
                     lineToCheck = "FogVolumes=" + Graphics.isFogVolumes();
                 }
+
                 return lineToCheck;
             }
 
@@ -297,6 +317,7 @@
                 {
                     lineToCheck = "Distortion=" + Graphics.isDistortion();
                 }
+
                 return lineToCheck;
             }
 
@@ -310,6 +331,7 @@
                 {
                     lineToCheck = "ShadowTexelsPerPixel=" + Graphics.getShadowTexels();
                 }
+
                 return lineToCheck;
             }
 
@@ -323,6 +345,7 @@
                 {
                     lineToCheck = "PhysXLevel=" + Graphics.getPhysX();
                 }
+
                 return lineToCheck;
             }
 
@@ -336,6 +359,7 @@
                 {
                     lineToCheck = "FLightPrimitiveInteractionInitialBlockSize=" + Graphics.getMemoryPoolsValue();
                 }
+
                 return lineToCheck;
             }
 
@@ -345,6 +369,7 @@
                 {
                     lineToCheck = "FModShadowPrimitiveInteractionInitialBlockSize=" + Graphics.getMemoryPoolsValue();
                 }
+
                 return lineToCheck;
             }
 
@@ -413,6 +438,7 @@
             {
                 Program.myFactory.introApplied();
             }
+
             return lineToCheck;
         }
     }
