@@ -37,7 +37,7 @@ namespace BmLauncherWForm
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://github.com/neatodev/BmLauncher");
+            Process.Start("https://github.com/neatodev/BmLauncher#batman-arkham-asylum---advanced-launcher");
         }
     }
 }
