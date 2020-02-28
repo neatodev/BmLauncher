@@ -11,6 +11,10 @@ Works with both the Steam and EGS Version!
 
 **This Application depends on .NET Framework 4.5**. If you are using Windows 8 (or newer), you shouldn't have any issues executing it. Windows 7 SP1 (and older) might have to install [.NET Framework 4.5](https://download.microsoft.com/download/B/A/4/BA4A7E71-2906-4B2D-A0E1-80CF16844F5F/dotNetFx45_Full_setup.exe) manually.
 
+## Preview
+
+![BMLauncher Preview Image](previewimg.png)
+
 ## Download
 
 See: [Current Release](https://github.com/neatodev/BmLauncher/releases)
