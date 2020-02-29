@@ -5,7 +5,7 @@ This is a replacement application for the original BmLauncher of the game. Along
 - Tooltips for every setting
 - Option to disable Startup Movies
 - Compatibility Fixes for HD Texture Packs
-- NVIDIA Implementation. (Enable HBAO+ in the Launcher! NVIDIA Inspector not needed!)
+- NVIDIA Implementation (Enable HBAO+ in the Launcher! NVIDIA Inspector not needed!)
 
 Works with both the Steam and EGS Version!
 
@@ -13,7 +13,7 @@ Works with both the Steam and EGS Version!
 
 ## Preview
 
-![BMLauncher Preview Image](previewimg.png)
+![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/75611011-b4dcd180-5b16-11ea-8140-6c744944eb5c.png)
 
 ## Download
 
@@ -21,9 +21,17 @@ See: [Current Release](https://github.com/neatodev/BmLauncher/releases)
 
 ## Installation
 
-Drag the BmLauncher.exe into the 'steamapps\common\Batman Arkham Asylum GOTY\Binaries' folder.
+Drag the BmLauncher.exe into the 'Batman Arkham Asylum GOTY\Binaries' folder.
+
+To find this folder for the *Steam* version, just right-click the game in Steam, select Properties->Local Files->Browse Local Files.
+
+Since *EGS* doesn't have an option like this, your best bet is to just open your C:/Program Files/ folder and look for the installation there.
 
 
 ## Usage
 
-Just start the game through Steam or EGS as you usually would. No changes here!
+You can just launch your game via Steam or EGS as you normally would, though in some cases you might need to unblock this application for it to work properly.
+
+To do that, just right-click the application, select Properties and enable the checkbox as seen in the highlighted setting below:
+
+![Unblock Image](https://user-images.githubusercontent.com/49599979/75610370-e2268100-5b10-11ea-978d-c257a2466dc8.png)
