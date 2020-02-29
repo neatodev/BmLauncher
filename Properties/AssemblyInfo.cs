@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("BmLauncher")]
-[assembly: AssemblyDescription("Batman Arkham Asylum Advanced Launcher")]
+[assembly: AssemblyDescription("Batman Arkham Asylum - Advanced Launcher")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Rocksteady Studios")]
-[assembly: AssemblyProduct("Batman Arkham Asylum Advanced Launcher")]
+[assembly: AssemblyProduct("Batman Arkham Asylum - Advanced Launcher")]
 [assembly: AssemblyCopyright("https://steamcommunity.com/id/frofoo/")]
 [assembly: AssemblyTrademark("Batman: Arkham Asylum")]
 [assembly: AssemblyCulture("")]
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("2.0.0.0")]
-[assembly: AssemblyFileVersion("1.5.0.1")]
+[assembly: AssemblyFileVersion("1.7.0.0")]
 [assembly: NeutralResourcesLanguage("en-US")]

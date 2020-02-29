@@ -40,6 +40,8 @@
             this.fullscreenBox = new System.Windows.Forms.ComboBox();
             this.resBox = new System.Windows.Forms.ComboBox();
             this.displayBox = new System.Windows.Forms.GroupBox();
+            this.langBox = new System.Windows.Forms.ComboBox();
+            this.langLabel = new System.Windows.Forms.Label();
             this.maxSmoothTextBox = new System.Windows.Forms.MaskedTextBox();
             this.smoothFrameLabel = new System.Windows.Forms.Label();
             this.aaBox = new System.Windows.Forms.ComboBox();
@@ -209,6 +211,8 @@
             // displayBox
             // 
             this.displayBox.BackColor = System.Drawing.Color.Transparent;
+            this.displayBox.Controls.Add(this.langBox);
+            this.displayBox.Controls.Add(this.langLabel);
             this.displayBox.Controls.Add(this.resBox);
             this.displayBox.Controls.Add(this.fullscreenBox);
             this.displayBox.Controls.Add(this.maxSmoothTextBox);
@@ -228,9 +232,35 @@
             this.displayBox.TabStop = false;
             this.displayBox.Text = "Display";
             // 
+            // langBox
+            // 
+            this.langBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.langBox.FormattingEnabled = true;
+            this.langBox.Items.AddRange(new object[] {
+            "English",
+            "Deutsch",
+            "Français",
+            "Italiano",
+            "Español"});
+            this.langBox.Location = new System.Drawing.Point(369, 73);
+            this.langBox.Name = "langBox";
+            this.langBox.Size = new System.Drawing.Size(110, 23);
+            this.langBox.TabIndex = 37;
+            this.basicToolTip.SetToolTip(this.langBox, "Highest setting is required for GPUnity\'s Texture Pack.");
+            // 
+            // langLabel
+            // 
+            this.langLabel.AutoSize = true;
+            this.langLabel.Location = new System.Drawing.Point(302, 76);
+            this.langLabel.Name = "langLabel";
+            this.langLabel.Size = new System.Drawing.Size(62, 15);
+            this.langLabel.TabIndex = 36;
+            this.langLabel.Text = "Language:";
+            this.basicToolTip.SetToolTip(this.langLabel, "Sets the voice & text language in the game.\r\n");
+            // 
             // maxSmoothTextBox
             // 
-            this.maxSmoothTextBox.Location = new System.Drawing.Point(163, 75);
+            this.maxSmoothTextBox.Location = new System.Drawing.Point(163, 72);
             this.maxSmoothTextBox.Mask = "000";
             this.maxSmoothTextBox.Name = "maxSmoothTextBox";
             this.maxSmoothTextBox.PromptChar = ' ';
@@ -242,7 +272,7 @@
             // smoothFrameLabel
             // 
             this.smoothFrameLabel.AutoSize = true;
-            this.smoothFrameLabel.Location = new System.Drawing.Point(6, 78);
+            this.smoothFrameLabel.Location = new System.Drawing.Point(6, 76);
             this.smoothFrameLabel.Name = "smoothFrameLabel";
             this.smoothFrameLabel.Size = new System.Drawing.Size(158, 15);
             this.smoothFrameLabel.TabIndex = 34;
@@ -523,9 +553,9 @@
             this.label2.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(6, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "F8 - FoV 100";
+            this.label2.Text = "F8 - FoV   110";
             // 
             // label1
             // 
@@ -533,9 +563,9 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(6, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "F7 - FoV    90";
+            this.label1.Text = "F7 - FoV   100";
             // 
             // fov2
             // 
@@ -543,9 +573,9 @@
             this.fov2.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
             this.fov2.Location = new System.Drawing.Point(6, 39);
             this.fov2.Name = "fov2";
-            this.fov2.Size = new System.Drawing.Size(63, 13);
+            this.fov2.Size = new System.Drawing.Size(61, 13);
             this.fov2.TabIndex = 1;
-            this.fov2.Text = "F6 - FoV    80";
+            this.fov2.Text = "F6 - FoV   95";
             // 
             // fov1
             // 
@@ -970,7 +1000,8 @@
             this.MaximizeBox = false;
             this.Name = "BmLauncherForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Batman: Arkham Asylum Advanced Launcher";
+            this.Text = "Batman: Arkham Asylum - Advanced Launcher";
+            this.TopMost = true;
             this.displayBox.ResumeLayout(false);
             this.displayBox.PerformLayout();
             this.graphicsBox.ResumeLayout(false);
@@ -1049,6 +1080,8 @@
         private System.Windows.Forms.Label fov2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.ComboBox langBox;
+        private System.Windows.Forms.Label langLabel;
     }
 }
 

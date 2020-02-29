@@ -5,7 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management;
-using System.Windows.Forms;
+using System.Threading.Tasks;
 using BmLauncherWForm.Properties;
 
 namespace BmLauncherWForm
@@ -75,6 +75,9 @@ namespace BmLauncherWForm
 
         // keybind form associated to the factory
         public KeybindForm keybinds = new KeybindForm();
+
+        // integer used for switch cases by GraphicsInterpreter
+        public int lineInt = 21;
 
         /// <summary>
         ///     Constructor for the Factory class. Initializes the client and GPU name and extracts the NvAPIWrapper for NVIDIA
@@ -189,11 +192,23 @@ namespace BmLauncherWForm
                 }
             }
 
-            // writes strings to list and sets parameters in Graphics class through GraphicsInterpreter
-            foreach (string line in confLines)
+            for (int i = 0; i < confLines.Length; i++)
             {
-                configList.Add(line);
-                GraphicsInterpreter.interpretGraphics(line, true);
+                configList.Add(confLines[i]);
+                if (i >= 1161 && i <= 1166)
+                {
+                    GraphicsInterpreter.checkIntro(confLines[i]);
+                }
+
+                if (i == 663 || (i >= 1108 && i <= 1135))
+                {
+                    GraphicsInterpreter.checkTex(confLines[i]);
+                }
+
+                if (i == lineInt)
+                {
+                    GraphicsInterpreter.interpretGraphics(confLines[i], true, lineInt);
+                }
             }
 
             GuiInitializer.init();
@@ -253,11 +268,20 @@ namespace BmLauncherWForm
             string newLine;
             using (StreamWriter file = new StreamWriter(configFile))
             {
-                foreach (string line in configList)
+                for (int i = 0; i < configList.Count; i++)
                 {
-                    newLine = GraphicsInterpreter.interpretGraphics(line, false);
-                    file.WriteLine(newLine);
+                    if (i != lineInt)
+                    {
+                        file.WriteLine(configList[i]);
+                    }
+                    else
+                    {
+                        newLine = GraphicsInterpreter.interpretGraphics(configList[i], false, lineInt);
+                        file.WriteLine(newLine);
+                    }
                 }
+
+                file.Close();
             }
 
             configInfo.IsReadOnly = true;
@@ -282,6 +306,8 @@ namespace BmLauncherWForm
                 {
                     file.WriteLine(inputList[i]);
                 }
+
+                file.Close();
             }
         }
 
@@ -291,19 +317,19 @@ namespace BmLauncherWForm
         public void applyTexfix()
         {
             configInfo.IsReadOnly = false;
-            string newLine;
             using (StreamWriter file = new StreamWriter(configFile))
             {
-                foreach (string line in configList)
+                for (int i = 0; i < configList.Count; i++)
                 {
-                    newLine = texfix(line);
-                    file.WriteLine(newLine);
+                    configList[i] = texfix(configList[i]);
+                    file.WriteLine(configList[i]);
                 }
+
+                file.Close();
             }
 
             texApplied();
             configInfo.IsReadOnly = true;
-            Application.Restart();
         }
 
         /// <summary>
@@ -312,7 +338,7 @@ namespace BmLauncherWForm
         /// </summary>
         /// <param name="lineToCheck">Line that gets checked</param>
         /// <returns>Corrected line</returns>
-        private String texfix(string lineToCheck)
+        private string texfix(string lineToCheck)
         {
             if (lineToCheck.Contains("TEXTUREGROUP_Character=(MinLODSize="))
             {
@@ -371,19 +397,20 @@ namespace BmLauncherWForm
         public void applyIntroFix()
         {
             configInfo.IsReadOnly = false;
-            string newLine;
             using (StreamWriter file = new StreamWriter(configFile))
             {
-                foreach (string line in configList)
+                for (int i = 0; i < configList.Count; i++)
                 {
-                    newLine = introFix(line);
-                    file.WriteLine(newLine);
+                    configList[i] = introFix(configList[i]);
+                    file.WriteLine(configList[i]);
                 }
+
+                file.Close();
             }
 
             introApplied();
             configInfo.IsReadOnly = true;
-            Application.Restart();
+            //  Application.Restart();
         }
 
         /// <summary>
@@ -482,6 +509,7 @@ namespace BmLauncherWForm
                 if (!File.Exists("NvAPIWrapper.dll"))
                 {
                     File.WriteAllBytes("NvAPIWrapper.dll", Resources.NvAPIWrapper);
+                    Task.Delay(1500);
                 }
             }
         }

@@ -9,6 +9,7 @@ namespace BmLauncherWForm
     {
         public static void writeAll()
         {
+            setLang();
             setAAMode();
             setAO();
             setAnisotropy();
@@ -40,6 +41,29 @@ namespace BmLauncherWForm
 
             Graphics.setResolutionX(resX);
             Graphics.setResolutionY(resY);
+        }
+
+        private static void setLang()
+        {
+            int caseValue = Program.client.langBox.SelectedIndex;
+            switch (caseValue)
+            {
+                case 0:
+                    Graphics.setLanguage("int");
+                    break;
+                case 1:
+                    Graphics.setLanguage("deu");
+                    break;
+                case 2:
+                    Graphics.setLanguage("fra");
+                    break;
+                case 3:
+                    Graphics.setLanguage("ita");
+                    break;
+                case 4:
+                    Graphics.setLanguage("esn");
+                    break;
+            }
         }
 
         private static void setFullScreen()

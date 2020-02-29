@@ -6,11 +6,11 @@
     /// </summary>
     static class Graphics
     {
+        private static string language;
         private static string fullScreen;
         private static string vsync;
         private static string resolutionX = "default";
         private static string resolutionY = "default";
-        private static string screenPercentageUIScale;
         private static string detailMode;
         private static string multiSampling;
         private static string depthOfField;
@@ -31,6 +31,10 @@
         private static string physX;
         private static string memoryPoolsValue;
 
+        public static string getLanguage()
+        {
+            return language;
+        }
 
         public static string isFullScreen()
         {
@@ -50,11 +54,6 @@
         public static string getResolutionY()
         {
             return resolutionY;
-        }
-
-        public static string getScreenPercentageUIScale()
-        {
-            return screenPercentageUIScale;
         }
 
         public static string getDetailMode()
@@ -152,6 +151,11 @@
             return memoryPoolsValue;
         }
 
+        public static void setLanguage(string setLang)
+        {
+            language = setLang;
+        }
+
         public static void setFullScreen(string setBool)
         {
             fullScreen = setBool;
@@ -170,11 +174,6 @@
         public static void setResolutionY(string yRes)
         {
             resolutionY = yRes;
-        }
-
-        public static void setScreenPercentageUIScale(string screenpercentage)
-        {
-            screenPercentageUIScale = screenpercentage;
         }
 
         public static void setDetailMode(string detMode)

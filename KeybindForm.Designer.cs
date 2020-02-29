@@ -208,7 +208,7 @@
             // crouchToggleButton
             // 
             this.crouchToggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crouchToggleButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crouchToggleButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.crouchToggleButton.Location = new System.Drawing.Point(345, 117);
             this.crouchToggleButton.Name = "crouchToggleButton";
             this.crouchToggleButton.Size = new System.Drawing.Size(115, 23);
@@ -220,7 +220,7 @@
             // grappleButton
             // 
             this.grappleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.grappleButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grappleButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.grappleButton.Location = new System.Drawing.Point(345, 88);
             this.grappleButton.Name = "grappleButton";
             this.grappleButton.Size = new System.Drawing.Size(115, 23);
@@ -232,7 +232,7 @@
             // zoomButton
             // 
             this.zoomButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.zoomButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zoomButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.zoomButton.Location = new System.Drawing.Point(345, 59);
             this.zoomButton.Name = "zoomButton";
             this.zoomButton.Size = new System.Drawing.Size(115, 23);
@@ -244,7 +244,7 @@
             // crouchButton
             // 
             this.crouchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.crouchButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crouchButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.crouchButton.Location = new System.Drawing.Point(345, 30);
             this.crouchButton.Name = "crouchButton";
             this.crouchButton.Size = new System.Drawing.Size(115, 23);
@@ -256,7 +256,7 @@
             // RGUButton
             // 
             this.RGUButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RGUButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RGUButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.RGUButton.Location = new System.Drawing.Point(257, 146);
             this.RGUButton.Name = "RGUButton";
             this.RGUButton.Size = new System.Drawing.Size(115, 23);
@@ -268,7 +268,7 @@
             // leftButton
             // 
             this.leftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.leftButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leftButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.leftButton.Location = new System.Drawing.Point(120, 88);
             this.leftButton.Name = "leftButton";
             this.leftButton.Size = new System.Drawing.Size(115, 23);
@@ -280,7 +280,7 @@
             // rightButton
             // 
             this.rightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rightButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rightButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.rightButton.Location = new System.Drawing.Point(120, 117);
             this.rightButton.Name = "rightButton";
             this.rightButton.Size = new System.Drawing.Size(115, 23);
@@ -292,7 +292,7 @@
             // bwButton
             // 
             this.bwButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bwButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bwButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.bwButton.Location = new System.Drawing.Point(120, 59);
             this.bwButton.Name = "bwButton";
             this.bwButton.Size = new System.Drawing.Size(115, 23);
@@ -304,7 +304,7 @@
             // fwButton
             // 
             this.fwButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fwButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fwButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.fwButton.Location = new System.Drawing.Point(120, 30);
             this.fwButton.Name = "fwButton";
             this.fwButton.Size = new System.Drawing.Size(115, 23);
@@ -437,7 +437,7 @@
             // quickBatButton
             // 
             this.quickBatButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quickBatButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quickBatButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.quickBatButton.Location = new System.Drawing.Point(120, 18);
             this.quickBatButton.Name = "quickBatButton";
             this.quickBatButton.Size = new System.Drawing.Size(115, 23);
@@ -449,7 +449,7 @@
             // detButton
             // 
             this.detButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.detButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.detButton.Location = new System.Drawing.Point(345, 18);
             this.detButton.Name = "detButton";
             this.detButton.Size = new System.Drawing.Size(115, 23);
@@ -492,7 +492,7 @@
             // capeStunButton
             // 
             this.capeStunButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.capeStunButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.capeStunButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.capeStunButton.Location = new System.Drawing.Point(345, 134);
             this.capeStunButton.Name = "capeStunButton";
             this.capeStunButton.Size = new System.Drawing.Size(115, 23);
@@ -504,7 +504,7 @@
             // ACTButton
             // 
             this.ACTButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ACTButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ACTButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.ACTButton.Location = new System.Drawing.Point(345, 83);
             this.ACTButton.Name = "ACTButton";
             this.ACTButton.Size = new System.Drawing.Size(115, 45);
@@ -527,7 +527,7 @@
             // gadStrikeButton
             // 
             this.gadStrikeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gadStrikeButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gadStrikeButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.gadStrikeButton.Location = new System.Drawing.Point(345, 47);
             this.gadStrikeButton.Name = "gadStrikeButton";
             this.gadStrikeButton.Size = new System.Drawing.Size(115, 30);
@@ -539,7 +539,7 @@
             // gadSecButton
             // 
             this.gadSecButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gadSecButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gadSecButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.gadSecButton.Location = new System.Drawing.Point(120, 134);
             this.gadSecButton.Name = "gadSecButton";
             this.gadSecButton.Size = new System.Drawing.Size(115, 23);
@@ -551,7 +551,7 @@
             // cTakedownButton
             // 
             this.cTakedownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cTakedownButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cTakedownButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.cTakedownButton.Location = new System.Drawing.Point(120, 105);
             this.cTakedownButton.Name = "cTakedownButton";
             this.cTakedownButton.Size = new System.Drawing.Size(115, 23);
@@ -563,7 +563,7 @@
             // throwButton
             // 
             this.throwButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.throwButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.throwButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.throwButton.Location = new System.Drawing.Point(120, 76);
             this.throwButton.Name = "throwButton";
             this.throwButton.Size = new System.Drawing.Size(115, 23);
@@ -575,7 +575,7 @@
             // quickClawButton
             // 
             this.quickClawButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.quickClawButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quickClawButton.Font = new System.Drawing.Font("Calibri", 7F, System.Drawing.FontStyle.Bold);
             this.quickClawButton.Location = new System.Drawing.Point(120, 47);
             this.quickClawButton.Name = "quickClawButton";
             this.quickClawButton.Size = new System.Drawing.Size(115, 23);
@@ -659,6 +659,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Arkham Asylum Keybind Editor";
+            this.TopMost = true;
             this.movBox.ResumeLayout(false);
             this.movBox.PerformLayout();
             this.actionBox.ResumeLayout(false);

@@ -51,6 +51,7 @@ namespace BmLauncherWForm
             inputButton.MouseWheel += get_mwinput;
             inputButton.Focus();
             inputButton.Select();
+            inputButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
         }
 
         /// <summary>

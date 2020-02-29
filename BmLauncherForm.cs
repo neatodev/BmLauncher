@@ -17,39 +17,11 @@ namespace BmLauncherWForm
             applyButton.Enabled = false;
         }
 
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == NativeMethods.WM_SHOWME)
-            {
-                ShowMe();
-            }
-
-            base.WndProc(ref m);
-        }
-
-        private void ShowMe()
-        {
-            if (WindowState == FormWindowState.Minimized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
-
-            bool top = TopMost;
-            TopMost = true;
-            TopMost = top;
-        }
-
-        /**
-         * Calls applyTexfix() method in the factory
-         */
         private void texgroupButton_Click(object sender, EventArgs e)
         {
             Program.myFactory.applyTexfix();
         }
 
-        /**
-         * starts the game and closes the launcher application
-         */
         private void launchButton_Click(object sender, EventArgs e)
         {
             Program.myFactory.writeGraphFile();
@@ -68,18 +40,11 @@ namespace BmLauncherWForm
             }
         }
 
-        /**
-         * displays credits
-         */
         private void credLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CreditsWindow cred = new CreditsWindow();
-            cred.ShowDialog();
+            new CreditsWindow().ShowDialog();
         }
 
-        /**
-         * opens the keybind editor dialog
-         */
         private void keyButton_Click(object sender, EventArgs e)
         {
             Program.myFactory.keybinds.ShowDialog();
