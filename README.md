@@ -32,6 +32,6 @@ Since *EGS* doesn't have an option like this, your best bet is to just open your
 
 You can just launch your game via Steam or EGS as you normally would, though in some cases you might need to unblock this application for it to work properly.
 
-To do that, just right-click the application, select Properties and enable the checkbox as seen in the highlighted setting below:
+To do that, just right-click the application, select Properties and enable the highlighted checkbox as seen in the image below:
 
 ![Unblock Image](https://user-images.githubusercontent.com/49599979/75610370-e2268100-5b10-11ea-978d-c257a2466dc8.png)
