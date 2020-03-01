@@ -64,7 +64,7 @@ namespace BmLauncherWForm
             if (Program.client.nvBox.Checked)
             {
                 prof.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 1);
-                prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 3);
+                prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 2);
                 session.Save();
             }
             else
@@ -96,7 +96,7 @@ namespace BmLauncherWForm
                 Program.client.nvBox.Checked = false;
             }
 
-            if (!aoActive.Contains("1") || !aoValue.Contains("3") || compValue != 36)
+            if (!aoActive.Contains("1") || !aoValue.Contains("2") || compValue != 36)
             {
                 if (compValue != 36)
                 {
