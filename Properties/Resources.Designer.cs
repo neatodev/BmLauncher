@@ -316,7 +316,7 @@ namespace BmLauncherWForm.Properties {
         {
             return NVSetter;
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to [Configuration]
         ///BasedOn=..\BmGame\Config\DefaultEngine.ini
