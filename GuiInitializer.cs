@@ -27,7 +27,9 @@ namespace BmLauncherWForm
             Program.client.dShadowBox.SelectedIndex =
                 Graphics.isDynamicShadows().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
             Program.client.sphericBox.SelectedIndex = Graphics.isDisableSphericalHarmonicLights()
-                .Equals("True", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
+                .Equals("True", StringComparison.InvariantCultureIgnoreCase)
+                ? 0
+                : 1;
             Program.client.fogBox.SelectedIndex =
                 Graphics.isFogVolumes().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
             Program.client.distBox.SelectedIndex =
@@ -52,18 +54,22 @@ namespace BmLauncherWForm
             {
                 Program.client.langBox.SelectedIndex = 0;
             }
+
             if (Graphics.getLanguage().Equals("deu"))
             {
                 Program.client.langBox.SelectedIndex = 1;
             }
+
             if (Graphics.getLanguage().Equals("fra"))
             {
                 Program.client.langBox.SelectedIndex = 2;
             }
+
             if (Graphics.getLanguage().Equals("ita"))
             {
                 Program.client.langBox.SelectedIndex = 3;
             }
+
             if (Graphics.getLanguage().Equals("esn"))
             {
                 Program.client.langBox.SelectedIndex = 4;

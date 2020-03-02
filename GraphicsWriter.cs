@@ -3,7 +3,7 @@
 namespace BmLauncherWForm
 {
     /// <summary>
-    ///     Helper Class for Graphics. Used to change parameters in Graphics class in accordance to user input.
+    ///     Helper Class for Graphics. Used to change parameters in Graphics class in accordance with user input.
     /// </summary>
     static class GraphicsWriter
     {
@@ -204,7 +204,7 @@ namespace BmLauncherWForm
         private static void setHbaoPlus()
         {
             NvidiaWorker.setNVSettings();
-            if (!NvidiaWorker.hasHBAO)
+            if (!NvidiaWorker.hasHBAO && Program.client.nvBox.Checked)
             {
                 Program.myFactory.execNVSetter();
             }

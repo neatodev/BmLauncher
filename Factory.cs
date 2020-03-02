@@ -5,7 +5,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management;
-using System.Threading.Tasks;
 using BmLauncherWForm.Properties;
 
 namespace BmLauncherWForm
@@ -45,7 +44,7 @@ namespace BmLauncherWForm
         private static readonly List<string> configList = new List<string>();
 
         // contains all lines (as strings) of the UserInput file
-        private static readonly List<string> inputList = new List<string>();
+        public static List<string> inputList = new List<string>();
 
         // prepackaged BmEngine file, used in case file is missing
         private static readonly string bmEnginePremade = Resources.BmEngine;
@@ -288,7 +287,7 @@ namespace BmLauncherWForm
         }
 
         /// <summary>
-        ///     Saves Keybinds to UserInput file. Only interprets the first 51 lines, to allow for customization by the users after
+        ///     Saves Keybinds to UserInput file. Only interprets the first 56 lines, to allow for customization by the users after
         ///     that.
         /// </summary>
         public void writeInputFile()
@@ -296,13 +295,13 @@ namespace BmLauncherWForm
             string newLine;
             using (StreamWriter file = new StreamWriter(inputFile))
             {
-                for (int i = 0; i < 51; i++)
+                for (int i = 0; i < 56; i++)
                 {
                     newLine = KeybindInterpreter.interpretKeys(inputList[i], false);
                     file.WriteLine(newLine);
                 }
 
-                for (int i = 51; i < inputList.Count; i++)
+                for (int i = 56; i < inputList.Count; i++)
                 {
                     file.WriteLine(inputList[i]);
                 }
@@ -509,7 +508,6 @@ namespace BmLauncherWForm
                 if (!File.Exists("NvAPIWrapper.dll"))
                 {
                     File.WriteAllBytes("NvAPIWrapper.dll", Resources.NvAPIWrapper);
-                    Task.Delay(1500);
                 }
             }
         }

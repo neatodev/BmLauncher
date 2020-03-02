@@ -13,7 +13,10 @@ namespace BmLauncherWForm
         readonly string[] bannedKeys =
         {
             "OEM8", "LWIN", "RWIN", "OEM7", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D0", "SCROLL",
-            "OEM1", "OEMTILDE", "OEM7", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"
+            "OEM1", "OEMTILDE", "OEM7", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12",
+            "NUMLOCK", "Backslash", "BACK", "EQUALS", "MULTIPLY", "DIVIDE", "SUBTRACT", "ADD", "DECIMAL", "PAUSE",
+            "OEMBACKSLASH", "MENU", "NUMPAD0", "NUMPAD1", "NUMPAD2", "NUMPAD3", "NUMPAD4", "NUMPAD5", "NUMPAD6",
+            "NUMPAD7", "NUMPAD8", "NUMPAD9", "CLEAR"
         };
 
         // currently selected button
@@ -22,17 +25,17 @@ namespace BmLauncherWForm
         // list of input keys that need to be corrected
         readonly string[] inputWrong =
         {
-            "OEM5", "OEMOPENBRACKETS", "OEM6", "OEMQUESTION", "OEMMINUS", "OEMPLUS", "MENU", "OEMCOMMA",
-            "OEMPERIOD", "CAPITAL", "SHIFTKEY", "Left", "Right", "Middle", "SPACE", "LEFT", "RIGHT", "UP", "DOWN",
-            "XButton1", "XButton2"
+            "OEM5", "OEMOPENBRACKETS", "OEM6", "OEMQUESTION", "OEMMINUS", "OEMPLUS", "OEMCOMMA", "OEMPERIOD",
+            "CAPITAL", "Left", "Right", "Middle", "SPACE", "LEFT", "RIGHT", "UP", "DOWN", "XButton1", "XButton2",
+            "SHIFTKEY", "CONTROLKEY"
         };
 
         // list of corrected keys
         readonly string[] outputRight =
         {
-            "Backslash", "LeftBracket", "RightBracket", "Slash", "Underscore", "Equals", "LeftAlt", "Comma",
-            "Period", "CapsLock", "LeftShift", "LeftMouseButton", "RightMouseButton", "MiddleMouseButton",
-            "SpaceBar", "Left", "Right", "Up", "Down", "ThumbMouseButton", "ThumbMouseButton2"
+            "Backslash", "LeftBracket", "RightBracket", "Slash", "Underscore", "Equals", "Comma", "Period",
+            "CapsLock", "LeftMouseButton", "RightMouseButton", "MiddleMouseButton", "SpaceBar", "Left", "Right",
+            "Up", "Down", "ThumbMouseButton", "ThumbMouseButton2", "LeftShift", "LeftAlt"
         };
 
         // key input as string value

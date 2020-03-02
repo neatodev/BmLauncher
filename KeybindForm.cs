@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace BmLauncherWForm
 {
     /**
-     * Keybind editor class that uses buttons as inputreaders
+     * Keybind editor class that uses buttons as inputreaders.
      */
     public partial class KeybindForm : Form
     {
@@ -171,13 +171,14 @@ namespace BmLauncherWForm
         private void resetButton_Click(object sender, EventArgs e)
         {
             File.Delete(Factory.inputFile);
+            Factory.inputList.Clear();
             Program.myFactory.readInputFile();
             foreach (Button bt in buttonList)
             {
                 bt.ForeColor = Color.Black;
             }
 
-            applyKeyButton.Enabled = true;
+            applyKeyButton.Enabled = false;
         }
 
         private void speedLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

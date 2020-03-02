@@ -186,5 +186,10 @@ namespace BmLauncherWForm
         {
             applyButton.Enabled = true;
         }
+
+        private void langBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            applyButton.Enabled = true;
+        }
     }
 }

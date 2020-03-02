@@ -182,7 +182,6 @@
             this.detailBox.Name = "detailBox";
             this.detailBox.Size = new System.Drawing.Size(110, 23);
             this.detailBox.TabIndex = 6;
-            this.basicToolTip.SetToolTip(this.detailBox, "Highest setting is required for GPUnity\'s Texture Pack.");
             this.detailBox.SelectedIndexChanged += new System.EventHandler(this.detailBox_SelectedIndexChanged);
             // 
             // fullscreenBox
@@ -246,7 +245,7 @@
             this.langBox.Name = "langBox";
             this.langBox.Size = new System.Drawing.Size(110, 23);
             this.langBox.TabIndex = 37;
-            this.basicToolTip.SetToolTip(this.langBox, "Highest setting is required for GPUnity\'s Texture Pack.");
+            this.langBox.SelectedIndexChanged += new System.EventHandler(this.langBox_SelectedIndexChanged);
             // 
             // langLabel
             // 
@@ -260,6 +259,7 @@
             // 
             // maxSmoothTextBox
             // 
+            this.maxSmoothTextBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maxSmoothTextBox.Location = new System.Drawing.Point(163, 72);
             this.maxSmoothTextBox.Mask = "000";
             this.maxSmoothTextBox.Name = "maxSmoothTextBox";
@@ -267,6 +267,7 @@
             this.maxSmoothTextBox.Size = new System.Drawing.Size(42, 23);
             this.maxSmoothTextBox.TabIndex = 35;
             this.maxSmoothTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maxSmoothTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maxSmoothTextBox.TextChanged += new System.EventHandler(this.maxSmoothTextBox_TextChanged);
             // 
             // smoothFrameLabel
@@ -1001,7 +1002,6 @@
             this.Name = "BmLauncherForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Batman: Arkham Asylum - Advanced Launcher";
-            this.TopMost = true;
             this.displayBox.ResumeLayout(false);
             this.displayBox.PerformLayout();
             this.graphicsBox.ResumeLayout(false);

@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 
 namespace BmLauncherWForm
 
 {
     /// <summary>
     ///     Replacement Application for the original Batman: Arkham Asylum BmLauncher
-    ///     Offers more configuration options, enables compatibility with High Res texture packs
+    ///     Offers more configuration options, enables compatibility with High-Res Texture Packs
     ///     and automatically takes care of the ReadOnly properties of each file, removing
-    ///     any requirement to manually edit .ini files, therefore guaranteeing a more comfortable user experience
+    ///     any requirement to manually edit .ini files. Guarantees a much more comfortable user experience.
     ///     @author frofoo (https://steamcommunity.com/id/frofoo)
     /// </summary>
     static class Program
