@@ -26,10 +26,6 @@ namespace BmLauncherWForm
         {
             Program.myFactory.writeGraphFile();
             launchButton.Enabled = false;
-            if (File.Exists("NVSetter.exe"))
-            {
-                File.Delete("NVSetter.exe");
-            }
 
             using (Process launchBmGame = new Process())
             {

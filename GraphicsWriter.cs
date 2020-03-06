@@ -7,6 +7,8 @@ namespace BmLauncherWForm
     /// </summary>
     static class GraphicsWriter
     {
+        private static bool isHBAO = false;
+
         public static void writeAll()
         {
             setLang();
@@ -203,11 +205,15 @@ namespace BmLauncherWForm
 
         private static void setHbaoPlus()
         {
-            NvidiaWorker.setNVSettings();
-            if (!NvidiaWorker.hasHBAO && Program.client.nvBox.Checked)
+            if (!isHBAO)
             {
-                Program.myFactory.execNVSetter();
+                NvidiaWorker.setNVSettings();
+                if (!NvidiaWorker.hasHBAO && Program.client.nvBox.Checked)
+                {
+                    Program.myFactory.execNVSetter();
+                }
             }
+            isHBAO = true;
         }
 
         private static void setMaxSmoothedFrames()
