@@ -218,6 +218,20 @@
                         lineToCheck = "FogVolumes=" + Graphics.isFogVolumes();
                     }
 
+                    Program.myFactory.lineInt = 1069;
+                    return lineToCheck;
+
+                // oneframethreadlag
+                case 1069:
+                    if (read)
+                    {
+                        Graphics.setFrameThreadLag(lineToCheck.Substring(lineToCheck.LastIndexOf("=") + 1));
+                    }
+                    else
+                    {
+                        lineToCheck = "OneFrameThreadLag=" + Graphics.getFrameThreadLag();
+                    }
+
                     Program.myFactory.lineInt = 1070;
                     return lineToCheck;
 

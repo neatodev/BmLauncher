@@ -30,10 +30,16 @@
         private static string shadowTexels;
         private static string physX;
         private static string memoryPoolsValue;
+        private static string frameThreadLag;
 
         public static string getLanguage()
         {
             return language;
+        }
+
+        public static string getFrameThreadLag()
+        {
+            return frameThreadLag;
         }
 
         public static string isFullScreen()
@@ -241,34 +247,39 @@
             maxSmoothedFramerate = maxsmoothframes;
         }
 
-        public static string setDisableSphericalHarmonicLights(string newLine)
+        public static void setDisableSphericalHarmonicLights(string newLine)
         {
-            return disableSphericalHarmonicLights = newLine;
+            disableSphericalHarmonicLights = newLine;
         }
 
-        public static string setFogVolumes(string newLine)
+        public static void setFogVolumes(string newLine)
         {
-            return fogVolumes = newLine;
+            fogVolumes = newLine;
         }
 
-        public static string setDistortion(string newLine)
+        public static void setDistortion(string newLine)
         {
-            return distortion = newLine;
+            distortion = newLine;
         }
 
-        public static string setShadowTexels(string newLine)
+        public static void setShadowTexels(string newLine)
         {
-            return shadowTexels = newLine;
+            shadowTexels = newLine;
         }
 
-        public static string setPhysX(string newLine)
+        public static void setPhysX(string newLine)
         {
-            return physX = newLine;
+            physX = newLine;
         }
 
-        public static string setMemoryPoolsValue(string newLine)
+        public static void setMemoryPoolsValue(string newLine)
         {
-            return memoryPoolsValue = newLine;
+            memoryPoolsValue = newLine;
+        }
+
+        public static void setFrameThreadLag(string newLine)
+        {
+            frameThreadLag = newLine;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Windows.Forms;
 
 namespace BmLauncherWForm
@@ -184,6 +183,11 @@ namespace BmLauncherWForm
         }
 
         private void langBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            applyButton.Enabled = true;
+        }
+
+        private void frameCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             applyButton.Enabled = true;
         }

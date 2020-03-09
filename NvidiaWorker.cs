@@ -9,32 +9,24 @@ namespace BmLauncherWForm
     ///     Worker class utilizing the Nvidia API through NvAPIWrapper.
     ///     Used to find Arkham Asylum NVIDIA profile and modify it.
     /// </summary>
-    static class NvidiaWorker
+    class NvidiaWorker
     {
-        private static readonly DriverSettingsSession session = DriverSettingsSession.CreateAndLoad();
-        private static DriverSettingsProfile prof;
         private static string aoActive = "0";
         private static string aoValue = "0";
 
         public static bool hasHBAO = true;
+        private readonly DriverSettingsSession session;
+        private readonly DriverSettingsProfile prof;
 
         /// <summary>
-        ///     Very important. Needs to be called before any other method.
-        ///     Initializes NVIDIA API.
-        /// </summary>
-        public static void initNVIDIA()
-        {
-            NVIDIA.Initialize();
-        }
-
-        /// <summary>
-        ///     Called by GuiInitializer.
-        ///     Method used to find Arkham Asylum NVIDIA profile.
-        ///     Catches exception if profile isn't found and creates one instead.
+        ///     Created in Program, instantiated by GuiInitializer.
+        ///     Finds the Batman: Arkham Asylum Profile or creates it if it doesn't exist yet.
         ///     Calls getNVSettings().
         /// </summary>
-        public static void findNVSettings()
+        public NvidiaWorker()
         {
+            NVIDIA.Initialize();
+            session = DriverSettingsSession.CreateAndLoad();
             try
             {
                 session.FindProfileByName("Batman: Arkham Asylum");
@@ -55,11 +47,12 @@ namespace BmLauncherWForm
             getNVSettings();
         }
 
+
         /// <summary>
         ///     Sets NVIDIA settings in accordance to user input.
         ///     Called by GraphicsWriter.
         /// </summary>
-        public static void setNVSettings()
+        public void setNVSettings()
         {
             if (Program.client.nvBox.Checked)
             {
@@ -79,7 +72,7 @@ namespace BmLauncherWForm
         ///     Gets the current NVIDIA settings from the profile.
         ///     Adjusts checkbox accordingly.
         /// </summary>
-        public static void getNVSettings()
+        public void getNVSettings()
         {
             Int16 compValue = 0;
             try

@@ -60,6 +60,7 @@
             this.maxShadowLabel = new System.Windows.Forms.Label();
             this.maxShadowBox = new System.Windows.Forms.ComboBox();
             this.graphicsBox = new System.Windows.Forms.GroupBox();
+            this.frameCheckBox = new System.Windows.Forms.CheckBox();
             this.miscBox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -96,6 +97,7 @@
             this.nvidiaToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.amdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.criticalTooltip = new System.Windows.Forms.ToolTip(this.components);
             this.displayBox.SuspendLayout();
             this.graphicsBox.SuspendLayout();
             this.miscBox.SuspendLayout();
@@ -143,7 +145,7 @@
             this.detailLabel.Size = new System.Drawing.Size(78, 15);
             this.detailLabel.TabIndex = 3;
             this.detailLabel.Text = "Detail Mode:";
-            this.basicToolTip.SetToolTip(this.detailLabel, "Highest setting is required for GPUnitys Texturepack.");
+            this.basicToolTip.SetToolTip(this.detailLabel, "Highest setting is required for the HD Texture Pack.");
             // 
             // fscreenLabel
             // 
@@ -483,6 +485,7 @@
             // graphicsBox
             // 
             this.graphicsBox.BackColor = System.Drawing.Color.Transparent;
+            this.graphicsBox.Controls.Add(this.frameCheckBox);
             this.graphicsBox.Controls.Add(this.miscBox);
             this.graphicsBox.Controls.Add(this.mBlurBox);
             this.graphicsBox.Controls.Add(this.mBlurLabel);
@@ -521,6 +524,20 @@
             this.graphicsBox.TabIndex = 32;
             this.graphicsBox.TabStop = false;
             this.graphicsBox.Text = "Advanced Graphics";
+            // 
+            // frameCheckBox
+            // 
+            this.frameCheckBox.AutoSize = true;
+            this.frameCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.frameCheckBox.ForeColor = System.Drawing.Color.Maroon;
+            this.frameCheckBox.Location = new System.Drawing.Point(27, 247);
+            this.frameCheckBox.Name = "frameCheckBox";
+            this.frameCheckBox.Size = new System.Drawing.Size(179, 19);
+            this.frameCheckBox.TabIndex = 38;
+            this.frameCheckBox.Text = "Enable OneFrameThreadLag";
+            this.criticalTooltip.SetToolTip(this.frameCheckBox, "Disabling this can reduce input lag, but may also cause heavy stuttering.");
+            this.frameCheckBox.UseVisualStyleBackColor = true;
+            this.frameCheckBox.CheckedChanged += new System.EventHandler(this.frameCheckBox_CheckedChanged);
             // 
             // miscBox
             // 
@@ -767,7 +784,8 @@
             this.nvBox.TabIndex = 48;
             this.nvBox.Text = "Enable NVIDIA HBAO+";
             this.nvidiaToolTip.SetToolTip(this.nvBox, "Higher end ambient occlusion solution for creating realistic shadowing around obj" +
-        "ects. You can choose between this or Reshade AO.");
+        "ects. You can choose between this or Reshade AO.\r\n\r\nFullscreen needs to be enabl" +
+        "ed for this setting to work.\r\n");
             this.amdToolTip.SetToolTip(this.nvBox, "Nvidia GPU required for HBAO+ as it uses NvAPI");
             this.nvBox.UseVisualStyleBackColor = true;
             this.nvBox.CheckedChanged += new System.EventHandler(this.nvBox_CheckedChanged);
@@ -870,7 +888,7 @@
             this.texgroupButton.Size = new System.Drawing.Size(188, 25);
             this.texgroupButton.TabIndex = 37;
             this.texgroupButton.Text = "Apply Texture Pack Fix";
-            this.basicToolTip.SetToolTip(this.texgroupButton, "This is only required if you are using the GPUnity Texturepack.");
+            this.basicToolTip.SetToolTip(this.texgroupButton, "This is only required if you are using the HD Texture Pack.");
             this.texgroupButton.UseVisualStyleBackColor = false;
             this.texgroupButton.Click += new System.EventHandler(this.texgroupButton_Click);
             // 
@@ -974,6 +992,10 @@
             this.label4.TabIndex = 50;
             this.label4.Text = "Tooltips are available for each setting.\r\n";
             // 
+            // criticalTooltip
+            // 
+            this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
+            // 
             // BmLauncherForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -995,7 +1017,7 @@
             this.Controls.Add(this.displayBox);
             this.Controls.Add(this.ultraButton);
             this.DoubleBuffered = true;
-            this.ForeColor = System.Drawing.SystemColors.Window;
+            this.ForeColor = System.Drawing.Color.DarkRed;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -1082,6 +1104,8 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox langBox;
         private System.Windows.Forms.Label langLabel;
+        public System.Windows.Forms.CheckBox frameCheckBox;
+        private System.Windows.Forms.ToolTip criticalTooltip;
     }
 }
 

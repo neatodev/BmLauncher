@@ -13,7 +13,7 @@ Works with both the Steam and EGS Version!
 
 ## Preview
 
-![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/75611011-b4dcd180-5b16-11ea-8140-6c744944eb5c.png)
+![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/76242354-e3edf400-6236-11ea-805d-7ce97b110ae8.png)
 
 ## Download
 

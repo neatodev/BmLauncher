@@ -34,6 +34,7 @@ namespace BmLauncherWForm
                 Graphics.isFogVolumes().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
             Program.client.distBox.SelectedIndex =
                 Graphics.isDistortion().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
+            Program.client.frameCheckBox.Checked = Graphics.getFrameThreadLag().Equals("True");
             // everything else
             initLang();
             initAA();
@@ -78,9 +79,8 @@ namespace BmLauncherWForm
 
         private static void initAA()
         {
-            int caseValue = Int16.Parse(Graphics.getMultiSampling());
 
-            switch (caseValue)
+            switch (Int16.Parse(Graphics.getMultiSampling()))
             {
                 case 1:
                     Program.client.aaBox.SelectedIndex = 0;
@@ -99,9 +99,8 @@ namespace BmLauncherWForm
 
         private static void initPhysx()
         {
-            int caseValue = Int16.Parse(Graphics.getPhysX());
 
-            switch (caseValue)
+            switch (Int16.Parse(Graphics.getPhysX()))
             {
                 case 0:
                     Program.client.physxBox.SelectedIndex = 0;
@@ -117,9 +116,8 @@ namespace BmLauncherWForm
 
         private static void initAnisotropy()
         {
-            int caseValue = Int16.Parse(Graphics.getMaxAnisotropy());
 
-            switch (caseValue)
+            switch (Int16.Parse(Graphics.getMaxAnisotropy()))
             {
                 case 4:
                     Program.client.anisoBox.SelectedIndex = 0;
@@ -135,9 +133,8 @@ namespace BmLauncherWForm
 
         private static void initDetailmode()
         {
-            int caseValue = Int16.Parse(Graphics.getDetailMode());
 
-            switch (caseValue)
+            switch (Int16.Parse(Graphics.getDetailMode()))
             {
                 case 0:
                     Program.client.detailBox.SelectedIndex = 0;
@@ -153,9 +150,8 @@ namespace BmLauncherWForm
 
         private static void initShadowTexels()
         {
-            int caseValue = Int16.Parse(Graphics.getShadowTexels().Substring(0, 1));
 
-            switch (caseValue)
+            switch (Int16.Parse(Graphics.getShadowTexels().Substring(0, 1)))
             {
                 case 1:
                     Program.client.texelBox.SelectedIndex = 0;
@@ -171,9 +167,8 @@ namespace BmLauncherWForm
 
         private static void initShadowRes()
         {
-            int caseValue = Int16.Parse(Graphics.getMaxShadowResolution());
 
-            switch (caseValue)
+            switch (Int16.Parse(Graphics.getMaxShadowResolution()))
             {
                 case 1024:
                     Program.client.maxShadowBox.SelectedIndex = 0;
@@ -195,9 +190,8 @@ namespace BmLauncherWForm
 
         private static void initMemoryPoolsValue()
         {
-            int caseValue = Int16.Parse(Graphics.getMemoryPoolsValue());
 
-            switch (caseValue)
+            switch (Int16.Parse(Graphics.getMemoryPoolsValue()))
             {
                 case 512:
                     Program.client.memPoolBox.SelectedIndex = 0;
@@ -237,10 +231,9 @@ namespace BmLauncherWForm
         {
             if (Program.client.gpInfoLabel.Text.Contains("NVIDIA"))
             {
-                NvidiaWorker.initNVIDIA();
+                Program.nvWorker = new NvidiaWorker();
                 Program.client.nvBox.Enabled = true;
                 Program.client.nvidiaToolTip.Active = true;
-                NvidiaWorker.findNVSettings();
             }
             else
             {

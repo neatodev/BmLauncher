@@ -18,6 +18,8 @@ namespace BmLauncherWForm
 
         public static BmLauncherForm client;
 
+        public static NvidiaWorker nvWorker;
+
         // Mutex with this applications GUID as name
         static readonly Mutex mutex = new Mutex(true, "{cbb275f6-724f-4e82-a403-e333dcf6c0bf}");
 

@@ -7,7 +7,7 @@ namespace BmLauncherWForm
     /// </summary>
     static class GraphicsWriter
     {
-        private static bool isHBAO = false;
+        private static bool isHBAO;
 
         public static void writeAll()
         {
@@ -33,6 +33,7 @@ namespace BmLauncherWForm
             setShadowTexels();
             setSphericalHarmonic();
             setVsync();
+            setThreadLag();
         }
 
         private static void setRes()
@@ -70,38 +71,17 @@ namespace BmLauncherWForm
 
         private static void setFullScreen()
         {
-            if (Program.client.fullscreenBox.SelectedIndex == 0)
-            {
-                Graphics.setFullScreen("False");
-            }
-            else
-            {
-                Graphics.setFullScreen("True");
-            }
+            Graphics.setFullScreen(Program.client.fullscreenBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setVsync()
         {
-            if (Program.client.vsyncBox.SelectedIndex == 0)
-            {
-                Graphics.setVsync("False");
-            }
-            else
-            {
-                Graphics.setVsync("True");
-            }
+            Graphics.setVsync(Program.client.vsyncBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setFogVolumes()
         {
-            if (Program.client.fogBox.SelectedIndex == 0)
-            {
-                Graphics.setFogVolumes("False");
-            }
-            else
-            {
-                Graphics.setFogVolumes("True");
-            }
+            Graphics.setFogVolumes(Program.client.fogBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setBloom()
@@ -120,50 +100,22 @@ namespace BmLauncherWForm
 
         private static void setLensFlares()
         {
-            if (Program.client.lensFlareBox.SelectedIndex == 0)
-            {
-                Graphics.setLensFlares("False");
-            }
-            else
-            {
-                Graphics.setLensFlares("True");
-            }
+            Graphics.setLensFlares(Program.client.lensFlareBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setDOF()
         {
-            if (Program.client.dofBox.SelectedIndex == 0)
-            {
-                Graphics.setDepthOfField("False");
-            }
-            else
-            {
-                Graphics.setDepthOfField("True");
-            }
+            Graphics.setDepthOfField(Program.client.dofBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setDist()
         {
-            if (Program.client.distBox.SelectedIndex == 0)
-            {
-                Graphics.setDistortion("False");
-            }
-            else
-            {
-                Graphics.setDistortion("True");
-            }
+            Graphics.setDistortion(Program.client.distBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setBlur()
         {
-            if (Program.client.mBlurBox.SelectedIndex == 0)
-            {
-                Graphics.setMotionBlur("False");
-            }
-            else
-            {
-                Graphics.setMotionBlur("True");
-            }
+            Graphics.setMotionBlur(Program.client.mBlurBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setAO()
@@ -181,38 +133,28 @@ namespace BmLauncherWForm
 
         private static void setSphericalHarmonic()
         {
-            if (Program.client.sphericBox.SelectedIndex == 0)
-            {
-                Graphics.setDisableSphericalHarmonicLights("True");
-            }
-            else
-            {
-                Graphics.setDisableSphericalHarmonicLights("False");
-            }
+            Graphics.setDisableSphericalHarmonicLights(Program.client.sphericBox.SelectedIndex == 0 ? "True" : "False");
         }
 
         private static void setDynamicShadows()
         {
-            if (Program.client.dShadowBox.SelectedIndex == 0)
-            {
-                Graphics.setDynamicShadows("False");
-            }
-            else
-            {
-                Graphics.setDynamicShadows("True");
-            }
+            Graphics.setDynamicShadows(Program.client.dShadowBox.SelectedIndex == 0 ? "False" : "True");
         }
 
         private static void setHbaoPlus()
         {
-            if (!isHBAO)
+            if (!Program.client.gpInfoLabel.Text.Contains("NVIDIA"))
             {
-                NvidiaWorker.setNVSettings();
-                if (!NvidiaWorker.hasHBAO && Program.client.nvBox.Checked)
-                {
-                    Program.myFactory.execNVSetter();
-                }
+                return;
             }
+
+            Program.nvWorker.setNVSettings();
+            if (NvidiaWorker.hasHBAO || !Program.client.nvBox.Checked || isHBAO)
+            {
+                return;
+            }
+
+            Program.myFactory.execNVSetter();
             isHBAO = true;
         }
 
@@ -354,6 +296,11 @@ namespace BmLauncherWForm
                     Graphics.setPhysX("2");
                     break;
             }
+        }
+
+        private static void setThreadLag()
+        {
+            Graphics.setFrameThreadLag(Program.client.frameCheckBox.Checked ? "True" : "False");
         }
     }
 }
