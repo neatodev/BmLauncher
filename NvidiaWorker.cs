@@ -89,9 +89,9 @@ namespace BmLauncherWForm
                 Program.client.nvBox.Checked = false;
             }
 
-            if (!aoActive.Contains("1") || !aoValue.Contains("2") || compValue != 48)
+            if (!aoActive.Contains("1") || !aoValue.Contains("2") || compValue != 36)
             {
-                if (compValue != 48)
+                if (compValue != 36)
                 {
                     hasHBAO = false;
                 }
