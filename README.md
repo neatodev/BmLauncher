@@ -25,7 +25,7 @@ Drag the BmLauncher.exe into the 'Batman Arkham Asylum GOTY\Binaries' folder.
 
 To find this folder for the *Steam* version, just right-click the game in Steam, select Properties->Local Files->Browse Local Files.
 
-Since *EGS* doesn't have an option like this, your best bet is to just open your C:/Program Files/ folder and look for the installation there.
+Since *EGS* doesn't have an option like this, your best bet is to just open your C:\Program Files\ folder and look for the installation there.
 
 
 ## Usage
