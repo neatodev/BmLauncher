@@ -1,17 +1,17 @@
-﻿using System;
+﻿using BmLauncherWForm.Properties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Management;
-using BmLauncherWForm.Properties;
 
 namespace BmLauncherWForm
 {
     /// Factory that read and writes all of the accessed files.
     /// Applies various fixes and executes the NVSetter file if conditions are met.
-    class Factory
+    internal class Factory
     {
         // location of the BmEngine configuration file
         private static readonly string configFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
@@ -464,18 +464,37 @@ namespace BmLauncherWForm
         /// </summary>
         private void setGPUname()
         {
+            List<string> gpuList = new List<string>();
             string gpu = "";
-            ManagementObjectSearcher search = new ManagementObjectSearcher("SELECT * FROM Win32_DisplayConfiguration");
+            ManagementObjectSearcher search = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
             foreach (ManagementObject obj in search.Get())
             {
                 foreach (PropertyData data in obj.Properties)
                 {
                     if (data.Name == "Description")
                     {
-                        gpu = data.Value.ToString();
+                        gpuList.Add(data.Value.ToString());
                     }
                 }
             }
+
+            // this codeblock is relevant if you have more than 1 GPU
+            if (gpuList.Count > 1)
+            {
+                // Iterates through each GPU, looking for an nvidia card.
+                foreach (string s in gpuList)
+                {
+                    if (s.Contains("NVIDIA"))
+                    {
+                        gpu = s;
+                    }
+                }
+            }
+            else
+            {
+                gpu = gpuList[0];
+            }
+
 
             if (gpu.Contains("NVIDIA"))
             {
