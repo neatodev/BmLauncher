@@ -5,7 +5,7 @@ This is a replacement application for the original BmLauncher of the game. Along
 - Tooltips for every setting
 - Option to disable Startup Movies
 - Compatibility Fixes for [HD Texture Packs](https://steamcommunity.com/sharedfiles/filedetails/?id=1159691355)
-- NVIDIA Implementation (Enable HBAO+ in the Launcher! NVIDIA Inspector not needed!) ([NvAPIWrapper](https://github.com/falahati/NvAPIWrapper))
+- NVIDIA Implementation (Enable HBAO+ in the Launcher! NVIDIA Inspector not needed!)
 
 Works with both the Steam and EGS Version!
 
