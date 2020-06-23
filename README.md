@@ -5,7 +5,7 @@ This is a replacement application for the original BmLauncher of the game. Along
 - Tooltips for every setting
 - Option to disable Startup Movies
 - Compatibility Fixes for [HD Texture Packs](https://steamcommunity.com/sharedfiles/filedetails/?id=1159691355)
-- NVIDIA Implementation (Enable HBAO+ in the Launcher! NVIDIA Inspector not needed!)
+- NVIDIA Implementation (Enable HBAO+ in the Launcher! NVIDIA Inspector not needed!) (Powered by [NVAPIWrapper](https://github.com/falahati/NvAPIWrapper))
 
 Works with both the Steam and EGS Version!
 
@@ -42,4 +42,4 @@ To file a bug report, or if you have suggestions for the Launcher in general, pl
 
 ## About this Project
 
-This is my first programming project using C#. I created it in the span of a few days for multiple, ultimately irrelevant reasons. So for any fellow coder looking through the source code, expect bad practice, messy implementations, lots of static variables and Java naming conventions and patterns. I might clean up the code in the future, but as it stands it works just fine and I am occupied with other projects. For anyone who seeks to criticize my code, please keep this in mind.
+This is my first programming project using C#. I created it in the span of a few days for multiple, ultimately irrelevant reasons. So for any fellow coder looking through the source code, expect messy implementations and Java code conventions & practices. I might clean up the code in the future, but as it stands it works just fine and I am occupied with other projects. For anyone who seeks to criticize my code, please keep this in mind.
