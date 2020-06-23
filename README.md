@@ -2,14 +2,14 @@
 
 This is a replacement application for the original BmLauncher of the game. Alongside the vastly superior configuration options, this Launcher also offers:
 
-- Tooltips for every setting
+- Tooltips for every configuration option
 - Option to disable Startup Movies
 - Compatibility Fixes for [HD Texture Packs](https://steamcommunity.com/sharedfiles/filedetails/?id=1159691355)
-- NVIDIA Implementation (Enable HBAO+ in the Launcher! NVIDIA Inspector not needed!)
+- NVIDIA API Implementation (Enable HBAO+ using the Launcher!) (Powered by [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper))
 
 Works with both the Steam and EGS Version!
 
-**This Application depends on .NET Framework 4.5**. If you are using Windows 8 (or newer), you shouldn't have any issues executing it. Windows 7 SP1 (and older) might have to install [.NET Framework 4.5](https://download.microsoft.com/download/B/A/4/BA4A7E71-2906-4B2D-A0E1-80CF16844F5F/dotNetFx45_Full_setup.exe) manually.
+**This Application depends on .NET Framework 4.5**. If you are using Windows 8 (or newer), you shouldn't have any issues executing it. Windows 7 SP1 (and older) might need to install [.NET Framework 4.5](https://download.microsoft.com/download/B/A/4/BA4A7E71-2906-4B2D-A0E1-80CF16844F5F/dotNetFx45_Full_setup.exe) manually. Environments other than Windows aren't officially supported at this time.
 
 ## Preview
 
@@ -42,4 +42,4 @@ To file a bug report, or if you have suggestions for the Launcher in general, pl
 
 ## About this Project
 
-This is my first programming project using C#. I created it in the span of a few days for multiple, ultimately irrelevant reasons. So for any fellow coder looking through the source code, expect bad practice, messy implementations, lots of static variables and Java naming conventions and patterns. I might clean up the code in the future, but as it stands it works just fine and I am occupied with other projects. For anyone who seeks to criticize my code, please keep this in mind.
+This is my first programming project using C#. I created it in the span of a few days for multiple, ultimately irrelevant reasons. So for any fellow coder looking through the source code, expect messy implementations and the use of Java code conventions & practices. I might clean up the code in the future, but as it stands it works just fine and I am occupied with other projects. For anyone who seeks to criticize my code, please keep this in mind.
