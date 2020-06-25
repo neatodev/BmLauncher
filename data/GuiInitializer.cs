@@ -79,7 +79,6 @@ namespace BmLauncherWForm
 
         private static void initAA()
         {
-
             switch (Int16.Parse(Graphics.getMultiSampling()))
             {
                 case 1:
@@ -99,7 +98,6 @@ namespace BmLauncherWForm
 
         private static void initPhysx()
         {
-
             switch (Int16.Parse(Graphics.getPhysX()))
             {
                 case 0:
@@ -116,7 +114,6 @@ namespace BmLauncherWForm
 
         private static void initAnisotropy()
         {
-
             switch (Int16.Parse(Graphics.getMaxAnisotropy()))
             {
                 case 4:
@@ -133,7 +130,6 @@ namespace BmLauncherWForm
 
         private static void initDetailmode()
         {
-
             switch (Int16.Parse(Graphics.getDetailMode()))
             {
                 case 0:
@@ -150,7 +146,6 @@ namespace BmLauncherWForm
 
         private static void initShadowTexels()
         {
-
             switch (Int16.Parse(Graphics.getShadowTexels().Substring(0, 1)))
             {
                 case 1:
@@ -167,7 +162,6 @@ namespace BmLauncherWForm
 
         private static void initShadowRes()
         {
-
             switch (Int16.Parse(Graphics.getMaxShadowResolution()))
             {
                 case 1024:
@@ -190,7 +184,6 @@ namespace BmLauncherWForm
 
         private static void initMemoryPoolsValue()
         {
-
             switch (Int16.Parse(Graphics.getMemoryPoolsValue()))
             {
                 case 512:
@@ -218,8 +211,7 @@ namespace BmLauncherWForm
                     continue;
                 }
 
-                int index = Program.client.resBox.Items.IndexOf(res);
-                Program.client.resBox.SelectedIndex = index;
+                Program.client.resBox.SelectedIndex = Program.client.resBox.Items.IndexOf(res);
             }
         }
 

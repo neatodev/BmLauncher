@@ -102,80 +102,80 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreditsWindow.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\CreditsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreditsWindow.Designer.cs">
+    <Compile Include="ui\CreditsWindow.Designer.cs">
       <DependentUpon>CreditsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Factory.cs" />
-    <Compile Include="BmLauncherForm.cs">
+    <Compile Include="infrastructure\Factory.cs" />
+    <Compile Include="ui\BmLauncherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BmLauncherForm.Designer.cs">
+    <Compile Include="ui\BmLauncherForm.Designer.cs">
       <DependentUpon>BmLauncherForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GraphicsWriter.cs" />
-    <Compile Include="InputForm.cs">
+    <Compile Include="data\GraphicsWriter.cs" />
+    <Compile Include="ui\InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InputForm.Designer.cs">
+    <Compile Include="ui\InputForm.Designer.cs">
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="KeybindForm.cs">
+    <Compile Include="ui\KeybindForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KeybindForm.Designer.cs">
+    <Compile Include="ui\KeybindForm.Designer.cs">
       <DependentUpon>KeybindForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Graphics.cs" />
-    <Compile Include="GraphicsInterpreter.cs" />
-    <Compile Include="GuiInitializer.cs" />
-    <Compile Include="KeybindInterpreter.cs" />
-    <Compile Include="KeyHelpForm.cs">
+    <Compile Include="data\Graphics.cs" />
+    <Compile Include="data\GraphicsInterpreter.cs" />
+    <Compile Include="data\GuiInitializer.cs" />
+    <Compile Include="data\KeybindInterpreter.cs" />
+    <Compile Include="ui\KeyHelpForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KeyHelpForm.Designer.cs">
+    <Compile Include="ui\KeyHelpForm.Designer.cs">
       <DependentUpon>KeyHelpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NativeMethods.cs" />
-    <Compile Include="NvidiaWorker.cs" />
-    <Compile Include="Presets.cs" />
+    <Compile Include="infrastructure\NativeMethods.cs" />
+    <Compile Include="infrastructure\NvidiaWorker.cs" />
+    <Compile Include="data\Presets.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpeedrunHint.cs">
+    <Compile Include="ui\SpeedrunHint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SpeedrunHint.Designer.cs">
+    <Compile Include="ui\SpeedrunHint.Designer.cs">
       <DependentUpon>SpeedrunHint.cs</DependentUpon>
     </Compile>
-    <Compile Include="SysResolutions.cs" />
-    <EmbeddedResource Include="BmLauncherForm.resx">
+    <Compile Include="infrastructure\SysResolutions.cs" />
+    <EmbeddedResource Include="ui\BmLauncherForm.resx">
       <DependentUpon>BmLauncherForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreditsWindow.resx">
+    <EmbeddedResource Include="ui\CreditsWindow.resx">
       <DependentUpon>CreditsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InputForm.resx">
+    <EmbeddedResource Include="ui\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KeybindForm.resx">
+    <EmbeddedResource Include="ui\KeybindForm.resx">
       <DependentUpon>KeybindForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KeyHelpForm.resx">
+    <EmbeddedResource Include="ui\KeyHelpForm.resx">
       <DependentUpon>KeyHelpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="SpeedrunHint.resx">
+    <EmbeddedResource Include="ui\SpeedrunHint.resx">
       <DependentUpon>SpeedrunHint.cs</DependentUpon>
     </EmbeddedResource>
     <None Include=".editorconfig" />
@@ -201,10 +201,10 @@
     <None Include="Resources\BmUI.ini" />
     <None Include="Resources\UserGame.ini" />
     <None Include="Resources\UserInput.ini" />
-    <None Include="UserEngine.ini" />
+    <None Include="Resources\UserEngine.ini" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BmEngine.ini" />
+    <None Include="Resources\BmEngine.ini" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -222,5 +222,6 @@
     <Content Include="favicon.ico" />
     <None Include="Resources\favicon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

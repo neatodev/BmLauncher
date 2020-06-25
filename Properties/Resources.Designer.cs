@@ -311,7 +311,6 @@ namespace BmLauncherWForm.Properties {
                 return ((byte[])(obj));
             }
         }
-
         public static byte[] getNVSetter()
         {
             return NVSetter;
