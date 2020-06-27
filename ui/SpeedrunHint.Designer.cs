@@ -1,11 +1,14 @@
-﻿namespace BmLauncherWForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace BmLauncherWForm.ui
 {
     partial class SpeedrunHint
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -91,8 +94,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label hint1;
-        private System.Windows.Forms.LinkLabel speedrunLink;
-        private System.Windows.Forms.Label hint2;
+        private Label hint1;
+        private LinkLabel speedrunLink;
+        private Label hint2;
     }
 }

@@ -1,11 +1,14 @@
-﻿namespace BmLauncherWForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace BmLauncherWForm.ui
 {
     partial class BmLauncherForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -1038,74 +1041,74 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label msaaLabel;
-        private System.Windows.Forms.Label resLabel;
-        private System.Windows.Forms.Label vsyncLabel;
-        private System.Windows.Forms.Label detailLabel;
-        private System.Windows.Forms.Label fscreenLabel;
-        private System.Windows.Forms.GroupBox displayBox;
-        private System.Windows.Forms.Label dofLabel;
-        private System.Windows.Forms.Label aoLabel;
-        private System.Windows.Forms.Label lensFlareLabel;
-        private System.Windows.Forms.Label bloomLabel;
-        private System.Windows.Forms.Label anisoLabel;
-        private System.Windows.Forms.Label dshadowLabel;
-        private System.Windows.Forms.Label maxShadowLabel;
-        private System.Windows.Forms.GroupBox graphicsBox;
-        private System.Windows.Forms.Label physxLabel;
-        private System.Windows.Forms.Button launchButton;
-        private System.Windows.Forms.Label smoothFrameLabel;
-        private System.Windows.Forms.Label gpLabel;
-        public System.Windows.Forms.Button texgroupButton;
-        public System.Windows.Forms.ComboBox vsyncBox;
-        public System.Windows.Forms.ComboBox detailBox;
-        public System.Windows.Forms.ComboBox fullscreenBox;
-        public System.Windows.Forms.ComboBox resBox;
-        public System.Windows.Forms.ComboBox aaBox;
-        public System.Windows.Forms.ComboBox dofBox;
-        public System.Windows.Forms.ComboBox aoBox;
-        public System.Windows.Forms.ComboBox lensFlareBox;
-        public System.Windows.Forms.ComboBox bloomBox;
-        public System.Windows.Forms.ComboBox anisoBox;
-        public System.Windows.Forms.ComboBox dShadowBox;
-        public System.Windows.Forms.ComboBox maxShadowBox;
-        public System.Windows.Forms.ComboBox physxBox;
-        public System.Windows.Forms.Button ultraButton;
-        public System.Windows.Forms.Button optiButton;
-        public System.Windows.Forms.Button applyButton;
-        private System.Windows.Forms.LinkLabel credLabel;
-        public System.Windows.Forms.ComboBox texelBox;
-        private System.Windows.Forms.Label shadowTexelLabel;
-        public System.Windows.Forms.Label gpInfoLabel;
-        public System.Windows.Forms.ComboBox memPoolBox;
-        private System.Windows.Forms.Label memPoolLabel;
-        public System.Windows.Forms.ComboBox distBox;
-        private System.Windows.Forms.Label distLabel;
-        public System.Windows.Forms.ComboBox fogBox;
-        private System.Windows.Forms.Label fogLabel;
-        public System.Windows.Forms.ComboBox sphericBox;
-        private System.Windows.Forms.Label sphericalLabel;
-        public System.Windows.Forms.ComboBox mBlurBox;
-        private System.Windows.Forms.Label mBlurLabel;
-        private System.Windows.Forms.Button keyButton;
-        public System.Windows.Forms.MaskedTextBox maxSmoothTextBox;
-        private System.Windows.Forms.GroupBox nvidiaBox;
-        public System.Windows.Forms.CheckBox nvBox;
-        private System.Windows.Forms.ToolTip basicToolTip;
-        public System.Windows.Forms.ToolTip amdToolTip;
-        public System.Windows.Forms.ToolTip nvidiaToolTip;
-        public System.Windows.Forms.Button disableIntroButton;
-        private System.Windows.Forms.GroupBox miscBox;
-        private System.Windows.Forms.Label fov1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label fov2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.ComboBox langBox;
-        private System.Windows.Forms.Label langLabel;
-        public System.Windows.Forms.CheckBox frameCheckBox;
-        private System.Windows.Forms.ToolTip criticalTooltip;
+        private Label msaaLabel;
+        private Label resLabel;
+        private Label vsyncLabel;
+        private Label detailLabel;
+        private Label fscreenLabel;
+        private GroupBox displayBox;
+        private Label dofLabel;
+        private Label aoLabel;
+        private Label lensFlareLabel;
+        private Label bloomLabel;
+        private Label anisoLabel;
+        private Label dshadowLabel;
+        private Label maxShadowLabel;
+        private GroupBox graphicsBox;
+        private Label physxLabel;
+        private Button launchButton;
+        private Label smoothFrameLabel;
+        private Label gpLabel;
+        public Button texgroupButton;
+        public ComboBox vsyncBox;
+        public ComboBox detailBox;
+        public ComboBox fullscreenBox;
+        public ComboBox resBox;
+        public ComboBox aaBox;
+        public ComboBox dofBox;
+        public ComboBox aoBox;
+        public ComboBox lensFlareBox;
+        public ComboBox bloomBox;
+        public ComboBox anisoBox;
+        public ComboBox dShadowBox;
+        public ComboBox maxShadowBox;
+        public ComboBox physxBox;
+        public Button ultraButton;
+        public Button optiButton;
+        public Button applyButton;
+        private LinkLabel credLabel;
+        public ComboBox texelBox;
+        private Label shadowTexelLabel;
+        public Label gpInfoLabel;
+        public ComboBox memPoolBox;
+        private Label memPoolLabel;
+        public ComboBox distBox;
+        private Label distLabel;
+        public ComboBox fogBox;
+        private Label fogLabel;
+        public ComboBox sphericBox;
+        private Label sphericalLabel;
+        public ComboBox mBlurBox;
+        private Label mBlurLabel;
+        private Button keyButton;
+        public MaskedTextBox maxSmoothTextBox;
+        private GroupBox nvidiaBox;
+        public CheckBox nvBox;
+        private ToolTip basicToolTip;
+        public ToolTip amdToolTip;
+        public ToolTip nvidiaToolTip;
+        public Button disableIntroButton;
+        private GroupBox miscBox;
+        private Label fov1;
+        private Label label2;
+        private Label label1;
+        private Label fov2;
+        private Label label3;
+        private Label label4;
+        public ComboBox langBox;
+        private Label langLabel;
+        public CheckBox frameCheckBox;
+        private ToolTip criticalTooltip;
     }
 }
 

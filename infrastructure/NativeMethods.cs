@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.infrastructure
 {
     /// <summary>
     ///     Wrapper Class for Win32 parameters. Used to ensure only one instance of this Application is active.
     /// </summary>
     internal class NativeMethods
     {
-        public const int HWND_BROADCAST = 0xffff;
-        public static readonly int WM_SHOWME = RegisterWindowMessage("WM_SHOWME");
+        public const int HwndBroadcast = 0xffff;
+        public static readonly int WmShowme = RegisterWindowMessage("WM_SHOWME");
 
         [DllImport("user32")]
         public static extern bool PostMessage(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam);

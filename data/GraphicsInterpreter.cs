@@ -1,11 +1,16 @@
-﻿namespace BmLauncherWForm
+﻿using NLog;
+
+namespace BmLauncherWForm.data
 {
     /// <summary>
     ///     Helper class for the static Graphics class
     ///     Used to read and write all of the values to and from Graphics
     /// </summary>
-    static class GraphicsInterpreter
+    internal class GraphicsInterpreter
     {
+        // logger for easy debugging
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         private static bool charCheck;
         private static bool charNormalCheck;
         private static bool cinemaCheck;
@@ -24,7 +29,7 @@
         /// <param name="lineToCheck">Input line that is being read or written</param>
         /// <param name="read">Boolean that determines if Graphics should be written to or read from</param>
         /// <returns>BmEngine value of string or new line to write into BmEngine</returns>
-        public static string interpretGraphics(string lineToCheck, bool read, int switchCase)
+        public string interpretGraphics(string lineToCheck, bool read, int switchCase)
         {
             switch (switchCase)
             {
@@ -39,7 +44,7 @@
                         lineToCheck = "Language=" + Graphics.getLanguage();
                     }
 
-                    Program.myFactory.lineInt = 110;
+                    Program.MyFactory.LineInt = 110;
                     return lineToCheck;
 
                 // physx
@@ -53,7 +58,7 @@
                         lineToCheck = "PhysXLevel=" + Graphics.getPhysX();
                     }
 
-                    Program.myFactory.lineInt = 154;
+                    Program.MyFactory.LineInt = 154;
                     return lineToCheck;
 
                 // max smoothed framerate
@@ -67,7 +72,7 @@
                         lineToCheck = "MaxSmoothedFrameRate=" + Graphics.getMaxSmoothedFramerate();
                     }
 
-                    Program.myFactory.lineInt = 1029;
+                    Program.MyFactory.LineInt = 1029;
                     return lineToCheck;
 
                 // FLightPrimitiveInteractionInitialBlockSize
@@ -81,7 +86,7 @@
                         lineToCheck = "FLightPrimitiveInteractionInitialBlockSize=" + Graphics.getMemoryPoolsValue();
                     }
 
-                    Program.myFactory.lineInt = 1030;
+                    Program.MyFactory.LineInt = 1030;
                     return lineToCheck;
 
                 // FModShadowPrimitiveInteractionInitialBlockSize
@@ -92,7 +97,7 @@
                                       Graphics.getMemoryPoolsValue();
                     }
 
-                    Program.myFactory.lineInt = 1038;
+                    Program.MyFactory.LineInt = 1038;
                     return lineToCheck;
 
                 // dynamic shadows
@@ -106,7 +111,7 @@
                         lineToCheck = "DynamicShadows=" + Graphics.isDynamicShadows();
                     }
 
-                    Program.myFactory.lineInt = 1048;
+                    Program.MyFactory.LineInt = 1048;
                     return lineToCheck;
 
                 // motion blur
@@ -120,7 +125,7 @@
                         lineToCheck = "MotionBlur=" + Graphics.isMotionBlur();
                     }
 
-                    Program.myFactory.lineInt = 1057;
+                    Program.MyFactory.LineInt = 1057;
                     return lineToCheck;
 
                 // depth of field
@@ -134,7 +139,7 @@
                         lineToCheck = "DepthOfField=" + Graphics.isDepthOfField();
                     }
 
-                    Program.myFactory.lineInt = 1058;
+                    Program.MyFactory.LineInt = 1058;
                     return lineToCheck;
 
                 // ambient occlusion
@@ -148,7 +153,7 @@
                         lineToCheck = "AmbientOcclusion=" + Graphics.isAmbientOcclusion();
                     }
 
-                    Program.myFactory.lineInt = 1059;
+                    Program.MyFactory.LineInt = 1059;
                     return lineToCheck;
 
                 // bloom
@@ -162,7 +167,7 @@
                         lineToCheck = "Bloom=" + Graphics.isBloom();
                     }
 
-                    Program.myFactory.lineInt = 1060;
+                    Program.MyFactory.LineInt = 1060;
                     return lineToCheck;
 
                 // hq bloom
@@ -176,7 +181,7 @@
                         lineToCheck = "UseHighQualityBloom=" + Graphics.isBloom();
                     }
 
-                    Program.myFactory.lineInt = 1061;
+                    Program.MyFactory.LineInt = 1061;
                     return lineToCheck;
 
                 // distortion
@@ -190,7 +195,7 @@
                         lineToCheck = "Distortion=" + Graphics.isDistortion();
                     }
 
-                    Program.myFactory.lineInt = 1066;
+                    Program.MyFactory.LineInt = 1066;
                     return lineToCheck;
 
                 // lens flares
@@ -204,7 +209,7 @@
                         lineToCheck = "LensFlares=" + Graphics.isLensFlares();
                     }
 
-                    Program.myFactory.lineInt = 1067;
+                    Program.MyFactory.LineInt = 1067;
                     return lineToCheck;
 
                 // fog volumes
@@ -218,7 +223,7 @@
                         lineToCheck = "FogVolumes=" + Graphics.isFogVolumes();
                     }
 
-                    Program.myFactory.lineInt = 1069;
+                    Program.MyFactory.LineInt = 1069;
                     return lineToCheck;
 
                 // oneframethreadlag
@@ -232,7 +237,7 @@
                         lineToCheck = "OneFrameThreadLag=" + Graphics.getFrameThreadLag();
                     }
 
-                    Program.myFactory.lineInt = 1070;
+                    Program.MyFactory.LineInt = 1070;
                     return lineToCheck;
 
                 // vsync
@@ -246,7 +251,7 @@
                         lineToCheck = "UseVsync=" + Graphics.isVsync();
                     }
 
-                    Program.myFactory.lineInt = 1072;
+                    Program.MyFactory.LineInt = 1072;
                     return lineToCheck;
 
                 // fullscreen
@@ -260,7 +265,7 @@
                         lineToCheck = "Fullscreen=" + Graphics.isFullScreen();
                     }
 
-                    Program.myFactory.lineInt = 1076;
+                    Program.MyFactory.LineInt = 1076;
                     return lineToCheck;
 
                 // detail mode
@@ -274,7 +279,7 @@
                         lineToCheck = "DetailMode=" + Graphics.getDetailMode();
                     }
 
-                    Program.myFactory.lineInt = 1078;
+                    Program.MyFactory.LineInt = 1078;
                     return lineToCheck;
 
                 // max anisotropy
@@ -288,7 +293,7 @@
                         lineToCheck = "MaxAnisotropy=" + Graphics.getMaxAnisotropy();
                     }
 
-                    Program.myFactory.lineInt = 1079;
+                    Program.MyFactory.LineInt = 1079;
                     return lineToCheck;
 
                 // max aa
@@ -302,7 +307,7 @@
                         lineToCheck = "MaxMultisamples=" + Graphics.getMultiSampling();
                     }
 
-                    Program.myFactory.lineInt = 1082;
+                    Program.MyFactory.LineInt = 1082;
                     return lineToCheck;
 
                 // max shadow res
@@ -316,7 +321,7 @@
                         lineToCheck = "MaxShadowResolution=" + Graphics.getMaxShadowResolution();
                     }
 
-                    Program.myFactory.lineInt = 1085;
+                    Program.MyFactory.LineInt = 1085;
                     return lineToCheck;
 
                 // res x
@@ -330,7 +335,7 @@
                         lineToCheck = "ResX=" + Graphics.getResolutionX();
                     }
 
-                    Program.myFactory.lineInt = 1086;
+                    Program.MyFactory.LineInt = 1086;
                     return lineToCheck;
 
                 // res y
@@ -344,7 +349,7 @@
                         lineToCheck = "ResY=" + Graphics.getResolutionY();
                     }
 
-                    Program.myFactory.lineInt = 1090;
+                    Program.MyFactory.LineInt = 1090;
                     return lineToCheck;
 
                 // shadow texels
@@ -358,7 +363,7 @@
                         lineToCheck = "ShadowTexelsPerPixel=" + Graphics.getShadowTexels();
                     }
 
-                    Program.myFactory.lineInt = 1096;
+                    Program.MyFactory.LineInt = 1096;
                     return lineToCheck;
 
                 // shadow filter radius
@@ -372,7 +377,7 @@
                         lineToCheck = "ShadowFilterRadius=" + Graphics.getShadowFilterRadius();
                     }
 
-                    Program.myFactory.lineInt = 1127;
+                    Program.MyFactory.LineInt = 1127;
                     return lineToCheck;
 
                 case 1127:
@@ -386,7 +391,7 @@
                         lineToCheck = "DisableSphericalHarmonicLights=" + Graphics.isDisableSphericalHarmonicLights();
                     }
 
-                    Program.myFactory.lineInt = 21;
+                    Program.MyFactory.LineInt = 21;
                     return lineToCheck;
             }
 
@@ -397,7 +402,9 @@
         {
             if (charCheck && charNormalCheck && cinemaCheck && worldHiCheck && worldNormCheck && poolCheck)
             {
-                Program.myFactory.texApplied();
+                Program.MyFactory.texApplied();
+                logger.Info("checkTex - Texture Pack Fix is enabled.");
+                return;
             }
 
             if (lineToCheck.Equals("TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=4096,LODBias=0)") && !charCheck)
@@ -442,7 +449,8 @@
         {
             if (introOne && introTwo && introThree && introFour)
             {
-                Program.myFactory.introApplied();
+                Program.MyFactory.introApplied();
+                logger.Info("checkIntro - Startup Movies are disabled.");
                 return;
             }
 

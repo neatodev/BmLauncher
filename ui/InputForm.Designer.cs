@@ -1,11 +1,14 @@
-﻿namespace BmLauncherWForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace BmLauncherWForm.ui
 {
     partial class inputForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -110,9 +113,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label modifierLabel;
-        private System.Windows.Forms.ComboBox modifierBox;
-        private System.Windows.Forms.Button inputButton;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private Label modifierLabel;
+        private ComboBox modifierBox;
+        private Button inputButton;
+        private GroupBox groupBox1;
     }
 }

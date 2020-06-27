@@ -1,4 +1,7 @@
-﻿using BmLauncherWForm.Properties;
+﻿using BmLauncherWForm.data;
+using BmLauncherWForm.Properties;
+using BmLauncherWForm.ui;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,56 +10,63 @@ using System.IO;
 using System.Linq;
 using System.Management;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.infrastructure
 {
     /// Factory that read and writes all of the accessed files.
     /// Applies various fixes and executes the NVSetter file if conditions are met.
     internal class Factory
     {
+        // logger for easy debugging
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         // location of the BmEngine configuration file
-        private static readonly string configFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+        private static readonly string ConfigFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                                                     "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\BmEngine.ini";
 
         // location of the UserEngine configuration file
-        private static readonly string userEngineFile =
+        private static readonly string UserEngineFile =
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
             "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\UserEngine.ini";
 
         // location of the UserInput configuration file
-        public static string inputFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+        public static string InputFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                                          "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\UserInput.ini";
 
         // folder containing all configuration files
-        private static readonly string configDirectory =
+        private static readonly string ConfigDirectory =
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
             "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\";
 
         // form associated to the factory
         private static BmLauncherForm client;
 
+        private static KeybindInterpreter kInterpreter;
+
+        private GraphicsInterpreter gInterpreter;
+
         // FileInfo used to control the readonly properties of the BmEngine file
-        private static readonly FileInfo configInfo = new FileInfo(configFile);
+        private static readonly FileInfo ConfigInfo = new FileInfo(ConfigFile);
 
         // FileInfo used to control the readonly properties of the UserEngine file
-        private static readonly FileInfo userEngineInfo = new FileInfo(userEngineFile);
+        private static readonly FileInfo UserEngineInfo = new FileInfo(UserEngineFile);
 
         // contains all lines (as strings) of the BmEngine file
-        private static readonly List<string> configList = new List<string>();
+        private static readonly List<string> ConfigList = new List<string>();
 
         // contains all lines (as strings) of the UserInput file
-        public static List<string> inputList = new List<string>();
+        public static List<string> InputList = new List<string>();
 
         // prepackaged BmEngine file, used in case file is missing
-        private static readonly string bmEnginePremade = Resources.BmEngine;
+        private static readonly string BmEnginePremade = Resources.BmEngine;
 
         // prepackaged UserEngine file, used in case file is missing
-        private static readonly string userEnginePremade = Resources.UserEngine;
+        private static readonly string UserEnginePremade = Resources.UserEngine;
 
         // prepackaged UserInput file, used in case file is missing
-        private static readonly string userInputPremade = Resources.UserInput;
+        private static readonly string UserInputPremade = Resources.UserInput;
 
         // string array containing all lines that need to be changed for the GPUnity texturepack to work
-        private static readonly string[] texFixLines =
+        private static readonly string[] TexFixLines =
         {
             "TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
             "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
@@ -66,17 +76,17 @@ namespace BmLauncherWForm
         };
 
         // string array containing all lines to disable startup movies
-        private static readonly string[] startUpMovieLines =
+        private static readonly string[] StartUpMovieLines =
         {
             ";StartupMovies=baa_logo_run_v5_h264", ";StartupMovies=UTlogo", ";StartupMovies=Legal",
             ";StartupMovies=Black"
         };
 
         // keybind form associated to the factory
-        public KeybindForm keybinds = new KeybindForm();
+        public KeybindForm Keybinds = new KeybindForm();
 
         // integer used for switch cases by GraphicsInterpreter
-        public int lineInt = 21;
+        public int LineInt = 21;
 
         /// <summary>
         ///     Constructor for the Factory class. Initializes the client and GPU name and extracts the NvAPIWrapper for NVIDIA
@@ -84,9 +94,11 @@ namespace BmLauncherWForm
         /// </summary>
         public Factory(BmLauncherForm form)
         {
+            logger = LogManager.GetCurrentClassLogger();
             client = form;
+            logger.Info("Constructor - Created Factory");
             setGPUname();
-            extractWrapper();
+            ExtractWrapper();
         }
 
         /// <summary>
@@ -94,9 +106,12 @@ namespace BmLauncherWForm
         /// </summary>
         public void readFiles()
         {
+            gInterpreter = new GraphicsInterpreter();
             readDirectory();
             readConfigFile();
             readInputFile();
+            client.applyButton.Enabled = false;
+            client.ChangedConfig = false;
         }
 
         /// <summary>
@@ -105,42 +120,46 @@ namespace BmLauncherWForm
         /// </summary>
         private void readDirectory()
         {
-            if (!Directory.Exists(configDirectory))
+            if (Directory.Exists(ConfigDirectory))
             {
-                Directory.CreateDirectory(configDirectory);
-                File.Create(configDirectory + "BmCamera.ini").Dispose();
-                StreamWriter camFile = new StreamWriter(configDirectory + "BmCamera.ini");
-                File.Create(configDirectory + "BmCompat.ini").Dispose();
-                StreamWriter compFile = new StreamWriter(configDirectory + "BmCompat.ini");
-                File.Create(configDirectory + "BmEditor.ini").Dispose();
-                StreamWriter editFile = new StreamWriter(configDirectory + "BmEditor.ini");
-                File.Create(configDirectory + "BmEditorUserSettings.ini").Dispose();
-                StreamWriter editUserFile = new StreamWriter(configDirectory + "BmEditorUserSettings.ini");
-                File.Create(configDirectory + "BmGame.ini").Dispose();
-                StreamWriter gameFile = new StreamWriter(configDirectory + "BmGame.ini");
-                File.Create(configDirectory + "BmInput.ini").Dispose();
-                StreamWriter fakeInputFile = new StreamWriter(configDirectory + "BmInput.ini");
-                File.Create(configDirectory + "BmUI.ini").Dispose();
-                StreamWriter uiFile = new StreamWriter(configDirectory + "BmUI.ini");
-                File.Create(configDirectory + "UserGame.ini").Dispose();
-                StreamWriter uGameFile = new StreamWriter(configDirectory + "UserGame.ini");
-                camFile.Write(Resources.BmCamera);
-                compFile.Write(Resources.BmCompat);
-                editFile.Write(Resources.BmEditor);
-                editUserFile.Write(Resources.BmEditorUserSettings);
-                gameFile.Write(Resources.BmGame);
-                fakeInputFile.Write(Resources.BmInput);
-                uiFile.Write(Resources.BmUI);
-                uGameFile.Write(Resources.UserGame);
-                camFile.Close();
-                compFile.Close();
-                editFile.Close();
-                editUserFile.Close();
-                gameFile.Close();
-                fakeInputFile.Close();
-                uiFile.Close();
-                uGameFile.Close();
+                return;
             }
+
+            logger.Warn("Directory {0} does not exist.", ConfigDirectory);
+            Directory.CreateDirectory(ConfigDirectory);
+            File.Create(ConfigDirectory + "BmCamera.ini").Dispose();
+            StreamWriter camFile = new StreamWriter(ConfigDirectory + "BmCamera.ini");
+            File.Create(ConfigDirectory + "BmCompat.ini").Dispose();
+            StreamWriter compFile = new StreamWriter(ConfigDirectory + "BmCompat.ini");
+            File.Create(ConfigDirectory + "BmEditor.ini").Dispose();
+            StreamWriter editFile = new StreamWriter(ConfigDirectory + "BmEditor.ini");
+            File.Create(ConfigDirectory + "BmEditorUserSettings.ini").Dispose();
+            StreamWriter editUserFile = new StreamWriter(ConfigDirectory + "BmEditorUserSettings.ini");
+            File.Create(ConfigDirectory + "BmGame.ini").Dispose();
+            StreamWriter gameFile = new StreamWriter(ConfigDirectory + "BmGame.ini");
+            File.Create(ConfigDirectory + "BmInput.ini").Dispose();
+            StreamWriter fakeInputFile = new StreamWriter(ConfigDirectory + "BmInput.ini");
+            File.Create(ConfigDirectory + "BmUI.ini").Dispose();
+            StreamWriter uiFile = new StreamWriter(ConfigDirectory + "BmUI.ini");
+            File.Create(ConfigDirectory + "UserGame.ini").Dispose();
+            StreamWriter uGameFile = new StreamWriter(ConfigDirectory + "UserGame.ini");
+            camFile.Write(Resources.BmCamera);
+            compFile.Write(Resources.BmCompat);
+            editFile.Write(Resources.BmEditor);
+            editUserFile.Write(Resources.BmEditorUserSettings);
+            gameFile.Write(Resources.BmGame);
+            fakeInputFile.Write(Resources.BmInput);
+            uiFile.Write(Resources.BmUI);
+            uGameFile.Write(Resources.UserGame);
+            camFile.Close();
+            compFile.Close();
+            editFile.Close();
+            editUserFile.Close();
+            gameFile.Close();
+            fakeInputFile.Close();
+            uiFile.Close();
+            uGameFile.Close();
+            logger.Info("readDirectory - created {0} + all required files.", ConfigDirectory);
         }
 
         /// <summary>
@@ -151,66 +170,72 @@ namespace BmLauncherWForm
         private void readConfigFile()
         {
             // creates files if they don't exist
-            if (!File.Exists(configFile))
+            if (!File.Exists(ConfigFile))
             {
-                File.Create(configFile).Dispose();
-                using (StreamWriter file = new StreamWriter(configFile))
+                logger.Warn("readConfigFile - BmEngine not found at {0}. Generating it now.", ConfigFile);
+                File.Create(ConfigFile).Dispose();
+                using (StreamWriter file = new StreamWriter(ConfigFile))
                 {
-                    file.Write(bmEnginePremade);
+                    file.Write(BmEnginePremade);
+                    logger.Debug("readConfigFile - generated BmEngine at: {0}", ConfigFile);
                 }
             }
 
-            if (!File.Exists(userEngineFile))
+            if (!File.Exists(UserEngineFile))
             {
-                File.Create(userEngineFile).Dispose();
-                using (StreamWriter file = new StreamWriter(userEngineFile))
+                logger.Warn("readConfigFile - UserEngine not found at {0}. Generating it now.", UserEngineFile);
+                File.Create(UserEngineFile).Dispose();
+                using (StreamWriter file = new StreamWriter(UserEngineFile))
                 {
-                    file.Write(userEnginePremade);
+                    file.Write(UserEnginePremade);
+                    logger.Debug("readConfigFile - generated UserEngine at: {0}", UserEngineFile);
                 }
             }
 
-            string[] confLines = File.ReadAllLines(configFile);
+            string[] confLines = File.ReadAllLines(ConfigFile);
 
             // if-condition only relevant if BmEngine was not created by the Launcher. Will overwrite existing file
             if (!confLines.Last().Equals("[Generated by Batman: Arkham Asylum - Advanced Launcher]"))
             {
-                configInfo.IsReadOnly = false;
-                userEngineInfo.IsReadOnly = false;
-                File.Delete(configFile);
-                using (StreamWriter file = new StreamWriter(configFile))
+                ConfigInfo.IsReadOnly = false;
+                UserEngineInfo.IsReadOnly = false;
+                File.Delete(ConfigFile);
+                using (StreamWriter file = new StreamWriter(ConfigFile))
                 {
-                    file.Write(bmEnginePremade);
-                    configInfo.IsReadOnly = true;
+                    file.Write(BmEnginePremade);
+                    ConfigInfo.IsReadOnly = true;
                 }
 
-                File.Delete(userEngineFile);
-                using (StreamWriter file = new StreamWriter(userEngineFile))
+                File.Delete(UserEngineFile);
+                using (StreamWriter file = new StreamWriter(UserEngineFile))
                 {
-                    file.Write(userEnginePremade);
-                    userEngineInfo.IsReadOnly = true;
+                    file.Write(UserEnginePremade);
+                    UserEngineInfo.IsReadOnly = true;
                 }
+                logger.Debug("readConfigFile - Replacing BmEngine & UserEngine with custom made Advanced Launcher files.");
             }
 
             for (int i = 0; i < confLines.Length; i++)
             {
-                configList.Add(confLines[i]);
-                if (i >= 1161 && i <= 1166)
+                ConfigList.Add(confLines[i]);
+                if (i >= 1161 && i <= 1165)
                 {
                     GraphicsInterpreter.checkIntro(confLines[i]);
                 }
 
-                if (i == 663 || (i >= 1108 && i <= 1135))
+                if (i == 663 || (i >= 1108 && i <= 1133))
                 {
                     GraphicsInterpreter.checkTex(confLines[i]);
                 }
 
-                if (i == lineInt)
+                if (i == LineInt)
                 {
-                    GraphicsInterpreter.interpretGraphics(confLines[i], true, lineInt);
+                    gInterpreter.interpretGraphics(confLines[i], true, LineInt);
                 }
             }
+            logger.Info("readConfigFile - processed BmEngine & UserEngine.");
 
-            GuiInitializer.init();
+            new GuiInitializer().init();
         }
 
         /// <summary>
@@ -220,37 +245,42 @@ namespace BmLauncherWForm
         public void readInputFile()
         {
             // creates file if it doesn't exist
-            if (!File.Exists(inputFile))
+            if (!File.Exists(InputFile))
             {
-                File.Create(inputFile).Dispose();
-                using (StreamWriter file = new StreamWriter(inputFile))
+                logger.Warn("readInputFile - UserInput not found at {0}. Generating it now.", InputFile);
+                File.Create(InputFile).Dispose();
+                using (StreamWriter file = new StreamWriter(InputFile))
                 {
-                    file.Write(userInputPremade);
+                    file.Write(UserInputPremade);
                 }
+                logger.Debug("readInputFile - generated UserInput at: {0}", InputFile);
             }
 
-            string[] inputLines = File.ReadAllLines(inputFile);
+            string[] inputLines = File.ReadAllLines(InputFile);
 
             // if-condition only relevant if UserInput was not created by the Launcher. Will overwrite existing file
-            if (!inputLines.Last().Equals("[Generated by Batman: Arkham Asylum Advanced Launcher]"))
+            if (!inputLines.Last().Equals("[Generated by Batman: Arkham Asylum - Advanced Launcher]"))
             {
-                File.Delete(inputFile);
-                using (StreamWriter file = new StreamWriter(inputFile))
+                File.Delete(InputFile);
+                using (StreamWriter file = new StreamWriter(InputFile))
                 {
-                    file.Write(userInputPremade);
+                    file.Write(UserInputPremade);
                 }
+                logger.Debug("readInputFile - replaced UserInput with custom made Advanced Launcher files.");
 
-                inputLines = File.ReadAllLines(inputFile);
+                inputLines = File.ReadAllLines(InputFile);
             }
 
+            logger.Debug("readInputFile - starting interpretKeys reading process."); kInterpreter = new KeybindInterpreter();
             for (int i = 0; i < inputLines.Length; i++)
             {
-                inputList.Add(inputLines[i]);
+                InputList.Add(inputLines[i]);
                 if (i < 51)
                 {
-                    KeybindInterpreter.interpretKeys(inputLines[i], true);
+                    kInterpreter.interpretKeys(inputLines[i], true);
                 }
             }
+            logger.Info("readInputFile - processed UserInput.");
         }
 
         /// <summary>
@@ -262,28 +292,21 @@ namespace BmLauncherWForm
         /// </summary>
         public void writeGraphFile()
         {
-            configInfo.IsReadOnly = false;
-            GraphicsWriter.writeAll();
-            string newLine;
-            using (StreamWriter file = new StreamWriter(configFile))
+            ConfigInfo.IsReadOnly = false;
+            new GraphicsWriter().writeAll();
+            using (StreamWriter file = new StreamWriter(ConfigFile))
             {
-                for (int i = 0; i < configList.Count; i++)
+                for (int i = 0; i < ConfigList.Count; i++)
                 {
-                    if (i != lineInt)
-                    {
-                        file.WriteLine(configList[i]);
-                    }
-                    else
-                    {
-                        newLine = GraphicsInterpreter.interpretGraphics(configList[i], false, lineInt);
-                        file.WriteLine(newLine);
-                    }
+                    file.WriteLine(i != LineInt
+                        ? ConfigList[i]
+                        : gInterpreter.interpretGraphics(ConfigList[i], false, LineInt));
                 }
 
                 file.Close();
             }
-
-            configInfo.IsReadOnly = true;
+            ConfigInfo.IsReadOnly = true;
+            logger.Debug("writeGraphFile - saved graphics parameters to {0}", ConfigFile);
         }
 
         /// <summary>
@@ -292,22 +315,22 @@ namespace BmLauncherWForm
         /// </summary>
         public void writeInputFile()
         {
-            string newLine;
-            using (StreamWriter file = new StreamWriter(inputFile))
+            logger.Debug("writeInputFile - starting interpretKeys writing process.");
+            using (StreamWriter file = new StreamWriter(InputFile))
             {
                 for (int i = 0; i < 56; i++)
                 {
-                    newLine = KeybindInterpreter.interpretKeys(inputList[i], false);
-                    file.WriteLine(newLine);
+                    file.WriteLine(kInterpreter.interpretKeys(InputList[i], false));
                 }
 
-                for (int i = 56; i < inputList.Count; i++)
+                for (int i = 56; i < InputList.Count; i++)
                 {
-                    file.WriteLine(inputList[i]);
+                    file.WriteLine(InputList[i]);
                 }
 
                 file.Close();
             }
+            logger.Debug("writeInputFile - saved input parameters to {0}", InputFile);
         }
 
         /// <summary>
@@ -315,20 +338,21 @@ namespace BmLauncherWForm
         /// </summary>
         public void applyTexfix()
         {
-            configInfo.IsReadOnly = false;
-            using (StreamWriter file = new StreamWriter(configFile))
+            ConfigInfo.IsReadOnly = false;
+            using (StreamWriter file = new StreamWriter(ConfigFile))
             {
-                for (int i = 0; i < configList.Count; i++)
+                for (int i = 0; i < ConfigList.Count; i++)
                 {
-                    configList[i] = texfix(configList[i]);
-                    file.WriteLine(configList[i]);
+                    ConfigList[i] = texfix(ConfigList[i]);
+                    file.WriteLine(ConfigList[i]);
                 }
 
                 file.Close();
             }
 
             texApplied();
-            configInfo.IsReadOnly = true;
+            ConfigInfo.IsReadOnly = true;
+            logger.Debug("applyTexfix - applied parameter fixes for Texture Pack support to {0}", ConfigFile);
         }
 
         /// <summary>
@@ -341,37 +365,37 @@ namespace BmLauncherWForm
         {
             if (lineToCheck.Contains("TEXTUREGROUP_Character=(MinLODSize="))
             {
-                lineToCheck = texFixLines[0];
+                lineToCheck = TexFixLines[0];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("TEXTUREGROUP_CharacterNormalMap=(MinLODSize="))
             {
-                lineToCheck = texFixLines[1];
+                lineToCheck = TexFixLines[1];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("TEXTUREGROUP_Cinematic=(MinLODSize="))
             {
-                lineToCheck = texFixLines[2];
+                lineToCheck = TexFixLines[2];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("TEXTUREGROUP_World_Hi=(MinLODSize="))
             {
-                lineToCheck = texFixLines[3];
+                lineToCheck = TexFixLines[3];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("TEXTUREGROUP_WorldNormalMap_Hi=(MinLODSize="))
             {
-                lineToCheck = texFixLines[4];
+                lineToCheck = TexFixLines[4];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio"))
             {
-                lineToCheck = texFixLines[5];
+                lineToCheck = TexFixLines[5];
                 return lineToCheck;
             }
 
@@ -385,7 +409,7 @@ namespace BmLauncherWForm
         /// </summary>
         public void texApplied()
         {
-            client.texgroupButton.Text = "Texture Pack Fix applied!";
+            client.texgroupButton.Text = @"Texture Pack Fix applied!";
             client.texgroupButton.Enabled = false;
         }
 
@@ -395,21 +419,21 @@ namespace BmLauncherWForm
         /// </summary>
         public void applyIntroFix()
         {
-            configInfo.IsReadOnly = false;
-            using (StreamWriter file = new StreamWriter(configFile))
+            ConfigInfo.IsReadOnly = false;
+            using (StreamWriter file = new StreamWriter(ConfigFile))
             {
-                for (int i = 0; i < configList.Count; i++)
+                for (int i = 0; i < ConfigList.Count; i++)
                 {
-                    configList[i] = introFix(configList[i]);
-                    file.WriteLine(configList[i]);
+                    ConfigList[i] = introFix(ConfigList[i]);
+                    file.WriteLine(ConfigList[i]);
                 }
 
                 file.Close();
             }
 
             introApplied();
-            configInfo.IsReadOnly = true;
-            //  Application.Restart();
+            ConfigInfo.IsReadOnly = true;
+            logger.Debug("applyIntrofix - changed parameters to disable startup movies at: {0}", ConfigFile);
         }
 
         /// <summary>
@@ -422,25 +446,25 @@ namespace BmLauncherWForm
         {
             if (lineToCheck.Contains("StartupMovies=baa_logo_run_v5_h264"))
             {
-                lineToCheck = startUpMovieLines[0];
+                lineToCheck = StartUpMovieLines[0];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("StartupMovies=UTlogo"))
             {
-                lineToCheck = startUpMovieLines[1];
+                lineToCheck = StartUpMovieLines[1];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("StartupMovies=Legal"))
             {
-                lineToCheck = startUpMovieLines[2];
+                lineToCheck = StartUpMovieLines[2];
                 return lineToCheck;
             }
 
             if (lineToCheck.Contains("StartupMovies=Black"))
             {
-                lineToCheck = startUpMovieLines[3];
+                lineToCheck = StartUpMovieLines[3];
                 return lineToCheck;
             }
 
@@ -454,7 +478,7 @@ namespace BmLauncherWForm
         /// </summary>
         public void introApplied()
         {
-            client.disableIntroButton.Text = "Startup Movies disabled!";
+            client.disableIntroButton.Text = @"Startup Movies disabled!";
             client.disableIntroButton.Enabled = false;
         }
 
@@ -467,8 +491,9 @@ namespace BmLauncherWForm
             List<string> gpuList = new List<string>();
             string gpu = "";
             ManagementObjectSearcher search = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
-            foreach (ManagementObject obj in search.Get())
+            foreach (var o in search.Get())
             {
+                var obj = (ManagementObject)o;
                 foreach (PropertyData data in obj.Properties)
                 {
                     if (data.Name == "Description")
@@ -484,17 +509,19 @@ namespace BmLauncherWForm
                 // Iterates through each GPU, looking for an nvidia card.
                 foreach (string s in gpuList)
                 {
-                    if (s.Contains("NVIDIA"))
+                    if (!s.Contains("NVIDIA"))
                     {
-                        gpu = s;
+                        continue;
                     }
+
+                    gpu = s;
+                    break;
                 }
             }
             else
             {
                 gpu = gpuList[0];
             }
-
 
             if (gpu.Contains("NVIDIA"))
             {
@@ -515,20 +542,26 @@ namespace BmLauncherWForm
             }
 
             client.gpInfoLabel.Text = gpu;
+            logger.Debug("setGPUName - found {0} Graphics Card(s). GPU selected: {1}", gpuList.Count, gpu);
         }
 
         /// <summary>
         ///     Used to extract the NvAPIWrapper.dll resource needed for NVIDIA GPUs to modify AO settings
         /// </summary>
-        private void extractWrapper()
+        private void ExtractWrapper()
         {
-            if (client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (!client.gpInfoLabel.Text.Contains("NVIDIA"))
             {
-                if (!File.Exists("NvAPIWrapper.dll"))
-                {
-                    File.WriteAllBytes("NvAPIWrapper.dll", Resources.NvAPIWrapper);
-                }
+                return;
             }
+
+            if (File.Exists("NvAPIWrapper.dll"))
+            {
+                return;
+            }
+
+            File.WriteAllBytes("NvAPIWrapper.dll", Resources.NvAPIWrapper);
+            logger.Debug("ExtractWrapper - extracted NvAPIWrapper to working directory.");
         }
 
         /// <summary>
@@ -536,7 +569,7 @@ namespace BmLauncherWForm
         ///     Application sets HBAO+ compatibility flags in NVIDIA profile.
         ///     Called by GraphicsWriter if conditions are met.
         /// </summary>
-        public void execNVSetter()
+        public void ExecNvSetter()
         {
             if (!File.Exists("NVSetter.exe"))
             {
@@ -544,14 +577,15 @@ namespace BmLauncherWForm
 
                 using (FileStream stream = new FileStream(exeLocation, FileMode.CreateNew, FileAccess.Write))
                 {
-                    byte[] bytes = Resources.getNVSetter();
+                    byte[] bytes = Resources.NVSetter;
                     stream.Write(bytes, 0, bytes.Length);
                 }
+                logger.Debug("ExecNvSetter - creating NVSetter.exe in working directory.");
             }
 
-            ProcessStartInfo nvProcess = new ProcessStartInfo("NVSetter.exe");
-            nvProcess.Verb = "runas";
+            ProcessStartInfo nvProcess = new ProcessStartInfo("NVSetter.exe") { Verb = "runas" };
             Process.Start(nvProcess);
+            logger.Debug("ExecNvSetter - Executing NVSetter.exe");
         }
     }
 }

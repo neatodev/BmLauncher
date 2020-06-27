@@ -1,40 +1,69 @@
-﻿using System;
+﻿using BmLauncherWForm.infrastructure;
+using NLog;
+using System;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.data
 {
     /// <summary>
     ///     Graphics helper class. Initializes the GUI with correct values from BmEngine file
     /// </summary>
-    static class GuiInitializer
+    internal class GuiInitializer
     {
-        public static void init()
+        // logger for easy debugging
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        public void init()
         {
             // all false/true values
-            Program.client.fullscreenBox.SelectedIndex =
+            Program.Client.fullscreenBox.SelectedIndex =
                 Graphics.isFullScreen().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.vsyncBox.SelectedIndex =
+            logger.Debug("init - initialized fullscreen as {0}", Graphics.isFullScreen());
+            Program.Client.vsyncBox.SelectedIndex =
                 Graphics.isVsync().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.dofBox.SelectedIndex =
+            logger.Debug("init - initialized vsync as {0}", Graphics.isVsync());
+
+            Program.Client.dofBox.SelectedIndex =
                 Graphics.isDepthOfField().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.aoBox.SelectedIndex =
+            logger.Debug("init - initialized depth of field as {0}", Graphics.isDepthOfField());
+
+            Program.Client.aoBox.SelectedIndex =
                 Graphics.isAmbientOcclusion().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.lensFlareBox.SelectedIndex =
+            logger.Debug("init - initialized ambient occlusion as {0}", Graphics.isAmbientOcclusion());
+
+            Program.Client.lensFlareBox.SelectedIndex =
                 Graphics.isLensFlares().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.mBlurBox.SelectedIndex =
+            logger.Debug("init - initialized lens flares as {0}", Graphics.isLensFlares());
+
+            Program.Client.mBlurBox.SelectedIndex =
                 Graphics.isMotionBlur().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.bloomBox.SelectedIndex =
+            logger.Debug("init - initialized motion blur as {0}", Graphics.isMotionBlur());
+
+            Program.Client.bloomBox.SelectedIndex =
                 Graphics.isBloom().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.dShadowBox.SelectedIndex =
+            logger.Debug("init - initialized bloom as {0}", Graphics.isBloom());
+
+            Program.Client.dShadowBox.SelectedIndex =
                 Graphics.isDynamicShadows().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.sphericBox.SelectedIndex = Graphics.isDisableSphericalHarmonicLights()
+            logger.Debug("init - initialized dynamic shadows as {0}", Graphics.isDynamicShadows());
+
+            Program.Client.sphericBox.SelectedIndex = Graphics.isDisableSphericalHarmonicLights()
                 .Equals("True", StringComparison.InvariantCultureIgnoreCase)
                 ? 0
                 : 1;
-            Program.client.fogBox.SelectedIndex =
+            logger.Debug("init - initialized disable spherical harmonic lights as {0}",
+                Graphics.isDisableSphericalHarmonicLights());
+
+            Program.Client.fogBox.SelectedIndex =
                 Graphics.isFogVolumes().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.distBox.SelectedIndex =
+            logger.Debug("init - initialized fog volumes as {0}", Graphics.isFogVolumes());
+
+            Program.Client.distBox.SelectedIndex =
                 Graphics.isDistortion().Equals("False", StringComparison.InvariantCultureIgnoreCase) ? 0 : 1;
-            Program.client.frameCheckBox.Checked = Graphics.getFrameThreadLag().Equals("True");
+            logger.Debug("init - initialized distortion as {0}", Graphics.isDistortion());
+
+            Program.Client.frameCheckBox.Checked = Graphics.getFrameThreadLag().Equals("True");
+            logger.Debug("init - initialized frame thread lag as {0}", Graphics.getFrameThreadLag());
+
             // everything else
             initLang();
             initAA();
@@ -47,34 +76,37 @@ namespace BmLauncherWForm
             initMemoryPoolsValue();
             initResolutions();
             initHBAONVIDIA();
+            logger.Info("init - initialized all values to the gui.");
         }
 
         private static void initLang()
         {
             if (Graphics.getLanguage().Equals("int"))
             {
-                Program.client.langBox.SelectedIndex = 0;
+                Program.Client.langBox.SelectedIndex = 0;
             }
 
             if (Graphics.getLanguage().Equals("deu"))
             {
-                Program.client.langBox.SelectedIndex = 1;
+                Program.Client.langBox.SelectedIndex = 1;
             }
 
             if (Graphics.getLanguage().Equals("fra"))
             {
-                Program.client.langBox.SelectedIndex = 2;
+                Program.Client.langBox.SelectedIndex = 2;
             }
 
             if (Graphics.getLanguage().Equals("ita"))
             {
-                Program.client.langBox.SelectedIndex = 3;
+                Program.Client.langBox.SelectedIndex = 3;
             }
 
             if (Graphics.getLanguage().Equals("esn"))
             {
-                Program.client.langBox.SelectedIndex = 4;
+                Program.Client.langBox.SelectedIndex = 4;
             }
+
+            logger.Debug("initLang - initialized language as {0}", Graphics.getLanguage());
         }
 
         private static void initAA()
@@ -82,18 +114,23 @@ namespace BmLauncherWForm
             switch (Int16.Parse(Graphics.getMultiSampling()))
             {
                 case 1:
-                    Program.client.aaBox.SelectedIndex = 0;
+                    Program.Client.aaBox.SelectedIndex = 0;
                     break;
+
                 case 2:
-                    Program.client.aaBox.SelectedIndex = 1;
+                    Program.Client.aaBox.SelectedIndex = 1;
                     break;
+
                 case 4:
-                    Program.client.aaBox.SelectedIndex = 2;
+                    Program.Client.aaBox.SelectedIndex = 2;
                     break;
+
                 case 10:
-                    Program.client.aaBox.SelectedIndex = 3;
+                    Program.Client.aaBox.SelectedIndex = 3;
                     break;
             }
+
+            logger.Debug("initAA - initialized multisampling as {0}", Graphics.getMultiSampling());
         }
 
         private static void initPhysx()
@@ -101,15 +138,19 @@ namespace BmLauncherWForm
             switch (Int16.Parse(Graphics.getPhysX()))
             {
                 case 0:
-                    Program.client.physxBox.SelectedIndex = 0;
+                    Program.Client.physxBox.SelectedIndex = 0;
                     break;
+
                 case 1:
-                    Program.client.physxBox.SelectedIndex = 1;
+                    Program.Client.physxBox.SelectedIndex = 1;
                     break;
+
                 case 2:
-                    Program.client.physxBox.SelectedIndex = 2;
+                    Program.Client.physxBox.SelectedIndex = 2;
                     break;
             }
+
+            logger.Debug("initPhysx - initialized physx as {0}", Graphics.getPhysX());
         }
 
         private static void initAnisotropy()
@@ -117,15 +158,19 @@ namespace BmLauncherWForm
             switch (Int16.Parse(Graphics.getMaxAnisotropy()))
             {
                 case 4:
-                    Program.client.anisoBox.SelectedIndex = 0;
+                    Program.Client.anisoBox.SelectedIndex = 0;
                     break;
+
                 case 8:
-                    Program.client.anisoBox.SelectedIndex = 1;
+                    Program.Client.anisoBox.SelectedIndex = 1;
                     break;
+
                 case 16:
-                    Program.client.anisoBox.SelectedIndex = 2;
+                    Program.Client.anisoBox.SelectedIndex = 2;
                     break;
             }
+
+            logger.Debug("initAnisotropy - initialized max anisotropy as {0}", Graphics.getMaxAnisotropy());
         }
 
         private static void initDetailmode()
@@ -133,15 +178,19 @@ namespace BmLauncherWForm
             switch (Int16.Parse(Graphics.getDetailMode()))
             {
                 case 0:
-                    Program.client.detailBox.SelectedIndex = 0;
+                    Program.Client.detailBox.SelectedIndex = 0;
                     break;
+
                 case 1:
-                    Program.client.detailBox.SelectedIndex = 1;
+                    Program.Client.detailBox.SelectedIndex = 1;
                     break;
+
                 case 2:
-                    Program.client.detailBox.SelectedIndex = 2;
+                    Program.Client.detailBox.SelectedIndex = 2;
                     break;
             }
+
+            logger.Debug("initDetailmode - initialized detail mode as {0}", Graphics.getDetailMode());
         }
 
         private static void initShadowTexels()
@@ -149,15 +198,19 @@ namespace BmLauncherWForm
             switch (Int16.Parse(Graphics.getShadowTexels().Substring(0, 1)))
             {
                 case 1:
-                    Program.client.texelBox.SelectedIndex = 0;
+                    Program.Client.texelBox.SelectedIndex = 0;
                     break;
+
                 case 2:
-                    Program.client.texelBox.SelectedIndex = 1;
+                    Program.Client.texelBox.SelectedIndex = 1;
                     break;
+
                 case 4:
-                    Program.client.texelBox.SelectedIndex = 2;
+                    Program.Client.texelBox.SelectedIndex = 2;
                     break;
             }
+
+            logger.Debug("initShadowTexels - initialized shadow texels as {0}", Graphics.getShadowTexels());
         }
 
         private static void initShadowRes()
@@ -165,21 +218,26 @@ namespace BmLauncherWForm
             switch (Int16.Parse(Graphics.getMaxShadowResolution()))
             {
                 case 1024:
-                    Program.client.maxShadowBox.SelectedIndex = 0;
+                    Program.Client.maxShadowBox.SelectedIndex = 0;
                     break;
+
                 case 2048:
-                    Program.client.maxShadowBox.SelectedIndex = 1;
+                    Program.Client.maxShadowBox.SelectedIndex = 1;
                     break;
+
                 case 4096:
-                    Program.client.maxShadowBox.SelectedIndex = 2;
+                    Program.Client.maxShadowBox.SelectedIndex = 2;
                     break;
             }
+
+            logger.Debug("initShadowRes - initialized max shadow resolution as {0}", Graphics.getMaxShadowResolution());
         }
 
         private static void initMaxSmoothedFrames()
         {
-            Program.client.maxSmoothTextBox.Text = Graphics.getMaxSmoothedFramerate()
+            Program.Client.maxSmoothTextBox.Text = Graphics.getMaxSmoothedFramerate()
                 .Substring(0, Graphics.getMaxSmoothedFramerate().LastIndexOf("."));
+            logger.Debug("initLang - initialized max smoothed frames as {0}", Graphics.getMaxSmoothedFramerate());
         }
 
         private static void initMemoryPoolsValue()
@@ -187,32 +245,39 @@ namespace BmLauncherWForm
             switch (Int16.Parse(Graphics.getMemoryPoolsValue()))
             {
                 case 512:
-                    Program.client.memPoolBox.SelectedIndex = 0;
+                    Program.Client.memPoolBox.SelectedIndex = 0;
                     break;
+
                 case 1024:
-                    Program.client.memPoolBox.SelectedIndex = 1;
+                    Program.Client.memPoolBox.SelectedIndex = 1;
                     break;
             }
+
+            logger.Debug("initMemoryPoolsValue - initialized memory pools value as {0}",
+                Graphics.getMemoryPoolsValue());
         }
 
         private static void initResolutions()
         {
-            foreach (string resolution in SysResolutions.resolutionList)
+            foreach (string resolution in SysResolutions.ResolutionList)
             {
-                Program.client.resBox.Items.Add(resolution);
+                Program.Client.resBox.Items.Add(resolution);
             }
 
             string myResolution = Graphics.getResolutionX() + "x" + Graphics.getResolutionY();
 
-            foreach (string res in Program.client.resBox.Items)
+            foreach (string res in Program.Client.resBox.Items)
             {
                 if (!res.Equals(myResolution))
                 {
                     continue;
                 }
 
-                Program.client.resBox.SelectedIndex = Program.client.resBox.Items.IndexOf(res);
+                Program.Client.resBox.SelectedIndex = Program.Client.resBox.Items.IndexOf(res);
             }
+
+            logger.Debug("initResolutions - initialized resolution as {0}x{1}", Graphics.getResolutionX(),
+                Graphics.getResolutionY());
         }
 
         /// <summary>
@@ -221,17 +286,19 @@ namespace BmLauncherWForm
         /// </summary>
         private static void initHBAONVIDIA()
         {
-            if (Program.client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
             {
-                Program.nvWorker = new NvidiaWorker();
-                Program.client.nvBox.Enabled = true;
-                Program.client.nvidiaToolTip.Active = true;
+                Program.NvWorker = new NvidiaWorker();
+                Program.Client.nvBox.Enabled = true;
+                Program.Client.nvidiaToolTip.Active = true;
+                logger.Debug("initHBAONVIDIA - initialized hbao+ possibility as true.");
             }
             else
             {
-                Program.client.amdToolTip.Active = true;
-                Program.client.amdToolTip.ShowAlways = true;
-                Program.client.nvBox.Enabled = false;
+                Program.Client.amdToolTip.Active = true;
+                Program.Client.amdToolTip.ShowAlways = true;
+                Program.Client.nvBox.Enabled = false;
+                logger.Debug("initHBAONVIDIA - initialized hbao+ possibility as false.");
             }
         }
     }

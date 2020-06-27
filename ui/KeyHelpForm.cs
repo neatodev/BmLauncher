@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.ui
 {
     public partial class KeyHelpForm : Form
     {

@@ -1,10 +1,10 @@
-﻿namespace BmLauncherWForm
+﻿namespace BmLauncherWForm.data
 {
     /// <summary>
     ///     Static class that stores all important parameters that are needed by BmEngine
     ///     Contains setter + getter for every parameter
     /// </summary>
-    static class Graphics
+    internal static class Graphics
     {
         private static string language;
         private static string fullScreen;

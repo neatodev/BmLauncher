@@ -1,11 +1,14 @@
-﻿namespace BmLauncherWForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace BmLauncherWForm.ui
 {
     partial class KeyHelpForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -110,10 +113,10 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label affixS;
+        private GroupBox groupBox1;
+        private Label label3;
+        private Label label1;
+        private Label label2;
+        private Label affixS;
     }
 }

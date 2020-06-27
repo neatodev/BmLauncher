@@ -1,11 +1,14 @@
-﻿namespace BmLauncherWForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace BmLauncherWForm.ui
 {
     partial class KeybindForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -643,6 +646,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(495, 426);
             this.Controls.Add(this.speedLabel);
             this.Controls.Add(this.controlLabel);
@@ -671,51 +675,51 @@
 
         #endregion
 
-        private System.Windows.Forms.Label fwLabel;
-        private System.Windows.Forms.Label leftLabel;
-        private System.Windows.Forms.Label bwLabel;
-        private System.Windows.Forms.Label rightLabel;
-        private System.Windows.Forms.Label zoomLabel;
-        private System.Windows.Forms.Label crouchLabel;
-        private System.Windows.Forms.Label crouchtoggleLabel;
-        private System.Windows.Forms.Label grappleLabel;
-        private System.Windows.Forms.Label runglideuseLabel;
-        private System.Windows.Forms.GroupBox movBox;
-        private System.Windows.Forms.Label quickBataLabel;
-        private System.Windows.Forms.Label quickClawLabel;
-        private System.Windows.Forms.Label throwLabel;
-        private System.Windows.Forms.Label cTakeDownLabel;
-        private System.Windows.Forms.Label detectiveLabel;
-        private System.Windows.Forms.Label useStrikeLabel1;
-        private System.Windows.Forms.Label aimCounterLabel1;
-        private System.Windows.Forms.Label secondaryLabel;
-        private System.Windows.Forms.Label aimCounterLabel3;
-        private System.Windows.Forms.Label aimCounterLabel2;
-        private System.Windows.Forms.Label secondaryStunLabel2;
-        private System.Windows.Forms.GroupBox actionBox;
-        private System.Windows.Forms.Button applyKeyButton;
-        private System.Windows.Forms.Label useStrikeLabel2;
-        public System.Windows.Forms.Button fwButton;
-        public System.Windows.Forms.Button crouchToggleButton;
-        public System.Windows.Forms.Button grappleButton;
-        public System.Windows.Forms.Button zoomButton;
-        public System.Windows.Forms.Button crouchButton;
-        public System.Windows.Forms.Button RGUButton;
-        public System.Windows.Forms.Button leftButton;
-        public System.Windows.Forms.Button rightButton;
-        public System.Windows.Forms.Button bwButton;
-        public System.Windows.Forms.Button quickBatButton;
-        public System.Windows.Forms.Button detButton;
-        public System.Windows.Forms.Button gadStrikeButton;
-        public System.Windows.Forms.Button gadSecButton;
-        public System.Windows.Forms.Button cTakedownButton;
-        public System.Windows.Forms.Button throwButton;
-        public System.Windows.Forms.Button quickClawButton;
-        public System.Windows.Forms.Button ACTButton;
-        public System.Windows.Forms.Button capeStunButton;
-        private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.LinkLabel helpLabel;
-        private System.Windows.Forms.Label controlLabel;
-        private System.Windows.Forms.LinkLabel speedLabel;
+        private Label fwLabel;
+        private Label leftLabel;
+        private Label bwLabel;
+        private Label rightLabel;
+        private Label zoomLabel;
+        private Label crouchLabel;
+        private Label crouchtoggleLabel;
+        private Label grappleLabel;
+        private Label runglideuseLabel;
+        private GroupBox movBox;
+        private Label quickBataLabel;
+        private Label quickClawLabel;
+        private Label throwLabel;
+        private Label cTakeDownLabel;
+        private Label detectiveLabel;
+        private Label useStrikeLabel1;
+        private Label aimCounterLabel1;
+        private Label secondaryLabel;
+        private Label aimCounterLabel3;
+        private Label aimCounterLabel2;
+        private Label secondaryStunLabel2;
+        private GroupBox actionBox;
+        private Button applyKeyButton;
+        private Label useStrikeLabel2;
+        public Button fwButton;
+        public Button crouchToggleButton;
+        public Button grappleButton;
+        public Button zoomButton;
+        public Button crouchButton;
+        public Button RGUButton;
+        public Button leftButton;
+        public Button rightButton;
+        public Button bwButton;
+        public Button quickBatButton;
+        public Button detButton;
+        public Button gadStrikeButton;
+        public Button gadSecButton;
+        public Button cTakedownButton;
+        public Button throwButton;
+        public Button quickClawButton;
+        public Button ACTButton;
+        public Button capeStunButton;
+        private Button resetButton;
+        private LinkLabel helpLabel;
+        private Label controlLabel;
+        private LinkLabel speedLabel;
     }
 }

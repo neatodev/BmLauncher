@@ -1,29 +1,43 @@
-﻿using System;
+﻿using BmLauncherWForm.data;
+using NLog;
+using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Windows.Forms;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.ui
 {
     public partial class BmLauncherForm : Form
 
     {
-        public static BmLauncherForm thisForm;
+        // logger for easy debugging
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        private static bool firstLaunch;
+        private static bool readWarning;
+
+        public bool ChangedConfig;
 
         public BmLauncherForm()
         {
-            thisForm = this;
             InitializeComponent();
-            applyButton.Enabled = false;
         }
 
         private void texgroupButton_Click(object sender, EventArgs e)
         {
-            Program.myFactory.applyTexfix();
+            Program.MyFactory.applyTexfix();
         }
 
         private void launchButton_Click(object sender, EventArgs e)
         {
-            Program.myFactory.writeGraphFile();
+            if (ChangedConfig)
+            {
+                Program.MyFactory.writeGraphFile();
+            }
+            else
+            {
+                logger.Info("No configuration changes made.");
+            }
             launchButton.Enabled = false;
 
             using (Process launchBmGame = new Process())
@@ -31,6 +45,9 @@ namespace BmLauncherWForm
                 launchBmGame.StartInfo.FileName = "ShippingPC-BmGame.exe";
                 launchBmGame.StartInfo.CreateNoWindow = true;
                 launchBmGame.Start();
+                logger.Info("Launching game application. Logging has concluded at {0}, on {1}.",
+                    DateTime.Now.ToString("hh:mm:ss", new CultureInfo("de-DE")), DateTime.Now.ToString("D"));
+                LogManager.Flush();
                 Application.Exit();
             }
         }
@@ -42,153 +59,187 @@ namespace BmLauncherWForm
 
         private void keyButton_Click(object sender, EventArgs e)
         {
-            Program.myFactory.keybinds.ShowDialog();
+            Program.MyFactory.Keybinds.ShowDialog();
         }
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            Program.myFactory.writeGraphFile();
+            Program.MyFactory.writeGraphFile();
             applyButton.Enabled = false;
+            ChangedConfig = false;
         }
 
         private void nvBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (nvBox.Checked)
-            {
-                aoBox.Enabled = false;
-            }
-            else
-            {
-                aoBox.Enabled = true;
-            }
-
+            aoBox.Enabled = !nvBox.Checked;
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void fullscreenBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void resBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void vsyncBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void detailBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void ultraButton_Click(object sender, EventArgs e)
         {
             Presets.setUltra();
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void optiButton_Click(object sender, EventArgs e)
         {
             Presets.setOptimized();
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void aaBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void fogBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void bloomBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void lensFlareBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void dofBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void distBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void mBlurBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void memPoolBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void anisoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void sphericBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void aoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void dShadowBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void texelBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void maxShadowBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void physxBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!firstLaunch)
+            {
+                firstLaunch = true;
+                return;
+            }
+
+            if (physxBox.SelectedIndex == 2 && !readWarning)
+            {
+                MessageBox.Show(
+                    "Changing your PhysX settings to \'High\' will result in\r\nhuge frame drops for certain" +
+                    " sections of the game.\r\nIt is recommended to select \'Medium\' settings.", @"PhysX Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                readWarning = true;
+            }
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void disableIntroButton_Click(object sender, EventArgs e)
         {
-            Program.myFactory.applyIntroFix();
+            ChangedConfig = true;
+            Program.MyFactory.applyIntroFix();
         }
 
         private void maxSmoothTextBox_TextChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void langBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
 
         private void frameCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            ChangedConfig = true;
             applyButton.Enabled = true;
         }
     }

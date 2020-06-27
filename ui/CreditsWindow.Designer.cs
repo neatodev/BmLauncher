@@ -1,11 +1,14 @@
-﻿namespace BmLauncherWForm
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace BmLauncherWForm.ui
 {
     partial class CreditsWindow
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -170,6 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(204, 175);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -196,16 +200,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label rockCred;
-        private System.Windows.Forms.GroupBox credBox;
-        private System.Windows.Forms.LinkLabel everLabel;
-        private System.Windows.Forms.LinkLabel gpLabel;
-        private System.Windows.Forms.Label collabLabel;
-        private System.Windows.Forms.LinkLabel frofooLabel;
-        private System.Windows.Forms.Label writtenLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private Label rockCred;
+        private GroupBox credBox;
+        private LinkLabel everLabel;
+        private LinkLabel gpLabel;
+        private Label collabLabel;
+        private LinkLabel frofooLabel;
+        private Label writtenLabel;
+        private GroupBox groupBox1;
+        private LinkLabel linkLabel1;
+        private GroupBox groupBox2;
+        private LinkLabel linkLabel2;
     }
 }

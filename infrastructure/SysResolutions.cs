@@ -1,27 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using NLog;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.infrastructure
 {
     /// <summary>
     ///     Premade class with slight additions, originally taken off StackOverflow.
     ///     Used to collect available System Resolutions from user.
     /// </summary>
-    static class SysResolutions
+    internal class SysResolutions
     {
-        public static List<string> resolutionList;
+        // logger for easy debugging
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
+        // string list to store resolution values
+        public static List<string> ResolutionList;
 
         [DllImport("user32.dll")]
         public static extern bool EnumDisplaySettings(
             string deviceName, int modeNum, ref DEVMODE devMode);
 
+        public SysResolutions()
+        {
+            logger = LogManager.GetCurrentClassLogger();
+        }
+
         /// <summary>
         ///     Getter for user resolutions.
         ///     Called by Program upon application start.
         /// </summary>
-        public static void getResolutions()
+        public void getResolutions()
         {
             List<string> tempList = new List<string>();
             DEVMODE vDevMode = new DEVMODE();
@@ -32,14 +42,15 @@ namespace BmLauncherWForm
                 i++;
             }
 
-            resolutionList = tempList.Distinct().ToList();
+            ResolutionList = tempList.Distinct().ToList();
+            logger.Debug("getResolutions - found a total of {0} available resolutions.", ResolutionList.Count);
         }
 
         [StructLayout(LayoutKind.Sequential)]
         public struct DEVMODE
         {
-            private const int CCHDEVICENAME = 0x20;
-            private const int CCHFORMNAME = 0x20;
+            private const int Cchdevicename = 0x20;
+            private const int Cchformname = 0x20;
 
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 0x20)]
             public string dmDeviceName;

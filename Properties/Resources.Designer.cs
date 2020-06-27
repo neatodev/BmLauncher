@@ -22,7 +22,7 @@ namespace BmLauncherWForm.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace BmLauncherWForm.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BmLauncherWForm.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace BmLauncherWForm.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -69,7 +69,7 @@ namespace BmLauncherWForm.Properties {
         ///
         ///.
         /// </summary>
-        internal static string BmCamera {
+        public static string BmCamera {
             get {
                 return ResourceManager.GetString("BmCamera", resourceCulture);
             }
@@ -110,7 +110,7 @@ namespace BmLauncherWForm.Properties {
         ///VendorMobileTag=Go
         ///0x014F [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BmCompat {
+        public static string BmCompat {
             get {
                 return ResourceManager.GetString("BmCompat", resourceCulture);
             }
@@ -129,7 +129,7 @@ namespace BmLauncherWForm.Properties {
         ///Bindings=(Key=&quot;F&quot;,SeqObjClassName=&quot;Engine.SeqVar_Float&quot;)
         ///Bindings=(Key=&quot;F&quot;,bControl=true,SeqObjClassName=&quot;Engine.SeqCond_ [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BmEditor {
+        public static string BmEditor {
             get {
                 return ResourceManager.GetString("BmEditor", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace BmLauncherWForm.Properties {
         ///FloatingFrame_DockingContainer=64,33,940,1076,0
         ///Dl [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BmEditorUserSettings {
+        public static string BmEditorUserSettings {
             get {
                 return ResourceManager.GetString("BmEditorUserSettings", resourceCulture);
             }
@@ -183,7 +183,7 @@ namespace BmLauncherWForm.Properties {
         ///StorageDeviceManagerClassName=Engine.StorageDeviceManager
         ///La [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BmEngine {
+        public static string BmEngine {
             get {
                 return ResourceManager.GetString("BmEngine", resourceCulture);
             }
@@ -218,7 +218,7 @@ namespace BmLauncherWForm.Properties {
         ///Name=Player
         ///t [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BmGame {
+        public static string BmGame {
             get {
                 return ResourceManager.GetString("BmGame", resourceCulture);
             }
@@ -239,7 +239,7 @@ namespace BmLauncherWForm.Properties {
         ///Bindings=(Name=&quot;MoveBackward&quot;,Command=&quot;Axis aBaseY Speed=-1.0&quot;)
         ///Bindings=(Name=&quot;TurnLeft&quot;,Command=&quot;Axis aBaseX S [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BmInput {
+        public static string BmInput {
             get {
                 return ResourceManager.GetString("BmInput", resourceCulture);
             }
@@ -266,7 +266,7 @@ namespace BmLauncherWForm.Properties {
         ///UISoundCueNames=ListSubmit
         ///UISoundCue [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BmUI {
+        public static string BmUI {
             get {
                 return ResourceManager.GetString("BmUI", resourceCulture);
             }
@@ -275,7 +275,7 @@ namespace BmLauncherWForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon favicon {
+        public static System.Drawing.Icon favicon {
             get {
                 object obj = ResourceManager.GetObject("favicon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
@@ -285,7 +285,7 @@ namespace BmLauncherWForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LauncherStart1 {
+        public static System.Drawing.Bitmap LauncherStart1 {
             get {
                 object obj = ResourceManager.GetObject("LauncherStart1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -295,7 +295,7 @@ namespace BmLauncherWForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] NvAPIWrapper {
+        public static byte[] NvAPIWrapper {
             get {
                 object obj = ResourceManager.GetObject("NvAPIWrapper", resourceCulture);
                 return ((byte[])(obj));
@@ -305,17 +305,13 @@ namespace BmLauncherWForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] NVSetter {
+        public static byte[] NVSetter {
             get {
                 object obj = ResourceManager.GetObject("NVSetter", resourceCulture);
                 return ((byte[])(obj));
             }
         }
-        public static byte[] getNVSetter()
-        {
-            return NVSetter;
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to [Configuration]
         ///BasedOn=..\BmGame\Config\DefaultEngine.ini
@@ -347,7 +343,7 @@ namespace BmLauncherWForm.Properties {
         ///bOnScreenKismetWarnings=FALSE
         ///bSubtitl [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string UserEngine {
+        public static string UserEngine {
             get {
                 return ResourceManager.GetString("UserEngine", resourceCulture);
             }
@@ -372,7 +368,7 @@ namespace BmLauncherWForm.Properties {
         ///.CI_KeyboardMap=&quot;Tab&quot;		;CI_Map
         ///.CI_KeyboardM [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string UserGame {
+        public static string UserGame {
             get {
                 return ResourceManager.GetString("UserGame", resourceCulture);
             }
@@ -387,7 +383,7 @@ namespace BmLauncherWForm.Properties {
         ///.Bindings=(Name=&quot;W&quot;,Command=&quot;MoveForward | DebugMenuUpPressed | OnRelease DebugMenuUpReleased | Axis aRawLHJoyUp Speed=1.0&quot;, Shift=false, Control=false, Alt=false, bIgnoreShift=false, bIgnoreCtrl=false, bIgnoreAlt=false):META:COM_FORWARD,0,-1,-1,&quot;&quot;,false,false,CI_Movement,CI_LeftStick,CI_LeftStickUp
         ///.Bindings=(Name=&quot;S&quot;,Command=&quot;MoveBackward | DebugMenuDownPressed | OnRelease DebugMenuDownReleased | Axis aRaw [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string UserInput {
+        public static string UserInput {
             get {
                 return ResourceManager.GetString("UserInput", resourceCulture);
             }

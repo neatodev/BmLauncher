@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.ui
 {
     /// <summary>
     ///     Small class for reading button/mouse input
@@ -10,7 +10,7 @@ namespace BmLauncherWForm
     public partial class inputForm : Form
     {
         // keys that are banned from being read. Most of them would break UserInput.ini
-        readonly string[] bannedKeys =
+        private readonly string[] _bannedKeys =
         {
             "OEM8", "LWIN", "RWIN", "OEM7", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8", "D9", "D0", "SCROLL",
             "OEM1", "OEMTILDE", "OEM7", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12",
@@ -20,10 +20,10 @@ namespace BmLauncherWForm
         };
 
         // currently selected button
-        readonly Button currentButton;
+        private readonly Button _currentButton;
 
         // list of input keys that need to be corrected
-        readonly string[] inputWrong =
+        private readonly string[] _inputWrong =
         {
             "OEM5", "OEMOPENBRACKETS", "OEM6", "OEMQUESTION", "OEMMINUS", "OEMPLUS", "OEMCOMMA", "OEMPERIOD",
             "CAPITAL", "Left", "Right", "Middle", "SPACE", "LEFT", "RIGHT", "UP", "DOWN", "XButton1", "XButton2",
@@ -31,7 +31,7 @@ namespace BmLauncherWForm
         };
 
         // list of corrected keys
-        readonly string[] outputRight =
+        private readonly string[] _outputRight =
         {
             "Backslash", "LeftBracket", "RightBracket", "Slash", "Underscore", "Equals", "Comma", "Period",
             "CapsLock", "LeftMouseButton", "RightMouseButton", "MiddleMouseButton", "SpaceBar", "Left", "Right",
@@ -39,8 +39,7 @@ namespace BmLauncherWForm
         };
 
         // key input as string value
-        private string keyPressed;
-
+        private string _keyPressed;
 
         /// <summary>
         ///     Constructor for inputForm.
@@ -48,7 +47,7 @@ namespace BmLauncherWForm
         /// <param name="bt">current button</param>
         public inputForm(Button bt)
         {
-            currentButton = bt;
+            _currentButton = bt;
             InitializeComponent();
             modifierBox.SelectedIndex = 0;
             inputButton.MouseWheel += get_mwinput;
@@ -65,23 +64,23 @@ namespace BmLauncherWForm
         /// </summary>
         private void setInput()
         {
-            foreach (string line in bannedKeys)
+            foreach (string line in _bannedKeys)
             {
-                if (keyPressed.Equals(line))
+                if (_keyPressed.Equals(line))
                 {
-                    MessageBox.Show("Key not valid", "Not a valid input!");
+                    MessageBox.Show(@"Key not valid", @"Not a valid input!");
                     return;
                 }
             }
 
-            keyPressed = compareKeys(keyPressed);
-            keyPressed = setModifiers(keyPressed, modifierBox.SelectedIndex);
-            detectDuplicate(keyPressed);
-            foreach (Button bt in Program.myFactory.keybinds.buttonList)
+            _keyPressed = compareKeys(_keyPressed);
+            _keyPressed = setModifiers(_keyPressed, modifierBox.SelectedIndex);
+            detectDuplicate(_keyPressed);
+            foreach (Button bt in Program.MyFactory.Keybinds.ButtonList)
             {
-                if (currentButton.Name.Equals(bt.Name))
+                if (_currentButton.Name.Equals(bt.Name))
                 {
-                    bt.Text = keyPressed;
+                    bt.Text = _keyPressed;
                     bt.ForeColor = Color.Black;
                 }
             }
@@ -96,11 +95,11 @@ namespace BmLauncherWForm
         /// <returns>Corrected string</returns>
         private string compareKeys(string lineToCheck)
         {
-            for (int i = 0; i < inputWrong.Length; i++)
+            for (int i = 0; i < _inputWrong.Length; i++)
             {
-                if (lineToCheck.Equals(inputWrong[i]))
+                if (lineToCheck.Equals(_inputWrong[i]))
                 {
-                    lineToCheck = outputRight[i];
+                    lineToCheck = _outputRight[i];
                     Console.WriteLine(lineToCheck);
                     return lineToCheck;
                 }
@@ -116,11 +115,11 @@ namespace BmLauncherWForm
         /// <param name="lineToCheck">Line to check</param>
         private void detectDuplicate(string lineToCheck)
         {
-            foreach (Button bt in Program.myFactory.keybinds.buttonList)
+            foreach (Button bt in Program.MyFactory.Keybinds.ButtonList)
             {
                 if (bt.Text.Equals(lineToCheck))
                 {
-                    bt.Text = "Unbound";
+                    bt.Text = @"Unbound";
                     bt.ForeColor = Color.Red;
                 }
             }
@@ -171,9 +170,9 @@ namespace BmLauncherWForm
         /// <param name="e">input</param>
         private void inputButton_KeyDown(object sender, KeyEventArgs e)
         {
-            keyPressed = e.KeyCode.ToString().ToUpper();
+            _keyPressed = e.KeyCode.ToString().ToUpper();
 
-            if (keyPressed.Contains("ESCAPE"))
+            if (_keyPressed.Contains("ESCAPE"))
             {
                 this.Close();
             }
@@ -190,14 +189,7 @@ namespace BmLauncherWForm
         /// <param name="e"></param>
         private void get_mwinput(object sender, MouseEventArgs e)
         {
-            if (e.Delta > 0)
-            {
-                keyPressed = "MouseScrollUp";
-            }
-            else
-            {
-                keyPressed = "MouseScrollDown";
-            }
+            _keyPressed = e.Delta > 0 ? "MouseScrollUp" : "MouseScrollDown";
 
             setInput();
         }
@@ -210,7 +202,7 @@ namespace BmLauncherWForm
         private void inputButton_MouseDown(object sender, MouseEventArgs e)
         {
             Console.WriteLine(e);
-            keyPressed = e.Button.ToString();
+            _keyPressed = e.Button.ToString();
             setInput();
         }
     }

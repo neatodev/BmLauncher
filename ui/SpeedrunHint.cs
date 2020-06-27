@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows.Forms;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.ui
 {
     public partial class SpeedrunHint : Form
     {

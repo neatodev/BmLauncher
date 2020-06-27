@@ -1,42 +1,46 @@
-﻿using System;
+﻿using BmLauncherWForm.data;
+using BmLauncherWForm.infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BmLauncherWForm
+namespace BmLauncherWForm.ui
 {
     /**
      * Keybind editor class that uses buttons as inputreaders.
      */
+
     public partial class KeybindForm : Form
     {
-        public List<Button> buttonList = new List<Button>();
+        public List<Button> ButtonList = new List<Button>();
 
         /**
          * constructor for the KeybindForm that adds all the button to a static list
          */
+
         public KeybindForm()
         {
             InitializeComponent();
-            buttonList.Add(fwButton);
-            buttonList.Add(bwButton);
-            buttonList.Add(leftButton);
-            buttonList.Add(rightButton);
-            buttonList.Add(crouchButton);
-            buttonList.Add(zoomButton);
-            buttonList.Add(grappleButton);
-            buttonList.Add(crouchToggleButton);
-            buttonList.Add(RGUButton);
-            buttonList.Add(quickBatButton);
-            buttonList.Add(quickClawButton);
-            buttonList.Add(throwButton);
-            buttonList.Add(cTakedownButton);
-            buttonList.Add(gadSecButton);
-            buttonList.Add(detButton);
-            buttonList.Add(gadStrikeButton);
-            buttonList.Add(ACTButton);
-            buttonList.Add(capeStunButton);
+            ButtonList.Add(fwButton);
+            ButtonList.Add(bwButton);
+            ButtonList.Add(leftButton);
+            ButtonList.Add(rightButton);
+            ButtonList.Add(crouchButton);
+            ButtonList.Add(zoomButton);
+            ButtonList.Add(grappleButton);
+            ButtonList.Add(crouchToggleButton);
+            ButtonList.Add(RGUButton);
+            ButtonList.Add(quickBatButton);
+            ButtonList.Add(quickClawButton);
+            ButtonList.Add(throwButton);
+            ButtonList.Add(cTakedownButton);
+            ButtonList.Add(gadSecButton);
+            ButtonList.Add(detButton);
+            ButtonList.Add(gadStrikeButton);
+            ButtonList.Add(ACTButton);
+            ButtonList.Add(capeStunButton);
             applyKeyButton.Enabled = false;
         }
 
@@ -48,15 +52,15 @@ namespace BmLauncherWForm
 
         private void applyKeyButton_Click(object sender, EventArgs e)
         {
-            bool inputsOK = KeybindInterpreter.validateInput();
-            if (inputsOK)
+            bool inputsOk = KeybindInterpreter.validateInput();
+            if (inputsOk)
             {
-                Program.myFactory.writeInputFile();
+                Program.MyFactory.writeInputFile();
                 applyKeyButton.Enabled = false;
             }
             else
             {
-                MessageBox.Show("All keys have to be bound!", "Unbound Key found", MessageBoxButtons.OK,
+                MessageBox.Show(@"All keys have to be bound!", @"Unbound Key found", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
         }
@@ -170,10 +174,10 @@ namespace BmLauncherWForm
 
         private void resetButton_Click(object sender, EventArgs e)
         {
-            File.Delete(Factory.inputFile);
-            Factory.inputList.Clear();
-            Program.myFactory.readInputFile();
-            foreach (Button bt in buttonList)
+            File.Delete(Factory.InputFile);
+            Factory.InputList.Clear();
+            Program.MyFactory.readInputFile();
+            foreach (Button bt in ButtonList)
             {
                 bt.ForeColor = Color.Black;
             }
