@@ -30,7 +30,7 @@ namespace BmLauncherWForm
 
         public static NvidiaWorker NvWorker;
 
-        private static readonly string CurrentTime = DateTime.Now.ToString("dd-MM-yy__h-mm-ss");
+        private static readonly string CurrentTime = DateTime.Now.ToString("dd-MM-yy__hh-mm-ss");
 
         // Mutex with this applications GUID as name
         private static readonly Mutex Mutex = new Mutex(true, "{cbb275f6-724f-4e82-a403-e333dcf6c0bf}");

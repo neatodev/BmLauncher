@@ -4,6 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Forms;
+using BmLauncherWForm.infrastructure;
 
 namespace BmLauncherWForm.ui
 {
@@ -42,11 +43,12 @@ namespace BmLauncherWForm.ui
 
             using (Process launchBmGame = new Process())
             {
+                Factory.InputFileInfo.IsReadOnly = true;
                 launchBmGame.StartInfo.FileName = "ShippingPC-BmGame.exe";
                 launchBmGame.StartInfo.CreateNoWindow = true;
                 launchBmGame.Start();
                 logger.Info("Launching game application. Logging has concluded at {0}, on {1}.",
-                    DateTime.Now.ToString("hh:mm:ss", new CultureInfo("de-DE")), DateTime.Now.ToString("D"));
+                    DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
                 LogManager.Flush();
                 Application.Exit();
             }

@@ -50,6 +50,8 @@ namespace BmLauncherWForm.infrastructure
         // FileInfo used to control the readonly properties of the UserEngine file
         private static readonly FileInfo UserEngineInfo = new FileInfo(UserEngineFile);
 
+        public static readonly FileInfo InputFileInfo = new FileInfo(InputFile);
+
         // contains all lines (as strings) of the BmEngine file
         private static readonly List<string> ConfigList = new List<string>();
 
@@ -256,6 +258,8 @@ namespace BmLauncherWForm.infrastructure
                 logger.Debug("readInputFile - generated UserInput at: {0}", InputFile);
             }
 
+            InputFileInfo.IsReadOnly = false;
+
             string[] inputLines = File.ReadAllLines(InputFile);
 
             // if-condition only relevant if UserInput was not created by the Launcher. Will overwrite existing file
@@ -280,6 +284,7 @@ namespace BmLauncherWForm.infrastructure
                     kInterpreter.interpretKeys(inputLines[i], true);
                 }
             }
+
             logger.Info("readInputFile - processed UserInput.");
         }
 
