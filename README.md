@@ -48,7 +48,7 @@ This is my first programming project using C#. I created it in a very short time
 ## License
 
 This work is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International][cc-by].
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by].
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
