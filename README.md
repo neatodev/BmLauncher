@@ -44,3 +44,13 @@ To file a bug report, or if you have suggestions for the Launcher in general, pl
 ## About this Project
 
 This is my first programming project using C#. I created it in a very short timespan and only incrementally patched up issues. So for any fellow programmer looking through the source code, expect some messy implementations and the occasional disregard for C# Code Conventions. I have cleaned up the code quite a bit, it's not perfect yet, but as it stands it works just fine and I am occupied with other projects. Please keep this in mind.
+
+## License
+
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International][cc-by].
+
+[![CC BY 4.0][cc-by-shield]][cc-by]
+
+[cc-by]: https://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-shield]: https://licensebuttons.net/l/by-nc-sa/4.0/80x15.png
