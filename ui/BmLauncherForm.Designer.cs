@@ -65,6 +65,7 @@ namespace BmLauncherWForm.ui
             this.graphicsBox = new System.Windows.Forms.GroupBox();
             this.frameCheckBox = new System.Windows.Forms.CheckBox();
             this.miscBox = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -544,25 +545,37 @@ namespace BmLauncherWForm.ui
             // 
             // miscBox
             // 
+            this.miscBox.Controls.Add(this.label5);
             this.miscBox.Controls.Add(this.label3);
             this.miscBox.Controls.Add(this.label2);
             this.miscBox.Controls.Add(this.label1);
             this.miscBox.Controls.Add(this.fov2);
             this.miscBox.Controls.Add(this.fov1);
-            this.miscBox.Location = new System.Drawing.Point(211, 195);
+            this.miscBox.Location = new System.Drawing.Point(211, 185);
             this.miscBox.Name = "miscBox";
-            this.miscBox.Size = new System.Drawing.Size(101, 76);
+            this.miscBox.Size = new System.Drawing.Size(101, 86);
             this.miscBox.TabIndex = 50;
             this.miscBox.TabStop = false;
             this.miscBox.Text = "Miscellaneous";
-            this.basicToolTip.SetToolTip(this.miscBox, "Enable/Disable HUD/User Interface with the F4 key.\r\n\r\nChange Field of View settin" +
-        "gs according to F5-8 keys.");
+            this.basicToolTip.SetToolTip(this.miscBox, "Open the Developer Console (In-Game) with the F3 key.\r\n\r\nEnable/Disable HUD/User " +
+        "Interface with the F3 key.\r\n\r\nChange Field of View settings according to F5-8 ke" +
+        "ys.\r\n");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(6, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "F2 - Open Console";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(6, 14);
+            this.label3.Location = new System.Drawing.Point(6, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 4;
@@ -572,7 +585,7 @@ namespace BmLauncherWForm.ui
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(6, 61);
+            this.label2.Location = new System.Drawing.Point(6, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 3;
@@ -582,7 +595,7 @@ namespace BmLauncherWForm.ui
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(6, 50);
+            this.label1.Location = new System.Drawing.Point(6, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 2;
@@ -592,7 +605,7 @@ namespace BmLauncherWForm.ui
             // 
             this.fov2.AutoSize = true;
             this.fov2.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
-            this.fov2.Location = new System.Drawing.Point(6, 39);
+            this.fov2.Location = new System.Drawing.Point(6, 48);
             this.fov2.Name = "fov2";
             this.fov2.Size = new System.Drawing.Size(61, 13);
             this.fov2.TabIndex = 1;
@@ -602,7 +615,7 @@ namespace BmLauncherWForm.ui
             // 
             this.fov1.AutoSize = true;
             this.fov1.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
-            this.fov1.Location = new System.Drawing.Point(6, 27);
+            this.fov1.Location = new System.Drawing.Point(6, 37);
             this.fov1.Name = "fov1";
             this.fov1.Size = new System.Drawing.Size(79, 13);
             this.fov1.TabIndex = 0;
@@ -942,6 +955,7 @@ namespace BmLauncherWForm.ui
             this.launchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.launchButton.Location = new System.Drawing.Point(19, 512);
             this.launchButton.Name = "launchButton";
+            this.launchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.launchButton.Size = new System.Drawing.Size(489, 53);
             this.launchButton.TabIndex = 36;
             this.launchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -1109,6 +1123,7 @@ namespace BmLauncherWForm.ui
         private Label langLabel;
         public CheckBox frameCheckBox;
         private ToolTip criticalTooltip;
+        private Label label5;
     }
 }
 
