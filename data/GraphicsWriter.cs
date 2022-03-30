@@ -191,7 +191,9 @@ namespace BmLauncherWForm.data
             }
             else
             {
-                Graphics.setMaxSmoothedFramerate(Program.Client.maxSmoothTextBox.Text.Trim() + ".000000");
+                int framecap = Int32.Parse(Program.Client.maxSmoothTextBox.Text.Trim());
+                framecap = framecap + 2;
+                Graphics.setMaxSmoothedFramerate(framecap.ToString() + ".000000");
             }
             logger.Debug("setMaxSmoothedFrames - set max smoothed frames to {0}", Graphics.getMaxSmoothedFramerate());
         }

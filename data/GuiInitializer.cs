@@ -235,9 +235,11 @@ namespace BmLauncherWForm.data
 
         private static void initMaxSmoothedFrames()
         {
-            Program.Client.maxSmoothTextBox.Text = Graphics.getMaxSmoothedFramerate()
-                .Substring(0, Graphics.getMaxSmoothedFramerate().LastIndexOf("."));
-            logger.Debug("initLang - initialized max smoothed frames as {0}", Graphics.getMaxSmoothedFramerate());
+            int framecap = Int32.Parse(Graphics.getMaxSmoothedFramerate()
+                .Substring(0, Graphics.getMaxSmoothedFramerate().LastIndexOf(".")));
+            framecap = framecap - 2;
+            Program.Client.maxSmoothTextBox.Text = framecap.ToString();
+            logger.Debug("initLang - initialized framerate cap as {0}", Graphics.getMaxSmoothedFramerate());
         }
 
         private static void initMemoryPoolsValue()

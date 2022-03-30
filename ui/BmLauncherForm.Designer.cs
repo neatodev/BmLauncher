@@ -267,11 +267,11 @@ namespace BmLauncherWForm.ui
             // maxSmoothTextBox
             // 
             this.maxSmoothTextBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.maxSmoothTextBox.Location = new System.Drawing.Point(163, 72);
+            this.maxSmoothTextBox.Location = new System.Drawing.Point(146, 72);
             this.maxSmoothTextBox.Mask = "000";
             this.maxSmoothTextBox.Name = "maxSmoothTextBox";
             this.maxSmoothTextBox.PromptChar = ' ';
-            this.maxSmoothTextBox.Size = new System.Drawing.Size(42, 23);
+            this.maxSmoothTextBox.Size = new System.Drawing.Size(59, 23);
             this.maxSmoothTextBox.TabIndex = 35;
             this.maxSmoothTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maxSmoothTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
@@ -282,9 +282,9 @@ namespace BmLauncherWForm.ui
             this.smoothFrameLabel.AutoSize = true;
             this.smoothFrameLabel.Location = new System.Drawing.Point(6, 76);
             this.smoothFrameLabel.Name = "smoothFrameLabel";
-            this.smoothFrameLabel.Size = new System.Drawing.Size(158, 15);
+            this.smoothFrameLabel.Size = new System.Drawing.Size(92, 15);
             this.smoothFrameLabel.TabIndex = 34;
-            this.smoothFrameLabel.Text = "Max. Smoothed Framerate:";
+            this.smoothFrameLabel.Text = "Framerate Cap:";
             this.basicToolTip.SetToolTip(this.smoothFrameLabel, resources.GetString("smoothFrameLabel.ToolTip"));
             // 
             // aaBox
