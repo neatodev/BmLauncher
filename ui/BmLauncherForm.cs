@@ -43,12 +43,24 @@ namespace BmLauncherWForm.ui
 
             using (Process launchBmGame = new Process())
             {
+
                 Factory.InputFileInfo.IsReadOnly = true;
-                launchBmGame.StartInfo.FileName = "ShippingPC-BmGame.exe";
-                launchBmGame.StartInfo.CreateNoWindow = true;
-                launchBmGame.Start();
-                logger.Info("Launching game application. Logging has concluded at {0}, on {1}.",
-                    DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                if (Factory.TexmodDetected)
+                {
+                    launchBmGame.StartInfo.FileName = "texmod_autoload.exe";
+                    launchBmGame.StartInfo.CreateNoWindow = true;
+                    launchBmGame.Start();
+                    logger.Info("Launching Texmod. Logging has concluded at {0}, on {1}.",
+                        DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                }
+                else
+                {
+                    launchBmGame.StartInfo.FileName = "ShippingPC-BmGame.exe";
+                    launchBmGame.StartInfo.CreateNoWindow = true;
+                    launchBmGame.Start();
+                    logger.Info("Launching game application. Logging has concluded at {0}, on {1}.",
+                        DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                }
                 LogManager.Flush();
                 Application.Exit();
             }

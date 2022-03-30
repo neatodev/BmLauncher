@@ -4,6 +4,7 @@ using NLog;
 using NLog.Config;
 using NLog.Targets;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Threading;
@@ -81,12 +82,25 @@ namespace BmLauncherWForm
             LogManager.Configuration = config;
         }
 
+        private static void DetectTexmod()
+        {
+            DirectoryInfo d = new DirectoryInfo(Directory.GetCurrentDirectory());
+            FileInfo[] Files = d.GetFiles("*.exe");
+            foreach (FileInfo f in Files)
+            {
+                if (f.Name == "texmod_autoload.exe") {
+                    Factory.TexmodDetected = true;
+                }
+            }
+        }
+
         public static void RunWindow()
         {
             new SysResolutions().getResolutions();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Client = new BmLauncherForm();
+            DetectTexmod();
             MyFactory = new Factory(Client);
             MyFactory.readFiles();
             Application.Run(Client);

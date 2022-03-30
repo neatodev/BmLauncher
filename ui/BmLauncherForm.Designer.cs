@@ -102,6 +102,7 @@ namespace BmLauncherWForm.ui
             this.amdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.criticalTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.TexmodLabel = new System.Windows.Forms.Label();
             this.displayBox.SuspendLayout();
             this.graphicsBox.SuspendLayout();
             this.miscBox.SuspendLayout();
@@ -793,7 +794,7 @@ namespace BmLauncherWForm.ui
             this.nvBox.AutoSize = true;
             this.nvBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nvBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.nvBox.ForeColor = System.Drawing.Color.Green;
+            this.nvBox.ForeColor = System.Drawing.Color.LimeGreen;
             this.nvBox.Location = new System.Drawing.Point(19, 51);
             this.nvBox.Name = "nvBox";
             this.nvBox.Size = new System.Drawing.Size(142, 19);
@@ -1013,6 +1014,19 @@ namespace BmLauncherWForm.ui
             // 
             this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
             // 
+            // TexmodLabel
+            // 
+            this.TexmodLabel.AutoSize = true;
+            this.TexmodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TexmodLabel.ForeColor = System.Drawing.Color.SteelBlue;
+            this.TexmodLabel.Location = new System.Drawing.Point(305, 567);
+            this.TexmodLabel.Name = "TexmodLabel";
+            this.TexmodLabel.Size = new System.Drawing.Size(109, 13);
+            this.TexmodLabel.TabIndex = 51;
+            this.TexmodLabel.Text = "Texmod detected!";
+            this.basicToolTip.SetToolTip(this.TexmodLabel, "Texmod has been detected.\r\n\r\n\'Start Game\' will now launch the Texmod Autoloader.");
+            this.TexmodLabel.Visible = false;
+            // 
             // BmLauncherForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1020,6 +1034,7 @@ namespace BmLauncherWForm.ui
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(527, 583);
+            this.Controls.Add(this.TexmodLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.disableIntroButton);
             this.Controls.Add(this.keyButton);
@@ -1124,6 +1139,7 @@ namespace BmLauncherWForm.ui
         public CheckBox frameCheckBox;
         private ToolTip criticalTooltip;
         private Label label5;
+        public Label TexmodLabel;
     }
 }
 

@@ -90,6 +90,9 @@ namespace BmLauncherWForm.infrastructure
         // integer used for switch cases by GraphicsInterpreter
         public int LineInt = 21;
 
+        // boolean used to determine whether to launch game normally or via texmod
+        public static bool TexmodDetected = false;
+
         /// <summary>
         ///     Constructor for the Factory class. Initializes the client and GPU name and extracts the NvAPIWrapper for NVIDIA
         ///     GPUs
@@ -101,6 +104,10 @@ namespace BmLauncherWForm.infrastructure
             logger.Info("Constructor - Created Factory");
             setGPUname();
             ExtractWrapper();
+            if (TexmodDetected)
+            {
+                client.TexmodLabel.Visible = true;
+            }
         }
 
         /// <summary>
@@ -315,7 +322,7 @@ namespace BmLauncherWForm.infrastructure
         }
 
         /// <summary>
-        ///     Saves Keybinds to UserInput file. Only interprets the first 56 lines, to allow for customization by the users after
+        ///     Saves Keybinds to UserInput file. Only interprets the first 56 lines, to allow for customization by users after
         ///     that.
         /// </summary>
         public void writeInputFile()
@@ -555,12 +562,7 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         private void ExtractWrapper()
         {
-            if (!client.gpInfoLabel.Text.Contains("NVIDIA"))
-            {
-                return;
-            }
-
-            if (File.Exists("NvAPIWrapper.dll"))
+            if (!client.gpInfoLabel.Text.Contains("NVIDIA") || File.Exists("NvAPIWrapper.dll"))
             {
                 return;
             }
