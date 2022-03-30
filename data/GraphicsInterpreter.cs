@@ -13,9 +13,6 @@ namespace BmLauncherWForm.data
 
         private static bool charCheck;
         private static bool charNormalCheck;
-        private static bool cinemaCheck;
-        private static bool worldHiCheck;
-        private static bool worldNormCheck;
         private static bool poolCheck;
         private static bool introOne;
         private static bool introTwo;
@@ -400,7 +397,7 @@ namespace BmLauncherWForm.data
 
         public static void checkTex(string lineToCheck)
         {
-            if (charCheck && charNormalCheck && cinemaCheck && worldHiCheck && worldNormCheck && poolCheck)
+            if (charCheck && charNormalCheck && poolCheck)
             {
                 Program.MyFactory.texApplied();
                 logger.Info("checkTex - Texture Pack Fix is enabled.");
@@ -417,25 +414,6 @@ namespace BmLauncherWForm.data
                 !charNormalCheck)
             {
                 charNormalCheck = true;
-                return;
-            }
-
-            if (lineToCheck.Equals("TEXTUREGROUP_Cinematic=(MinLODSize=1,MaxLODSize=4096,LODBias=0)") && !cinemaCheck)
-            {
-                cinemaCheck = true;
-                return;
-            }
-
-            if (lineToCheck.Equals("TEXTUREGROUP_World_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)") && !worldHiCheck)
-            {
-                worldHiCheck = true;
-                return;
-            }
-
-            if (lineToCheck.Equals("TEXTUREGROUP_WorldNormalMap_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)") &&
-                !worldNormCheck)
-            {
-                worldNormCheck = true;
                 return;
             }
 

@@ -72,9 +72,7 @@ namespace BmLauncherWForm.infrastructure
         {
             "TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
             "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
-            "TEXTUREGROUP_Cinematic=(MinLODSize=1,MaxLODSize=4096,LODBias=0)",
-            "TEXTUREGROUP_World_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)",
-            "TEXTUREGROUP_WorldNormalMap_Hi=(MinLODSize=256,MaxLODSize=4096,LODBias=0)", "PoolSize=4096"
+            "PoolSize=4096"
         };
 
         // string array containing all lines to disable startup movies
@@ -387,27 +385,9 @@ namespace BmLauncherWForm.infrastructure
                 return lineToCheck;
             }
 
-            if (lineToCheck.Contains("TEXTUREGROUP_Cinematic=(MinLODSize="))
-            {
-                lineToCheck = TexFixLines[2];
-                return lineToCheck;
-            }
-
-            if (lineToCheck.Contains("TEXTUREGROUP_World_Hi=(MinLODSize="))
-            {
-                lineToCheck = TexFixLines[3];
-                return lineToCheck;
-            }
-
-            if (lineToCheck.Contains("TEXTUREGROUP_WorldNormalMap_Hi=(MinLODSize="))
-            {
-                lineToCheck = TexFixLines[4];
-                return lineToCheck;
-            }
-
             if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio"))
             {
-                lineToCheck = TexFixLines[5];
+                lineToCheck = TexFixLines[2];
                 return lineToCheck;
             }
 

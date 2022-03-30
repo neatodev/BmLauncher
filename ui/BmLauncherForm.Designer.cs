@@ -98,11 +98,11 @@ namespace BmLauncherWForm.ui
             this.launchButton = new System.Windows.Forms.Button();
             this.basicToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.disableIntroButton = new System.Windows.Forms.Button();
+            this.TexmodLabel = new System.Windows.Forms.Label();
             this.nvidiaToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.amdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.criticalTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.TexmodLabel = new System.Windows.Forms.Label();
             this.displayBox.SuspendLayout();
             this.graphicsBox.SuspendLayout();
             this.miscBox.SuspendLayout();
@@ -988,6 +988,19 @@ namespace BmLauncherWForm.ui
             this.disableIntroButton.UseVisualStyleBackColor = false;
             this.disableIntroButton.Click += new System.EventHandler(this.disableIntroButton_Click);
             // 
+            // TexmodLabel
+            // 
+            this.TexmodLabel.AutoSize = true;
+            this.TexmodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TexmodLabel.ForeColor = System.Drawing.Color.SteelBlue;
+            this.TexmodLabel.Location = new System.Drawing.Point(305, 567);
+            this.TexmodLabel.Name = "TexmodLabel";
+            this.TexmodLabel.Size = new System.Drawing.Size(109, 13);
+            this.TexmodLabel.TabIndex = 51;
+            this.TexmodLabel.Text = "Texmod detected!";
+            this.basicToolTip.SetToolTip(this.TexmodLabel, "Texmod has been detected.\r\n\r\n\'Start Game\' will now launch the Texmod Autoloader.");
+            this.TexmodLabel.Visible = false;
+            // 
             // nvidiaToolTip
             // 
             this.nvidiaToolTip.Active = false;
@@ -1013,19 +1026,6 @@ namespace BmLauncherWForm.ui
             // criticalTooltip
             // 
             this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
-            // 
-            // TexmodLabel
-            // 
-            this.TexmodLabel.AutoSize = true;
-            this.TexmodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TexmodLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.TexmodLabel.Location = new System.Drawing.Point(305, 567);
-            this.TexmodLabel.Name = "TexmodLabel";
-            this.TexmodLabel.Size = new System.Drawing.Size(109, 13);
-            this.TexmodLabel.TabIndex = 51;
-            this.TexmodLabel.Text = "Texmod detected!";
-            this.basicToolTip.SetToolTip(this.TexmodLabel, "Texmod has been detected.\r\n\r\n\'Start Game\' will now launch the Texmod Autoloader.");
-            this.TexmodLabel.Visible = false;
             // 
             // BmLauncherForm
             // 
