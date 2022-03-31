@@ -256,5 +256,25 @@ namespace BmLauncherWForm.ui
             ChangedConfig = true;
             applyButton.Enabled = true;
         }
+
+        private void ManualModeBtn_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                   "This option removes the 'read-only' flag of the configuration files, allowing for manual edits.\r\n" +
+                   "The launcher will close if you choose this option and any unsaved changes will be lost.\r\n\r\n" +
+                   "Do you wish to continue?", @"Enable Manual Editing",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                Factory.ConfigInfo.IsReadOnly = false;
+                Factory.UserEngineInfo.IsReadOnly = false;
+                logger.Info("Closing launcher and disabling read-only flags. Logging has concluded at {0}, on {1}.",
+                        DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                LogManager.Flush();
+                Application.Exit();
+            }
+        }
     }
 }

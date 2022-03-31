@@ -103,6 +103,7 @@ namespace BmLauncherWForm.ui
             this.amdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.criticalTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.ManualModeBtn = new System.Windows.Forms.Button();
             this.displayBox.SuspendLayout();
             this.graphicsBox.SuspendLayout();
             this.miscBox.SuspendLayout();
@@ -886,9 +887,9 @@ namespace BmLauncherWForm.ui
             this.applyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.applyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.applyButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.applyButton.Location = new System.Drawing.Point(389, 481);
+            this.applyButton.Location = new System.Drawing.Point(414, 481);
             this.applyButton.Name = "applyButton";
-            this.applyButton.Size = new System.Drawing.Size(119, 25);
+            this.applyButton.Size = new System.Drawing.Size(94, 25);
             this.applyButton.TabIndex = 35;
             this.applyButton.Text = "Apply Settings";
             this.applyButton.UseVisualStyleBackColor = false;
@@ -900,9 +901,9 @@ namespace BmLauncherWForm.ui
             this.texgroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.texgroupButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.texgroupButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.texgroupButton.Location = new System.Drawing.Point(19, 481);
+            this.texgroupButton.Location = new System.Drawing.Point(114, 481);
             this.texgroupButton.Name = "texgroupButton";
-            this.texgroupButton.Size = new System.Drawing.Size(188, 25);
+            this.texgroupButton.Size = new System.Drawing.Size(151, 25);
             this.texgroupButton.TabIndex = 37;
             this.texgroupButton.Text = "Apply Texture Pack Fix";
             this.basicToolTip.SetToolTip(this.texgroupButton, "This is only required if you are using the HD Texture Pack.");
@@ -979,11 +980,11 @@ namespace BmLauncherWForm.ui
             this.disableIntroButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.disableIntroButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.disableIntroButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.disableIntroButton.Location = new System.Drawing.Point(213, 481);
+            this.disableIntroButton.Location = new System.Drawing.Point(268, 481);
             this.disableIntroButton.Name = "disableIntroButton";
-            this.disableIntroButton.Size = new System.Drawing.Size(170, 25);
+            this.disableIntroButton.Size = new System.Drawing.Size(143, 25);
             this.disableIntroButton.TabIndex = 49;
-            this.disableIntroButton.Text = "Disable Startup Movies";
+            this.disableIntroButton.Text = "Disable Intro Movies";
             this.basicToolTip.SetToolTip(this.disableIntroButton, "Find intro videos annoying? Click this to jump straight to the main menu.");
             this.disableIntroButton.UseVisualStyleBackColor = false;
             this.disableIntroButton.Click += new System.EventHandler(this.disableIntroButton_Click);
@@ -1027,6 +1028,21 @@ namespace BmLauncherWForm.ui
             // 
             this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
             // 
+            // ManualModeBtn
+            // 
+            this.ManualModeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ManualModeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManualModeBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManualModeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ManualModeBtn.Location = new System.Drawing.Point(19, 481);
+            this.ManualModeBtn.Name = "ManualModeBtn";
+            this.ManualModeBtn.Size = new System.Drawing.Size(92, 25);
+            this.ManualModeBtn.TabIndex = 52;
+            this.ManualModeBtn.Text = "Manual Mode";
+            this.basicToolTip.SetToolTip(this.ManualModeBtn, "This is only required if you are using the HD Texture Pack.");
+            this.ManualModeBtn.UseVisualStyleBackColor = false;
+            this.ManualModeBtn.Click += new System.EventHandler(this.ManualModeBtn_Click);
+            // 
             // BmLauncherForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1034,6 +1050,7 @@ namespace BmLauncherWForm.ui
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(527, 583);
+            this.Controls.Add(this.ManualModeBtn);
             this.Controls.Add(this.TexmodLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.disableIntroButton);
@@ -1140,6 +1157,7 @@ namespace BmLauncherWForm.ui
         private ToolTip criticalTooltip;
         private Label label5;
         public Label TexmodLabel;
+        public Button ManualModeBtn;
     }
 }
 

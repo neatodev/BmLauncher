@@ -45,10 +45,10 @@ namespace BmLauncherWForm.infrastructure
         private GraphicsInterpreter gInterpreter;
 
         // FileInfo used to control the readonly properties of the BmEngine file
-        private static readonly FileInfo ConfigInfo = new FileInfo(ConfigFile);
+        public static readonly FileInfo ConfigInfo = new FileInfo(ConfigFile);
 
         // FileInfo used to control the readonly properties of the UserEngine file
-        private static readonly FileInfo UserEngineInfo = new FileInfo(UserEngineFile);
+        public static readonly FileInfo UserEngineInfo = new FileInfo(UserEngineFile);
 
         public static readonly FileInfo InputFileInfo = new FileInfo(InputFile);
 
@@ -470,7 +470,7 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public void introApplied()
         {
-            client.disableIntroButton.Text = @"Startup Movies disabled!";
+            client.disableIntroButton.Text = @"Intro Movies disabled!";
             client.disableIntroButton.Enabled = false;
         }
 
