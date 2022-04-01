@@ -80,7 +80,7 @@ namespace BmLauncherWForm.data
                     }
                     else
                     {
-                        lineToCheck = "Poolsize=" + Graphics.getMemoryPoolsValue();
+                        lineToCheck = "PoolSize=" + Graphics.getMemoryPoolsValue();
                     }
 
                     Program.MyFactory.LineInt = 1038;
@@ -406,7 +406,7 @@ namespace BmLauncherWForm.data
                 return;
             }
 
-            if ((lineToCheck.Equals("Poolsize=2048") || lineToCheck.Equals("Poolsize=4096") || lineToCheck.Equals("Poolsize=0")) && !poolCheck)
+            if ((lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")) && !poolCheck)
             {
                 poolCheck = true;
             }
