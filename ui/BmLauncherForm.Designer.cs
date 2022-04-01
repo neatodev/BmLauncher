@@ -99,11 +99,11 @@ namespace BmLauncherWForm.ui
             this.basicToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.disableIntroButton = new System.Windows.Forms.Button();
             this.TexmodLabel = new System.Windows.Forms.Label();
+            this.ManualModeBtn = new System.Windows.Forms.Button();
             this.nvidiaToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.amdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.criticalTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.ManualModeBtn = new System.Windows.Forms.Button();
             this.displayBox.SuspendLayout();
             this.graphicsBox.SuspendLayout();
             this.miscBox.SuspendLayout();
@@ -732,7 +732,10 @@ namespace BmLauncherWForm.ui
             this.memPoolBox.FormattingEnabled = true;
             this.memPoolBox.Items.AddRange(new object[] {
             "512 (Default)",
-            "1024"});
+            "1024",
+            "2048",
+            "4096",
+            "Infinite"});
             this.memPoolBox.Location = new System.Drawing.Point(95, 222);
             this.memPoolBox.Name = "memPoolBox";
             this.memPoolBox.Size = new System.Drawing.Size(110, 23);
@@ -744,12 +747,12 @@ namespace BmLauncherWForm.ui
             this.memPoolLabel.AutoSize = true;
             this.memPoolLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memPoolLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.memPoolLabel.Location = new System.Drawing.Point(2, 225);
+            this.memPoolLabel.Location = new System.Drawing.Point(37, 225);
             this.memPoolLabel.Name = "memPoolLabel";
-            this.memPoolLabel.Size = new System.Drawing.Size(90, 15);
+            this.memPoolLabel.Size = new System.Drawing.Size(55, 15);
             this.memPoolLabel.TabIndex = 38;
-            this.memPoolLabel.Text = "Memory Pools:";
-            this.basicToolTip.SetToolTip(this.memPoolLabel, "512 is default and recommended. 1024 might improve texture loading.");
+            this.memPoolLabel.Text = "Poolsize:";
+            this.basicToolTip.SetToolTip(this.memPoolLabel, resources.GetString("memPoolLabel.ToolTip"));
             // 
             // texelBox
             // 
@@ -1002,6 +1005,21 @@ namespace BmLauncherWForm.ui
             this.basicToolTip.SetToolTip(this.TexmodLabel, "Texmod has been detected.\r\n\r\n\'Start Game\' will now launch the Texmod Autoloader.");
             this.TexmodLabel.Visible = false;
             // 
+            // ManualModeBtn
+            // 
+            this.ManualModeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ManualModeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManualModeBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManualModeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ManualModeBtn.Location = new System.Drawing.Point(19, 481);
+            this.ManualModeBtn.Name = "ManualModeBtn";
+            this.ManualModeBtn.Size = new System.Drawing.Size(92, 25);
+            this.ManualModeBtn.TabIndex = 52;
+            this.ManualModeBtn.Text = "Manual Mode";
+            this.basicToolTip.SetToolTip(this.ManualModeBtn, "This is only required if you are using the HD Texture Pack.");
+            this.ManualModeBtn.UseVisualStyleBackColor = false;
+            this.ManualModeBtn.Click += new System.EventHandler(this.ManualModeBtn_Click);
+            // 
             // nvidiaToolTip
             // 
             this.nvidiaToolTip.Active = false;
@@ -1027,21 +1045,6 @@ namespace BmLauncherWForm.ui
             // criticalTooltip
             // 
             this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
-            // 
-            // ManualModeBtn
-            // 
-            this.ManualModeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ManualModeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManualModeBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManualModeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ManualModeBtn.Location = new System.Drawing.Point(19, 481);
-            this.ManualModeBtn.Name = "ManualModeBtn";
-            this.ManualModeBtn.Size = new System.Drawing.Size(92, 25);
-            this.ManualModeBtn.TabIndex = 52;
-            this.ManualModeBtn.Text = "Manual Mode";
-            this.basicToolTip.SetToolTip(this.ManualModeBtn, "This is only required if you are using the HD Texture Pack.");
-            this.ManualModeBtn.UseVisualStyleBackColor = false;
-            this.ManualModeBtn.Click += new System.EventHandler(this.ManualModeBtn_Click);
             // 
             // BmLauncherForm
             // 

@@ -233,7 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\NvAPIWrapper.dll" />
-    <None Include="Resources\NVSetter.exe" />
+    <Content Include="Resources\NVSetter.exe" />
     <None Include="bin\Debug\NvAPIWrapper.dll" />
     <EmbeddedResource Include="bin\Debug\NLog.dll" />
     <None Include="bin\Debug\NLog.xml" />

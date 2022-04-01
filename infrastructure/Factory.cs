@@ -72,7 +72,7 @@ namespace BmLauncherWForm.infrastructure
         {
             "TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
             "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
-            "PoolSize=4096"
+            "PoolSize=2048"
         };
 
         // string array containing all lines to disable startup movies
@@ -361,6 +361,7 @@ namespace BmLauncherWForm.infrastructure
             }
 
             texApplied();
+            client.memPoolBox.SelectedIndex = 2;
             ConfigInfo.IsReadOnly = true;
             logger.Debug("applyTexfix - applied parameter fixes for Texture Pack support to {0}", ConfigFile);
         }

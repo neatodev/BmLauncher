@@ -69,29 +69,18 @@ namespace BmLauncherWForm.data
                         lineToCheck = "MaxSmoothedFrameRate=" + Graphics.getMaxSmoothedFramerate();
                     }
 
-                    Program.MyFactory.LineInt = 1029;
+                    Program.MyFactory.LineInt = 663;
                     return lineToCheck;
 
-                // FLightPrimitiveInteractionInitialBlockSize
-                case 1029:
+                // Poolsize
+                case 663:
                     if (read)
                     {
                         Graphics.setMemoryPoolsValue(lineToCheck.Substring(lineToCheck.LastIndexOf("=") + 1));
                     }
                     else
                     {
-                        lineToCheck = "FLightPrimitiveInteractionInitialBlockSize=" + Graphics.getMemoryPoolsValue();
-                    }
-
-                    Program.MyFactory.LineInt = 1030;
-                    return lineToCheck;
-
-                // FModShadowPrimitiveInteractionInitialBlockSize
-                case 1030:
-                    if (!read)
-                    {
-                        lineToCheck = "FModShadowPrimitiveInteractionInitialBlockSize=" +
-                                      Graphics.getMemoryPoolsValue();
+                        lineToCheck = "Poolsize=" + Graphics.getMemoryPoolsValue();
                     }
 
                     Program.MyFactory.LineInt = 1038;
@@ -417,7 +406,7 @@ namespace BmLauncherWForm.data
                 return;
             }
 
-            if (lineToCheck.Equals("PoolSize=4096") && !poolCheck)
+            if ((lineToCheck.Equals("Poolsize=2048") || lineToCheck.Equals("Poolsize=4096") || lineToCheck.Equals("Poolsize=0")) && !poolCheck)
             {
                 poolCheck = true;
             }

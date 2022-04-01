@@ -278,6 +278,18 @@ namespace BmLauncherWForm.data
                 case 1:
                     Graphics.setMemoryPoolsValue("1024");
                     break;
+
+                case 2:
+                    Graphics.setMemoryPoolsValue("2048");
+                    break;
+
+                case 3:
+                    Graphics.setMemoryPoolsValue("4096");
+                    break;
+
+                case 4:
+                    Graphics.setMemoryPoolsValue("0");
+                    break;
             }
             logger.Debug("setMemoryPools - set memory pools to {0}", Graphics.getMemoryPoolsValue());
         }
