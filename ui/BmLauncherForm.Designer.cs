@@ -104,6 +104,7 @@ namespace BmLauncherWForm.ui
             this.amdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.criticalTooltip = new System.Windows.Forms.ToolTip(this.components);
+            this.rebornButton = new System.Windows.Forms.Button();
             this.displayBox.SuspendLayout();
             this.graphicsBox.SuspendLayout();
             this.miscBox.SuspendLayout();
@@ -752,11 +753,11 @@ namespace BmLauncherWForm.ui
             this.memPoolLabel.AutoSize = true;
             this.memPoolLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.memPoolLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.memPoolLabel.Location = new System.Drawing.Point(37, 225);
+            this.memPoolLabel.Location = new System.Drawing.Point(33, 225);
             this.memPoolLabel.Name = "memPoolLabel";
-            this.memPoolLabel.Size = new System.Drawing.Size(55, 15);
+            this.memPoolLabel.Size = new System.Drawing.Size(59, 15);
             this.memPoolLabel.TabIndex = 38;
-            this.memPoolLabel.Text = "Poolsize:";
+            this.memPoolLabel.Text = "Pool Size:";
             this.basicToolTip.SetToolTip(this.memPoolLabel, resources.GetString("memPoolLabel.ToolTip"));
             // 
             // texelBox
@@ -810,8 +811,8 @@ namespace BmLauncherWForm.ui
             this.nvBox.TabIndex = 48;
             this.nvBox.Text = "Enable NVIDIA HBAO+";
             this.nvidiaToolTip.SetToolTip(this.nvBox, "Higher end ambient occlusion solution for creating realistic shadowing around obj" +
-        "ects. You can choose between this or Reshade AO.\r\n\r\nFullscreen needs to be enabl" +
-        "ed for this setting to work.\r\n");
+        "ects. \r\nYou can choose between this or Reshade AO.\r\n\r\nFullscreen needs to be ena" +
+        "bled for this setting to work.\r\n");
             this.amdToolTip.SetToolTip(this.nvBox, "Nvidia GPU required for HBAO+ as it uses NvAPI");
             this.nvBox.UseVisualStyleBackColor = true;
             this.nvBox.CheckedChanged += new System.EventHandler(this.nvBox_CheckedChanged);
@@ -864,9 +865,9 @@ namespace BmLauncherWForm.ui
             this.ultraButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ultraButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ultraButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ultraButton.Location = new System.Drawing.Point(19, 125);
+            this.ultraButton.Location = new System.Drawing.Point(184, 125);
             this.ultraButton.Name = "ultraButton";
-            this.ultraButton.Size = new System.Drawing.Size(237, 31);
+            this.ultraButton.Size = new System.Drawing.Size(159, 31);
             this.ultraButton.TabIndex = 33;
             this.ultraButton.Text = "Ultra Preset";
             this.basicToolTip.SetToolTip(this.ultraButton, "Highly demanding!");
@@ -879,9 +880,9 @@ namespace BmLauncherWForm.ui
             this.optiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.optiButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optiButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.optiButton.Location = new System.Drawing.Point(271, 125);
+            this.optiButton.Location = new System.Drawing.Point(19, 125);
             this.optiButton.Name = "optiButton";
-            this.optiButton.Size = new System.Drawing.Size(237, 31);
+            this.optiButton.Size = new System.Drawing.Size(159, 31);
             this.optiButton.TabIndex = 34;
             this.optiButton.Text = "Optimized Preset";
             this.basicToolTip.SetToolTip(this.optiButton, "Provides a great experience with reasonable performance.");
@@ -1068,6 +1069,22 @@ namespace BmLauncherWForm.ui
             this.criticalTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
             // 
+            // rebornButton
+            // 
+            this.rebornButton.BackColor = System.Drawing.Color.Transparent;
+            this.rebornButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rebornButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rebornButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rebornButton.Location = new System.Drawing.Point(349, 125);
+            this.rebornButton.Name = "rebornButton";
+            this.rebornButton.Size = new System.Drawing.Size(159, 31);
+            this.rebornButton.TabIndex = 53;
+            this.rebornButton.Text = "Asylum Reborn Preset";
+            this.basicToolTip.SetToolTip(this.rebornButton, "Experience the Asylum anew. Will provide the intended experience but is extremely" +
+        " demanding. \r\n\r\n- This preset is not required to run the HD Texture Pack\r\n");
+            this.rebornButton.UseVisualStyleBackColor = false;
+            this.rebornButton.Click += new System.EventHandler(this.rebornButton_Click);
+            // 
             // BmLauncherForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1075,6 +1092,7 @@ namespace BmLauncherWForm.ui
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(527, 583);
+            this.Controls.Add(this.rebornButton);
             this.Controls.Add(this.ManualModeBtn);
             this.Controls.Add(this.TexmodLabel);
             this.Controls.Add(this.label4);
@@ -1183,6 +1201,7 @@ namespace BmLauncherWForm.ui
         private Label label5;
         public Label TexmodLabel;
         public Button ManualModeBtn;
+        public Button rebornButton;
     }
 }
 

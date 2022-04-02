@@ -294,5 +294,11 @@ namespace BmLauncherWForm.ui
                 Application.Exit();
             }
         }
+
+        private void rebornButton_Click(object sender, EventArgs e)
+        {
+            Presets.setReborn();
+            ChangedConfig = true;
+        }
     }
 }
