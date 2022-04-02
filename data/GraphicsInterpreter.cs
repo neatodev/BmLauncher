@@ -347,21 +347,25 @@ namespace BmLauncherWForm.data
                     }
                     else
                     {
-                        switch (Graphics.getMaxShadowResolution())
+                        switch (Graphics.getShadowTexels())
                         {
-                            case "512":
+                            case "0.012000":
                                 lineToCheck = "ShadowFadeExponent=1.000000";
                                 break;
 
-                            case "1024":
-                                lineToCheck = "ShadowFadeExponent=1.000000";
+                            case "0.008000":
+                                if (Program.Client.texelBox.SelectedIndex == 2)
+                                {
+                                    lineToCheck = "ShadowFadeExponent=2.200000";
+
+                                }
+                                else
+                                {
+                                    lineToCheck = "ShadowFadeExponent=1.000000";
+                                }
                                 break;
 
-                            case "2048":
-                                lineToCheck = "ShadowFadeExponent=1.000000";
-                                break;
-
-                            case "4096":
+                            case "0.003000":
                                 lineToCheck = "ShadowFadeExponent=2.200000";
                                 break;
                         }
@@ -448,26 +452,33 @@ namespace BmLauncherWForm.data
                 case 1098:
                     if (read)
                     {
+                        Graphics.setShadowSlope(lineToCheck.Substring(lineToCheck.LastIndexOf("=") + 1));
                     }
                     else
                     {
-                        switch (Graphics.getMaxShadowResolution())
+                        switch (Graphics.getShadowTexels())
                         {
-                            case "512":
-                                lineToCheck = "ShadowSlopeScaleDepthBias=10.000000";
-                                break;
-
-                            case "1024":
+                            case "0.012000":
                                 lineToCheck = "ShadowSlopeScaleDepthBias=10.0f";
                                 break;
 
-                            case "2048":
-                                lineToCheck = "ShadowSlopeScaleDepthBias=10.0f";
+                            case "0.008000":
+
+                                if (Program.Client.texelBox.SelectedIndex == 2)
+                                {
+                                    lineToCheck = "ShadowSlopeScaleDepthBias=8.0f";
+
+                                }
+                                else
+                                {
+                                    lineToCheck = "ShadowSlopeScaleDepthBias=10.0f";
+                                }
                                 break;
 
-                            case "4096":
+                            case "0.003000":
                                 lineToCheck = "ShadowSlopeScaleDepthBias=5.0f";
                                 break;
+
                         }
                     }
 

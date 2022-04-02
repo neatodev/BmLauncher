@@ -309,6 +309,10 @@ namespace BmLauncherWForm.data
                     break;
 
                 case 2:
+                    Graphics.setShadowTexels("0.008000");
+                    break;
+
+                case 3:
                     Graphics.setShadowTexels("0.002000");
                     break;
             }

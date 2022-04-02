@@ -31,6 +31,7 @@
         private static string physX;
         private static string memoryPoolsValue;
         private static string frameThreadLag;
+        private static string shadowslope;
 
         public static string getLanguage()
         {
@@ -70,6 +71,11 @@
         public static string getMultiSampling()
         {
             return multiSampling;
+        }
+
+        public static string getShadowSlope()
+        {
+            return shadowslope;
         }
 
         public static string isDepthOfField()
@@ -195,6 +201,11 @@
         public static void setDepthOfField(string setBool)
         {
             depthOfField = setBool;
+        }
+
+        public static void setShadowSlope(string slope)
+        {
+            shadowslope = slope;
         }
 
         public static void setAmbientOcclusion(string setBool)

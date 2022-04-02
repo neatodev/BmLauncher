@@ -469,7 +469,7 @@ namespace BmLauncherWForm.ui
             this.maxShadowLabel.AutoSize = true;
             this.maxShadowLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxShadowLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.maxShadowLabel.Location = new System.Drawing.Point(270, 167);
+            this.maxShadowLabel.Location = new System.Drawing.Point(270, 138);
             this.maxShadowLabel.Name = "maxShadowLabel";
             this.maxShadowLabel.Size = new System.Drawing.Size(96, 15);
             this.maxShadowLabel.TabIndex = 30;
@@ -487,7 +487,7 @@ namespace BmLauncherWForm.ui
             "Medium",
             "High",
             "Highest"});
-            this.maxShadowBox.Location = new System.Drawing.Point(369, 164);
+            this.maxShadowBox.Location = new System.Drawing.Point(369, 135);
             this.maxShadowBox.Name = "maxShadowBox";
             this.maxShadowBox.Size = new System.Drawing.Size(110, 23);
             this.maxShadowBox.TabIndex = 31;
@@ -766,8 +766,9 @@ namespace BmLauncherWForm.ui
             this.texelBox.Items.AddRange(new object[] {
             "Default",
             "High",
+            "Higher",
             "Insane"});
-            this.texelBox.Location = new System.Drawing.Point(369, 135);
+            this.texelBox.Location = new System.Drawing.Point(369, 164);
             this.texelBox.Name = "texelBox";
             this.texelBox.Size = new System.Drawing.Size(110, 23);
             this.texelBox.TabIndex = 37;
@@ -778,7 +779,7 @@ namespace BmLauncherWForm.ui
             this.shadowTexelLabel.AutoSize = true;
             this.shadowTexelLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shadowTexelLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.shadowTexelLabel.Location = new System.Drawing.Point(258, 138);
+            this.shadowTexelLabel.Location = new System.Drawing.Point(258, 167);
             this.shadowTexelLabel.Name = "shadowTexelLabel";
             this.shadowTexelLabel.Size = new System.Drawing.Size(108, 15);
             this.shadowTexelLabel.TabIndex = 36;
