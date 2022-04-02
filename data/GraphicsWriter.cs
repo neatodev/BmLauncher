@@ -312,7 +312,7 @@ namespace BmLauncherWForm.data
                     Graphics.setShadowTexels("0.002000");
                     break;
             }
-            logger.Debug("setShadowTexels - set shadow texels to {0}", Graphics.getShadowTexels());
+            logger.Debug("setShadowTexels - set shadow depth bias to {0}", Graphics.getShadowTexels());
         }
 
         private static void setMaxShadowRes()

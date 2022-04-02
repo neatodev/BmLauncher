@@ -764,9 +764,9 @@ namespace BmLauncherWForm.ui
             this.texelBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.texelBox.FormattingEnabled = true;
             this.texelBox.Items.AddRange(new object[] {
-            "0.012000 - Default",
-            "0.008000 - High",
-            "0.002000 - Insane"});
+            "Default",
+            "High",
+            "Insane"});
             this.texelBox.Location = new System.Drawing.Point(369, 135);
             this.texelBox.Name = "texelBox";
             this.texelBox.Size = new System.Drawing.Size(110, 23);

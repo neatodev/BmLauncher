@@ -210,7 +210,7 @@ namespace BmLauncherWForm.data
                     break;
             }
 
-            logger.Debug("initShadowTexels - initialized shadow texels as {0}", Graphics.getShadowTexels());
+            logger.Debug("initShadowTexels - initialized shadow depth bias as {0}", Graphics.getShadowTexels());
         }
 
         private static void initShadowRes()
