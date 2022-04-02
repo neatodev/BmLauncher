@@ -4,7 +4,6 @@ using NLog;
 using NLog.Config;
 using NLog.Targets;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Threading;
@@ -88,7 +87,8 @@ namespace BmLauncherWForm
             FileInfo[] Files = d.GetFiles("*.exe");
             foreach (FileInfo f in Files)
             {
-                if (f.Name == "texmod_autoload.exe") {
+                if (f.Name == "texmod_autoload.exe")
+                {
                     Factory.TexmodDetected = true;
                 }
             }

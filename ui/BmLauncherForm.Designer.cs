@@ -276,6 +276,9 @@ namespace BmLauncherWForm.ui
             this.maxSmoothTextBox.TabIndex = 35;
             this.maxSmoothTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maxSmoothTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.basicToolTip.SetToolTip(this.maxSmoothTextBox, "Increases the quality of shadow rendering, primarily by pushing shadowmap resolut" +
+        "ion. Highest setting will render crisper shadows and increase shadow casting dis" +
+        "tance.");
             this.maxSmoothTextBox.TextChanged += new System.EventHandler(this.maxSmoothTextBox_TextChanged);
             // 
             // smoothFrameLabel
@@ -466,22 +469,24 @@ namespace BmLauncherWForm.ui
             this.maxShadowLabel.AutoSize = true;
             this.maxShadowLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maxShadowLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.maxShadowLabel.Location = new System.Drawing.Point(222, 167);
+            this.maxShadowLabel.Location = new System.Drawing.Point(270, 167);
             this.maxShadowLabel.Name = "maxShadowLabel";
-            this.maxShadowLabel.Size = new System.Drawing.Size(144, 15);
+            this.maxShadowLabel.Size = new System.Drawing.Size(96, 15);
             this.maxShadowLabel.TabIndex = 30;
-            this.maxShadowLabel.Text = "Max. Shadow Resolution:";
-            this.basicToolTip.SetToolTip(this.maxShadowLabel, "Demanding Setting! The higher the value, the less shimmering. Difference becomes " +
-        "negligable above 4096.");
+            this.maxShadowLabel.Text = "Shadow Quality:";
+            this.basicToolTip.SetToolTip(this.maxShadowLabel, "Increases the quality of shadow rendering, primarily by pushing shadowmap resolut" +
+        "ion. \r\nHighest setting will render crisper shadows and increase shadow casting d" +
+        "istance.");
             // 
             // maxShadowBox
             // 
             this.maxShadowBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.maxShadowBox.FormattingEnabled = true;
             this.maxShadowBox.Items.AddRange(new object[] {
-            "1024",
-            "2048",
-            "4096"});
+            "Low",
+            "Medium",
+            "High",
+            "Highest"});
             this.maxShadowBox.Location = new System.Drawing.Point(369, 164);
             this.maxShadowBox.Name = "maxShadowBox";
             this.maxShadowBox.Size = new System.Drawing.Size(110, 23);

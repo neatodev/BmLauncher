@@ -1,10 +1,10 @@
 ﻿using BmLauncherWForm.data;
+using BmLauncherWForm.infrastructure;
 using NLog;
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Windows.Forms;
-using BmLauncherWForm.infrastructure;
 
 namespace BmLauncherWForm.ui
 {
@@ -210,6 +210,24 @@ namespace BmLauncherWForm.ui
         {
             ChangedConfig = true;
             applyButton.Enabled = true;
+
+            switch (maxShadowBox.SelectedIndex)
+            {
+                case 0:
+                    texelBox.Enabled = false;
+                    texelBox.SelectedIndex = 0;
+                    break;
+                case 1:
+                    texelBox.Enabled = false;
+                    texelBox.SelectedIndex = 0;
+                    break;
+                case 2:
+                    texelBox.Enabled = true;
+                    break;
+                case 3:
+                    texelBox.Enabled = true;
+                    break;
+            }
         }
 
         private void physxBox_SelectedIndexChanged(object sender, EventArgs e)

@@ -307,6 +307,66 @@ namespace BmLauncherWForm.data
                         lineToCheck = "MaxShadowResolution=" + Graphics.getMaxShadowResolution();
                     }
 
+                    Program.MyFactory.LineInt = 1083;
+                    return lineToCheck;
+
+                // shadow fade res
+                case 1083:
+                    if (read)
+                    {
+                    }
+                    else
+                    {
+                        switch (Graphics.getMaxShadowResolution())
+                        {
+                            case "512":
+                                lineToCheck = "ShadowFadeResolution=45";
+                                break;
+
+                            case "1024":
+                                lineToCheck = "ShadowFadeResolution=32";
+                                break;
+
+                            case "2048":
+                                lineToCheck = "ShadowFadeResolution=32";
+                                break;
+
+                            case "4096":
+                                lineToCheck = "ShadowFadeResolution=32";
+                                break;
+                        }
+                    }
+
+                    Program.MyFactory.LineInt = 1084;
+                    return lineToCheck;
+
+                // shadow fade exponent
+                case 1084:
+                    if (read)
+                    {
+                    }
+                    else
+                    {
+                        switch (Graphics.getMaxShadowResolution())
+                        {
+                            case "512":
+                                lineToCheck = "ShadowFadeExponent=1.000000";
+                                break;
+
+                            case "1024":
+                                lineToCheck = "ShadowFadeExponent=1.000000";
+                                break;
+
+                            case "2048":
+                                lineToCheck = "ShadowFadeExponent=1.000000";
+                                break;
+
+                            case "4096":
+                                lineToCheck = "ShadowFadeExponent=2.200000";
+                                break;
+                        }
+                    }
+
                     Program.MyFactory.LineInt = 1085;
                     return lineToCheck;
 
@@ -347,7 +407,24 @@ namespace BmLauncherWForm.data
                     }
                     else
                     {
-                        lineToCheck = "ShadowFilterRadius=" + Graphics.getShadowFilterRadius();
+                        switch (Graphics.getMaxShadowResolution())
+                        {
+                            case "512":
+                                lineToCheck = "ShadowFilterRadius=2.000000";
+                                break;
+
+                            case "1024":
+                                lineToCheck = "ShadowFilterRadius=5.000000";
+                                break;
+
+                            case "2048":
+                                lineToCheck = "ShadowFilterRadius=5.000000";
+                                break;
+
+                            case "4096":
+                                lineToCheck = "ShadowFilterRadius=3.000000";
+                                break;
+                        }
                     }
 
                     Program.MyFactory.LineInt = 1097;
@@ -362,6 +439,36 @@ namespace BmLauncherWForm.data
                     else
                     {
                         lineToCheck = "ShadowDepthBias=" + Graphics.getShadowTexels();
+                    }
+
+                    Program.MyFactory.LineInt = 1098;
+                    return lineToCheck;
+
+                // shadow slope scale depth bias
+                case 1098:
+                    if (read)
+                    {
+                    }
+                    else
+                    {
+                        switch (Graphics.getMaxShadowResolution())
+                        {
+                            case "512":
+                                lineToCheck = "ShadowSlopeScaleDepthBias=10.000000";
+                                break;
+
+                            case "1024":
+                                lineToCheck = "ShadowSlopeScaleDepthBias=10.0f";
+                                break;
+
+                            case "2048":
+                                lineToCheck = "ShadowSlopeScaleDepthBias=10.0f";
+                                break;
+
+                            case "4096":
+                                lineToCheck = "ShadowSlopeScaleDepthBias=5.0f";
+                                break;
+                        }
                     }
 
                     Program.MyFactory.LineInt = 1127;

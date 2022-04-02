@@ -217,16 +217,24 @@ namespace BmLauncherWForm.data
         {
             switch (Int16.Parse(Graphics.getMaxShadowResolution()))
             {
-                case 1024:
+                case 512:
                     Program.Client.maxShadowBox.SelectedIndex = 0;
+                    Program.Client.texelBox.SelectedIndex = 0;
+                    Program.Client.texelBox.Enabled = false;
+                    break;
+
+                case 1024:
+                    Program.Client.maxShadowBox.SelectedIndex = 1;
+                    Program.Client.texelBox.SelectedIndex = 0;
+                    Program.Client.texelBox.Enabled = false;
                     break;
 
                 case 2048:
-                    Program.Client.maxShadowBox.SelectedIndex = 1;
+                    Program.Client.maxShadowBox.SelectedIndex = 2;
                     break;
 
                 case 4096:
-                    Program.Client.maxShadowBox.SelectedIndex = 2;
+                    Program.Client.maxShadowBox.SelectedIndex = 3;
                     break;
             }
 

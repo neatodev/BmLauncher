@@ -322,14 +322,18 @@ namespace BmLauncherWForm.data
             switch (caseValue)
             {
                 case 0:
-                    Graphics.setMaxShadowResolution("1024");
+                    Graphics.setMaxShadowResolution("512");
                     break;
 
                 case 1:
-                    Graphics.setMaxShadowResolution("2048");
+                    Graphics.setMaxShadowResolution("1024");
                     break;
 
                 case 2:
+                    Graphics.setMaxShadowResolution("2048");
+                    break;
+
+                case 3:
                     Graphics.setMaxShadowResolution("4096");
                     break;
             }
