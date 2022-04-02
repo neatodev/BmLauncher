@@ -35,6 +35,7 @@
             setCommon();
             Program.Client.aaBox.SelectedIndex = 0;
             Program.Client.maxShadowBox.SelectedIndex = 1;
+            Program.Client.memPoolBox.SelectedIndex = 2;
             Program.Client.texelBox.SelectedIndex = 0;
             Program.Client.physxBox.SelectedIndex = 0;
             if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
