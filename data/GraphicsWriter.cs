@@ -301,15 +301,15 @@ namespace BmLauncherWForm.data
             switch (caseValue)
             {
                 case 0:
-                    Graphics.setShadowTexels("1.273240");
+                    Graphics.setShadowTexels("0.012000");
                     break;
 
                 case 1:
-                    Graphics.setShadowTexels("2.000000");
+                    Graphics.setShadowTexels("0.008000");
                     break;
 
                 case 2:
-                    Graphics.setShadowTexels("4.000000");
+                    Graphics.setShadowTexels("0.002000");
                     break;
             }
             logger.Debug("setShadowTexels - set shadow texels to {0}", Graphics.getShadowTexels());

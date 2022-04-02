@@ -335,22 +335,9 @@ namespace BmLauncherWForm.data
                         lineToCheck = "ResY=" + Graphics.getResolutionY();
                     }
 
-                    Program.MyFactory.LineInt = 1090;
-                    return lineToCheck;
-
-                // shadow texels
-                case 1090:
-                    if (read)
-                    {
-                        Graphics.setShadowTexels(lineToCheck.Substring(lineToCheck.LastIndexOf("=") + 1));
-                    }
-                    else
-                    {
-                        lineToCheck = "ShadowTexelsPerPixel=" + Graphics.getShadowTexels();
-                    }
-
                     Program.MyFactory.LineInt = 1096;
                     return lineToCheck;
+
 
                 // shadow filter radius
                 case 1096:
@@ -361,6 +348,20 @@ namespace BmLauncherWForm.data
                     else
                     {
                         lineToCheck = "ShadowFilterRadius=" + Graphics.getShadowFilterRadius();
+                    }
+
+                    Program.MyFactory.LineInt = 1097;
+                    return lineToCheck;
+
+                // shadow depth bias
+                case 1097:
+                    if (read)
+                    {
+                        Graphics.setShadowTexels(lineToCheck.Substring(lineToCheck.LastIndexOf("=") + 1));
+                    }
+                    else
+                    {
+                        lineToCheck = "ShadowDepthBias=" + Graphics.getShadowTexels();
                     }
 
                     Program.MyFactory.LineInt = 1127;

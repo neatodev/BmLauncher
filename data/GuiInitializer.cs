@@ -195,17 +195,17 @@ namespace BmLauncherWForm.data
 
         private static void initShadowTexels()
         {
-            switch (Int16.Parse(Graphics.getShadowTexels().Substring(0, 1)))
+            switch (Graphics.getShadowTexels())
             {
-                case 1:
+                case "0.012000":
                     Program.Client.texelBox.SelectedIndex = 0;
                     break;
 
-                case 2:
+                case "0.008000":
                     Program.Client.texelBox.SelectedIndex = 1;
                     break;
 
-                case 4:
+                case "0.002000":
                     Program.Client.texelBox.SelectedIndex = 2;
                     break;
             }

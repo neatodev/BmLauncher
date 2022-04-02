@@ -559,7 +559,7 @@ namespace BmLauncherWForm.ui
             this.miscBox.TabIndex = 50;
             this.miscBox.TabStop = false;
             this.miscBox.Text = "Miscellaneous";
-            this.basicToolTip.SetToolTip(this.miscBox, "Open the Developer Console (In-Game) with the F3 key.\r\n\r\nEnable/Disable HUD/User " +
+            this.basicToolTip.SetToolTip(this.miscBox, "Open the Developer Console (In-Game) with the F2 key.\r\n\r\nEnable/Disable HUD/User " +
         "Interface with the F3 key.\r\n\r\nChange Field of View settings according to F5-8 ke" +
         "ys.\r\n");
             // 
@@ -759,9 +759,9 @@ namespace BmLauncherWForm.ui
             this.texelBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.texelBox.FormattingEnabled = true;
             this.texelBox.Items.AddRange(new object[] {
-            "1.273240 (Default)",
-            "2.000000",
-            "4.000000"});
+            "0.012000 - Default",
+            "0.008000 - High",
+            "0.002000 - Insane"});
             this.texelBox.Location = new System.Drawing.Point(369, 135);
             this.texelBox.Name = "texelBox";
             this.texelBox.Size = new System.Drawing.Size(110, 23);
@@ -773,13 +773,12 @@ namespace BmLauncherWForm.ui
             this.shadowTexelLabel.AutoSize = true;
             this.shadowTexelLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shadowTexelLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.shadowTexelLabel.Location = new System.Drawing.Point(225, 138);
+            this.shadowTexelLabel.Location = new System.Drawing.Point(258, 138);
             this.shadowTexelLabel.Name = "shadowTexelLabel";
-            this.shadowTexelLabel.Size = new System.Drawing.Size(141, 15);
+            this.shadowTexelLabel.Size = new System.Drawing.Size(108, 15);
             this.shadowTexelLabel.TabIndex = 36;
-            this.shadowTexelLabel.Text = "Shadow Texels per Pixel:";
-            this.basicToolTip.SetToolTip(this.shadowTexelLabel, "2 is recommended with a Shadow Resolution of 2048. \r\n4 is recommended with a Shad" +
-        "ow Resolution of 4096.");
+            this.shadowTexelLabel.Text = "Shadow Coverage:";
+            this.basicToolTip.SetToolTip(this.shadowTexelLabel, resources.GetString("shadowTexelLabel.ToolTip"));
             // 
             // nvidiaBox
             // 

@@ -140,6 +140,12 @@ to the default value (60).
 
 'Infinite'= Poolsize limit will be removed. Useful for in-game texture dumping and debugging.</value>
   </data>
+  <data name="shadowTexelLabel.ToolTip" xml:space="preserve">
+    <value>Increases self-shadowing amount. Higher shadow quality setting will improve shadow coverage application. 
+
+'High'= May cause some shadow banding artifacts.
+'Insane'= This will render much better shadows on character models, but will result in shadow banding artifacts.</value>
+  </data>
   <metadata name="nvidiaToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>119, 22</value>
   </metadata>
