@@ -840,8 +840,8 @@ namespace BmLauncherWForm.ui
             this.physxLabel.Size = new System.Drawing.Size(43, 15);
             this.physxLabel.TabIndex = 32;
             this.physxLabel.Text = "PhysX:";
-            this.nvidiaToolTip.SetToolTip(this.physxLabel, "Demanding feature!\r\nIt is NOT recommended to go above Medium!\r\nBreakable tiles, r" +
-        "ealistic paper simulation, advanced smoke effects.");
+            this.nvidiaToolTip.SetToolTip(this.physxLabel, "Demanding feature!\r\n\r\nIt is NOT recommended to go above Medium!\r\nBreakable tiles," +
+        " realistic paper simulation, advanced smoke effects.");
             this.amdToolTip.SetToolTip(this.physxLabel, resources.GetString("physxLabel.ToolTip"));
             // 
             // keyButton
@@ -976,10 +976,12 @@ namespace BmLauncherWForm.ui
             // basicToolTip
             // 
             this.basicToolTip.AutomaticDelay = 50000;
-            this.basicToolTip.AutoPopDelay = 50000;
+            this.basicToolTip.AutoPopDelay = 5000000;
             this.basicToolTip.InitialDelay = 500;
-            this.basicToolTip.ReshowDelay = 100;
+            this.basicToolTip.IsBalloon = true;
+            this.basicToolTip.ReshowDelay = 10;
             this.basicToolTip.ShowAlways = true;
+            this.basicToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.basicToolTip.ToolTipTitle = "Information";
             // 
             // disableIntroButton
@@ -1021,18 +1023,28 @@ namespace BmLauncherWForm.ui
             this.ManualModeBtn.Size = new System.Drawing.Size(92, 25);
             this.ManualModeBtn.TabIndex = 52;
             this.ManualModeBtn.Text = "Manual Mode";
-            this.basicToolTip.SetToolTip(this.ManualModeBtn, "This is only required if you are using the HD Texture Pack.");
+            this.basicToolTip.SetToolTip(this.ManualModeBtn, "This disables the read-only flags of the configuration files.");
             this.ManualModeBtn.UseVisualStyleBackColor = false;
             this.ManualModeBtn.Click += new System.EventHandler(this.ManualModeBtn_Click);
             // 
             // nvidiaToolTip
             // 
             this.nvidiaToolTip.Active = false;
+            this.nvidiaToolTip.AutoPopDelay = 5000000;
+            this.nvidiaToolTip.InitialDelay = 500;
+            this.nvidiaToolTip.IsBalloon = true;
+            this.nvidiaToolTip.ReshowDelay = 100;
+            this.nvidiaToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.nvidiaToolTip.ToolTipTitle = "Information";
             // 
             // amdToolTip
             // 
             this.amdToolTip.Active = false;
+            this.amdToolTip.AutoPopDelay = 5000000;
+            this.amdToolTip.InitialDelay = 500;
+            this.amdToolTip.IsBalloon = true;
+            this.amdToolTip.ReshowDelay = 100;
+            this.amdToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.amdToolTip.ToolTipTitle = "Information";
             // 
             // label4
@@ -1049,6 +1061,11 @@ namespace BmLauncherWForm.ui
             // 
             // criticalTooltip
             // 
+            this.criticalTooltip.AutoPopDelay = 5000000;
+            this.criticalTooltip.InitialDelay = 500;
+            this.criticalTooltip.IsBalloon = true;
+            this.criticalTooltip.ReshowDelay = 100;
+            this.criticalTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
             // 
             // BmLauncherForm

@@ -118,10 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="basicToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>12, 19</value>
-  </metadata>
-  <metadata name="basicToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>12, 19</value>
+    <value>14, 19</value>
   </metadata>
   <data name="smoothFrameLabel.ToolTip" xml:space="preserve">
     <value>Works like a framerate limiter. The value should be the refreshrate of your screen.
@@ -154,20 +151,12 @@ to the default value (60).
   </metadata>
   <data name="physxLabel.ToolTip" xml:space="preserve">
     <value>Demanding feature!
+
 Uses CPU for PhysX instructions (because this machine doesn't use a NVIDIA graphics card) - EXTREMELY demanding.
 Breakable tiles, realistic paper simulation, advanced smoke effects.
 
 </value>
   </data>
-  <metadata name="nvidiaToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>119, 22</value>
-  </metadata>
-  <metadata name="amdToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>238, 25</value>
-  </metadata>
-  <metadata name="criticalTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>354, 25</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>79</value>
   </metadata>

@@ -41,8 +41,9 @@ namespace BmLauncherWForm.infrastructure
                 tempList.Add(vDevMode.dmPelsWidth + "x" + vDevMode.dmPelsHeight);
                 i++;
             }
-
-            ResolutionList = tempList.Distinct().ToList();
+            int maxLength = tempList.Max(x => x.Length);
+            var orderedList = tempList.OrderBy(x => x.PadLeft(maxLength, '0'));
+            ResolutionList = orderedList.Distinct().ToList();
             logger.Debug("getResolutions - found a total of {0} available resolutions.", ResolutionList.Count);
         }
 
