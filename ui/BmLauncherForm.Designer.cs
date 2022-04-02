@@ -100,11 +100,11 @@ namespace BmLauncherWForm.ui
             this.disableIntroButton = new System.Windows.Forms.Button();
             this.TexmodLabel = new System.Windows.Forms.Label();
             this.ManualModeBtn = new System.Windows.Forms.Button();
+            this.rebornButton = new System.Windows.Forms.Button();
             this.nvidiaToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.amdToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.criticalTooltip = new System.Windows.Forms.ToolTip(this.components);
-            this.rebornButton = new System.Windows.Forms.Button();
             this.displayBox.SuspendLayout();
             this.graphicsBox.SuspendLayout();
             this.miscBox.SuspendLayout();
@@ -121,8 +121,8 @@ namespace BmLauncherWForm.ui
             this.msaaLabel.Size = new System.Drawing.Size(79, 15);
             this.msaaLabel.TabIndex = 11;
             this.msaaLabel.Text = "Anti-Aliasing:";
-            this.basicToolTip.SetToolTip(this.msaaLabel, "Cleans up edge aliasing using MSAA. Off is recommended if you are using Reshade -" +
-        " Reshade SMAA and/or downsampling is recommended.\r\n");
+            this.basicToolTip.SetToolTip(this.msaaLabel, "Cleans up edge aliasing using MSAA. Off is recommended if you are using Reshade. " +
+        "\r\nReshade SMAA and/or downsampling is recommended.\r\n");
             // 
             // resLabel
             // 
@@ -177,6 +177,7 @@ namespace BmLauncherWForm.ui
             this.vsyncBox.Size = new System.Drawing.Size(110, 23);
             this.vsyncBox.TabIndex = 5;
             this.vsyncBox.TabStop = false;
+            this.basicToolTip.SetToolTip(this.vsyncBox, "Turn on to eliminate screen tearing.");
             this.vsyncBox.SelectedIndexChanged += new System.EventHandler(this.vsyncBox_SelectedIndexChanged);
             // 
             // detailBox
@@ -191,6 +192,7 @@ namespace BmLauncherWForm.ui
             this.detailBox.Name = "detailBox";
             this.detailBox.Size = new System.Drawing.Size(110, 23);
             this.detailBox.TabIndex = 6;
+            this.basicToolTip.SetToolTip(this.detailBox, "Highest setting is required for the HD Texture Pack.");
             this.detailBox.SelectedIndexChanged += new System.EventHandler(this.detailBox_SelectedIndexChanged);
             // 
             // fullscreenBox
@@ -204,6 +206,8 @@ namespace BmLauncherWForm.ui
             this.fullscreenBox.Name = "fullscreenBox";
             this.fullscreenBox.Size = new System.Drawing.Size(110, 23);
             this.fullscreenBox.TabIndex = 7;
+            this.basicToolTip.SetToolTip(this.fullscreenBox, "You can press \"scroll lock\" in game to switch between fullscreen and windowed mod" +
+        "e. ");
             this.fullscreenBox.SelectedIndexChanged += new System.EventHandler(this.fullscreenBox_SelectedIndexChanged);
             // 
             // resBox
@@ -214,6 +218,7 @@ namespace BmLauncherWForm.ui
             this.resBox.Name = "resBox";
             this.resBox.Size = new System.Drawing.Size(110, 23);
             this.resBox.TabIndex = 8;
+            this.basicToolTip.SetToolTip(this.resBox, "Every resolution available on your machine is supported.");
             this.resBox.SelectedIndexChanged += new System.EventHandler(this.resBox_SelectedIndexChanged);
             // 
             // displayBox
@@ -254,6 +259,7 @@ namespace BmLauncherWForm.ui
             this.langBox.Name = "langBox";
             this.langBox.Size = new System.Drawing.Size(110, 23);
             this.langBox.TabIndex = 37;
+            this.basicToolTip.SetToolTip(this.langBox, "Sets the voice & text language in the game.");
             this.langBox.SelectedIndexChanged += new System.EventHandler(this.langBox_SelectedIndexChanged);
             // 
             // langLabel
@@ -277,9 +283,7 @@ namespace BmLauncherWForm.ui
             this.maxSmoothTextBox.TabIndex = 35;
             this.maxSmoothTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.maxSmoothTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.basicToolTip.SetToolTip(this.maxSmoothTextBox, "Increases the quality of shadow rendering, primarily by pushing shadowmap resolut" +
-        "ion. Highest setting will render crisper shadows and increase shadow casting dis" +
-        "tance.");
+            this.basicToolTip.SetToolTip(this.maxSmoothTextBox, resources.GetString("maxSmoothTextBox.ToolTip"));
             this.maxSmoothTextBox.TextChanged += new System.EventHandler(this.maxSmoothTextBox_TextChanged);
             // 
             // smoothFrameLabel
@@ -305,6 +309,8 @@ namespace BmLauncherWForm.ui
             this.aaBox.Name = "aaBox";
             this.aaBox.Size = new System.Drawing.Size(110, 23);
             this.aaBox.TabIndex = 13;
+            this.basicToolTip.SetToolTip(this.aaBox, "Cleans up edge aliasing using MSAA. Off is recommended if you are using Reshade. " +
+        "\r\nReshade SMAA and/or downsampling is recommended.\r\n");
             this.aaBox.SelectedIndexChanged += new System.EventHandler(this.aaBox_SelectedIndexChanged);
             // 
             // dofLabel
@@ -331,7 +337,8 @@ namespace BmLauncherWForm.ui
             this.dofBox.Name = "dofBox";
             this.dofBox.Size = new System.Drawing.Size(110, 23);
             this.dofBox.TabIndex = 15;
-            this.basicToolTip.SetToolTip(this.dofBox, "Tied with Colour Grading filters and Bloom. Turn off to improve colour accuracy.");
+            this.basicToolTip.SetToolTip(this.dofBox, "Tied with Colour Grading filters and Bloom. Off is recommended for GPUnity\'s Resh" +
+        "ade.\r\n\r\n");
             this.dofBox.SelectedIndexChanged += new System.EventHandler(this.dofBox_SelectedIndexChanged);
             // 
             // aoLabel
@@ -358,6 +365,8 @@ namespace BmLauncherWForm.ui
             this.aoBox.Name = "aoBox";
             this.aoBox.Size = new System.Drawing.Size(110, 23);
             this.aoBox.TabIndex = 17;
+            this.basicToolTip.SetToolTip(this.aoBox, "Off is recommended due to low sample count. Use Reshade AO or enable NVIDIA HBAO+" +
+        ".\r\n\r\n");
             this.aoBox.SelectedIndexChanged += new System.EventHandler(this.aoBox_SelectedIndexChanged);
             // 
             // lensFlareLabel
@@ -384,6 +393,7 @@ namespace BmLauncherWForm.ui
             this.lensFlareBox.Name = "lensFlareBox";
             this.lensFlareBox.Size = new System.Drawing.Size(110, 23);
             this.lensFlareBox.TabIndex = 19;
+            this.basicToolTip.SetToolTip(this.lensFlareBox, "Simulates perspective-based flares when looking at bright lights.");
             this.lensFlareBox.SelectedIndexChanged += new System.EventHandler(this.lensFlareBox_SelectedIndexChanged);
             // 
             // bloomLabel
@@ -411,6 +421,9 @@ namespace BmLauncherWForm.ui
             this.bloomBox.Name = "bloomBox";
             this.bloomBox.Size = new System.Drawing.Size(110, 23);
             this.bloomBox.TabIndex = 21;
+            this.basicToolTip.SetToolTip(this.bloomBox, "Enunciates lighting by adding a soft glow to bright areas - Requires Depth of Fie" +
+        "ld to be enabled.\r\nEnabling Bloom will automatically enable High Quality Bloom a" +
+        "s well.\r\n");
             this.bloomBox.SelectedIndexChanged += new System.EventHandler(this.bloomBox_SelectedIndexChanged);
             // 
             // anisoLabel
@@ -437,6 +450,7 @@ namespace BmLauncherWForm.ui
             this.anisoBox.Name = "anisoBox";
             this.anisoBox.Size = new System.Drawing.Size(110, 23);
             this.anisoBox.TabIndex = 25;
+            this.basicToolTip.SetToolTip(this.anisoBox, "Improve texture clarity across oblique surfaces.");
             this.anisoBox.SelectedIndexChanged += new System.EventHandler(this.anisoBox_SelectedIndexChanged);
             // 
             // dshadowLabel
@@ -463,6 +477,8 @@ namespace BmLauncherWForm.ui
             this.dShadowBox.Name = "dShadowBox";
             this.dShadowBox.Size = new System.Drawing.Size(110, 23);
             this.dShadowBox.TabIndex = 27;
+            this.basicToolTip.SetToolTip(this.dShadowBox, "Only baked shadows from static meshes will be visible if you disable Dynamic Shad" +
+        "ows.\r\n\r\n");
             this.dShadowBox.SelectedIndexChanged += new System.EventHandler(this.dShadowBox_SelectedIndexChanged);
             // 
             // maxShadowLabel
@@ -492,6 +508,9 @@ namespace BmLauncherWForm.ui
             this.maxShadowBox.Name = "maxShadowBox";
             this.maxShadowBox.Size = new System.Drawing.Size(110, 23);
             this.maxShadowBox.TabIndex = 31;
+            this.basicToolTip.SetToolTip(this.maxShadowBox, "Increases the quality of shadow rendering, primarily by pushing shadowmap resolut" +
+        "ion. \r\nHighest setting will render crisper shadows and increase shadow casting d" +
+        "istance.\r\n");
             this.maxShadowBox.SelectedIndexChanged += new System.EventHandler(this.maxShadowBox_SelectedIndexChanged);
             // 
             // graphicsBox
@@ -640,7 +659,8 @@ namespace BmLauncherWForm.ui
             this.mBlurBox.Name = "mBlurBox";
             this.mBlurBox.Size = new System.Drawing.Size(110, 23);
             this.mBlurBox.TabIndex = 47;
-            this.basicToolTip.SetToolTip(this.mBlurBox, "Blurs camera movement.");
+            this.basicToolTip.SetToolTip(this.mBlurBox, "Emphasizes movement using blur to connect movement between frames. \r\nMotion blur " +
+        "in this game is of low quality due to being an early implementation.\r\n");
             this.mBlurBox.SelectedIndexChanged += new System.EventHandler(this.mBlurBox_SelectedIndexChanged);
             // 
             // mBlurLabel
@@ -653,8 +673,8 @@ namespace BmLauncherWForm.ui
             this.mBlurLabel.Size = new System.Drawing.Size(76, 15);
             this.mBlurLabel.TabIndex = 46;
             this.mBlurLabel.Text = "Motion Blur:";
-            this.basicToolTip.SetToolTip(this.mBlurLabel, "Emphasizes movement using blur to connect movement between frames. Motion blur in" +
-        " this game is of low quality due to being an early implementation.");
+            this.basicToolTip.SetToolTip(this.mBlurLabel, "Emphasizes movement using blur to connect movement between frames. \r\nMotion blur " +
+        "in this game is of low quality due to being an early implementation.");
             // 
             // distBox
             // 
@@ -667,6 +687,7 @@ namespace BmLauncherWForm.ui
             this.distBox.Name = "distBox";
             this.distBox.Size = new System.Drawing.Size(110, 23);
             this.distBox.TabIndex = 45;
+            this.basicToolTip.SetToolTip(this.distBox, "Distorts the screen for certain actions (explosive gel, heat, etc..).\r\n");
             this.distBox.SelectedIndexChanged += new System.EventHandler(this.distBox_SelectedIndexChanged);
             // 
             // distLabel
@@ -692,6 +713,7 @@ namespace BmLauncherWForm.ui
             this.fogBox.Name = "fogBox";
             this.fogBox.Size = new System.Drawing.Size(110, 23);
             this.fogBox.TabIndex = 43;
+            this.basicToolTip.SetToolTip(this.fogBox, "Enables fog in certain areas.");
             this.fogBox.SelectedIndexChanged += new System.EventHandler(this.fogBox_SelectedIndexChanged);
             // 
             // fogLabel
@@ -717,6 +739,8 @@ namespace BmLauncherWForm.ui
             this.sphericBox.Name = "sphericBox";
             this.sphericBox.Size = new System.Drawing.Size(110, 23);
             this.sphericBox.TabIndex = 41;
+            this.basicToolTip.SetToolTip(this.sphericBox, "Adds additional lighting to the game. Do not disable this if Depth of Field is al" +
+        "so disabled.");
             this.sphericBox.SelectedIndexChanged += new System.EventHandler(this.sphericBox_SelectedIndexChanged);
             // 
             // sphericalLabel
@@ -746,6 +770,7 @@ namespace BmLauncherWForm.ui
             this.memPoolBox.Name = "memPoolBox";
             this.memPoolBox.Size = new System.Drawing.Size(110, 23);
             this.memPoolBox.TabIndex = 39;
+            this.basicToolTip.SetToolTip(this.memPoolBox, resources.GetString("memPoolBox.ToolTip"));
             this.memPoolBox.SelectedIndexChanged += new System.EventHandler(this.memPoolBox_SelectedIndexChanged);
             // 
             // memPoolLabel
@@ -773,6 +798,7 @@ namespace BmLauncherWForm.ui
             this.texelBox.Name = "texelBox";
             this.texelBox.Size = new System.Drawing.Size(110, 23);
             this.texelBox.TabIndex = 37;
+            this.basicToolTip.SetToolTip(this.texelBox, resources.GetString("texelBox.ToolTip"));
             this.texelBox.SelectedIndexChanged += new System.EventHandler(this.texelBox_SelectedIndexChanged);
             // 
             // shadowTexelLabel
@@ -829,6 +855,9 @@ namespace BmLauncherWForm.ui
             this.physxBox.Name = "physxBox";
             this.physxBox.Size = new System.Drawing.Size(110, 23);
             this.physxBox.TabIndex = 33;
+            this.nvidiaToolTip.SetToolTip(this.physxBox, "Demanding feature!\r\n\r\nIt is NOT recommended to go above Medium!\r\nBreakable tiles," +
+        " realistic paper simulation, advanced smoke effects.\r\n");
+            this.amdToolTip.SetToolTip(this.physxBox, resources.GetString("physxBox.ToolTip"));
             this.physxBox.SelectedIndexChanged += new System.EventHandler(this.physxBox_SelectedIndexChanged);
             // 
             // physxLabel
@@ -1028,6 +1057,22 @@ namespace BmLauncherWForm.ui
             this.ManualModeBtn.UseVisualStyleBackColor = false;
             this.ManualModeBtn.Click += new System.EventHandler(this.ManualModeBtn_Click);
             // 
+            // rebornButton
+            // 
+            this.rebornButton.BackColor = System.Drawing.Color.Transparent;
+            this.rebornButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rebornButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rebornButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rebornButton.Location = new System.Drawing.Point(349, 125);
+            this.rebornButton.Name = "rebornButton";
+            this.rebornButton.Size = new System.Drawing.Size(159, 31);
+            this.rebornButton.TabIndex = 53;
+            this.rebornButton.Text = "Asylum Reborn Preset";
+            this.basicToolTip.SetToolTip(this.rebornButton, "Experience the Asylum anew. Will provide the intended experience but is extremely" +
+        " demanding. \r\n\r\n- This preset is not required to run the HD Texture Pack\r\n");
+            this.rebornButton.UseVisualStyleBackColor = false;
+            this.rebornButton.Click += new System.EventHandler(this.rebornButton_Click);
+            // 
             // nvidiaToolTip
             // 
             this.nvidiaToolTip.Active = false;
@@ -1068,22 +1113,6 @@ namespace BmLauncherWForm.ui
             this.criticalTooltip.ReshowDelay = 100;
             this.criticalTooltip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
             this.criticalTooltip.ToolTipTitle = "DO NOT EDIT THIS IF YOUR GAME RUNS FINE!";
-            // 
-            // rebornButton
-            // 
-            this.rebornButton.BackColor = System.Drawing.Color.Transparent;
-            this.rebornButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rebornButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rebornButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rebornButton.Location = new System.Drawing.Point(349, 125);
-            this.rebornButton.Name = "rebornButton";
-            this.rebornButton.Size = new System.Drawing.Size(159, 31);
-            this.rebornButton.TabIndex = 53;
-            this.rebornButton.Text = "Asylum Reborn Preset";
-            this.basicToolTip.SetToolTip(this.rebornButton, "Experience the Asylum anew. Will provide the intended experience but is extremely" +
-        " demanding. \r\n\r\n- This preset is not required to run the HD Texture Pack\r\n");
-            this.rebornButton.UseVisualStyleBackColor = false;
-            this.rebornButton.Click += new System.EventHandler(this.rebornButton_Click);
             // 
             // BmLauncherForm
             // 

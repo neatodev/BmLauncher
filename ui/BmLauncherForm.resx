@@ -123,22 +123,40 @@
   <metadata name="basicToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>14, 19</value>
   </metadata>
+  <data name="maxSmoothTextBox.ToolTip" xml:space="preserve">
+    <value>Works like a framerate limiter. The value should be the refresh rate of your screen.
+
+Can not be lower than 25. Entering lower values or empty spaces will reset the setting
+to the default value (60).</value>
+  </data>
   <data name="smoothFrameLabel.ToolTip" xml:space="preserve">
     <value>Works like a framerate limiter. The value should be the refresh rate of your screen.
 
 Can not be lower than 25. Entering lower values or empty spaces will reset the setting
-to the default value (60).
-
-</value>
+to the default value (60).</value>
   </data>
   <metadata name="criticalTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>354, 25</value>
   </metadata>
+  <data name="memPoolBox.ToolTip" xml:space="preserve">
+    <value>Allocates graphics memory in megabytes to texture streaming. 
+2048 minimum recommended for the texture pack.
+
+'Infinite'= Poolsize limit will be removed. Useful for in-game texture dumping and debugging.
+</value>
+  </data>
   <data name="memPoolLabel.ToolTip" xml:space="preserve">
     <value>Allocates graphics memory in megabytes to texture streaming. 
 2048 minimum recommended for the texture pack.
 
 'Infinite'= Poolsize limit will be removed. Useful for in-game texture dumping and debugging.</value>
+  </data>
+  <data name="texelBox.ToolTip" xml:space="preserve">
+    <value>Increases self-shadowing amount. Higher shadow quality setting will improve shadow coverage application. 
+
+'High'= May cause some shadow banding artifacts.
+'Insane'= This will render much better shadows on character models, but will result in shadow banding artifacts.
+</value>
   </data>
   <data name="shadowTexelLabel.ToolTip" xml:space="preserve">
     <value>Increases self-shadowing amount. Higher shadow quality setting will improve shadow coverage application. 
@@ -152,6 +170,19 @@ to the default value (60).
   <metadata name="amdToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>238, 25</value>
   </metadata>
+  <metadata name="nvidiaToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>119, 22</value>
+  </metadata>
+  <metadata name="amdToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>238, 25</value>
+  </metadata>
+  <data name="physxBox.ToolTip" xml:space="preserve">
+    <value>Demanding feature!
+
+Uses CPU for PhysX instructions (because this machine doesn't use a NVIDIA graphics card) - EXTREMELY demanding.
+Breakable tiles, realistic paper simulation, advanced smoke effects.
+</value>
+  </data>
   <data name="physxLabel.ToolTip" xml:space="preserve">
     <value>Demanding feature!
 
