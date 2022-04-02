@@ -22,12 +22,22 @@ namespace BmLauncherWForm.ui
 
         private void gpLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://steamcommunity.com/id/GPUnity");
+            Process.Start("https://www.youtube.com/c/GPUnity");
         }
 
         private void everLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://steamcommunity.com/id/EV3RGREEN");
+            Random number = new Random();
+
+            if ((number.NextDouble() * (100.0 - 1.0) + 1.0) <= 10.0)
+            {
+                Process.Start("https://en.wikipedia.org/wiki/Baguette");
+            }
+            else
+            {
+                Process.Start("https://steamcommunity.com/id/EV3RGREEN");
+            }
+
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
