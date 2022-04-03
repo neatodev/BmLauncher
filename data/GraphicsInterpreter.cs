@@ -459,24 +459,24 @@ namespace BmLauncherWForm.data
                         switch (Graphics.getShadowTexels())
                         {
                             case "0.012000":
-                                lineToCheck = "ShadowSlopeScaleDepthBias=10.0f";
+                                lineToCheck = "ShadowSlopeScaleDepthBias=10.000000";
                                 break;
 
                             case "0.008000":
 
                                 if (Program.Client.texelBox.SelectedIndex == 2)
                                 {
-                                    lineToCheck = "ShadowSlopeScaleDepthBias=8.0f";
+                                    lineToCheck = "ShadowSlopeScaleDepthBias=8.000000";
 
                                 }
                                 else
                                 {
-                                    lineToCheck = "ShadowSlopeScaleDepthBias=10.0f";
+                                    lineToCheck = "ShadowSlopeScaleDepthBias=10.000000";
                                 }
                                 break;
 
                             case "0.003000":
-                                lineToCheck = "ShadowSlopeScaleDepthBias=5.0f";
+                                lineToCheck = "ShadowSlopeScaleDepthBias=5.000000";
                                 break;
 
                         }

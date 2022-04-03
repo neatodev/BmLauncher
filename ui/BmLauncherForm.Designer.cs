@@ -1040,7 +1040,6 @@ namespace BmLauncherWForm.ui
             this.TexmodLabel.TabIndex = 51;
             this.TexmodLabel.Text = "Texmod detected!";
             this.basicToolTip.SetToolTip(this.TexmodLabel, "Texmod has been detected.\r\n\r\n\'Start Game\' will now launch the Texmod Autoloader.");
-            this.TexmodLabel.Visible = false;
             // 
             // ManualModeBtn
             // 
@@ -1212,7 +1211,6 @@ namespace BmLauncherWForm.ui
         public MaskedTextBox maxSmoothTextBox;
         private GroupBox nvidiaBox;
         public CheckBox nvBox;
-        private ToolTip basicToolTip;
         public ToolTip amdToolTip;
         public ToolTip nvidiaToolTip;
         public Button disableIntroButton;
@@ -1231,6 +1229,7 @@ namespace BmLauncherWForm.ui
         public Label TexmodLabel;
         public Button ManualModeBtn;
         public Button rebornButton;
+        public ToolTip basicToolTip;
     }
 }
 

@@ -102,9 +102,11 @@ namespace BmLauncherWForm.infrastructure
             logger.Info("Constructor - Created Factory");
             setGPUname();
             ExtractWrapper();
-            if (TexmodDetected)
+            if (!TexmodDetected)
             {
-                client.TexmodLabel.Visible = true;
+                client.TexmodLabel.Text = "Texmod not found.";
+                client.TexmodLabel.ForeColor = Color.Firebrick;
+                client.basicToolTip.SetToolTip(client.TexmodLabel, "Texmod has not been found.\r\n\r\nIf you intend to use Texmod, place or create 'texmod_autoload.exe' in the same folder as the launcher.");
             }
         }
 

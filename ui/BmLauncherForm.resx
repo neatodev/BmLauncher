@@ -120,9 +120,6 @@
   <metadata name="basicToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>14, 19</value>
   </metadata>
-  <metadata name="basicToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>14, 19</value>
-  </metadata>
   <data name="maxSmoothTextBox.ToolTip" xml:space="preserve">
     <value>Works like a framerate limiter. The value should be the refresh rate of your screen.
 
@@ -140,14 +137,14 @@ to the default value (60).</value>
   </metadata>
   <data name="memPoolBox.ToolTip" xml:space="preserve">
     <value>Allocates graphics memory in megabytes to texture streaming. 
-2048 minimum recommended for the texture pack.
+2048 minimum is recommended for the texture pack.
 
 'Infinite'= Poolsize limit will be removed. Useful for in-game texture dumping and debugging.
 </value>
   </data>
   <data name="memPoolLabel.ToolTip" xml:space="preserve">
     <value>Allocates graphics memory in megabytes to texture streaming. 
-2048 minimum recommended for the texture pack.
+2048 minimum is recommended for the texture pack.
 
 'Infinite'= Poolsize limit will be removed. Useful for in-game texture dumping and debugging.</value>
   </data>
@@ -170,12 +167,6 @@ to the default value (60).</value>
   <metadata name="amdToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>238, 25</value>
   </metadata>
-  <metadata name="nvidiaToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>119, 22</value>
-  </metadata>
-  <metadata name="amdToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>238, 25</value>
-  </metadata>
   <data name="physxBox.ToolTip" xml:space="preserve">
     <value>Demanding feature!
 
@@ -191,15 +182,6 @@ Breakable tiles, realistic paper simulation, advanced smoke effects.
 
 </value>
   </data>
-  <metadata name="nvidiaToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>119, 22</value>
-  </metadata>
-  <metadata name="amdToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>238, 25</value>
-  </metadata>
-  <metadata name="criticalTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>354, 25</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>79</value>
   </metadata>
