@@ -284,10 +284,14 @@ namespace BmLauncherWForm.data
                     break;
 
                 case 3:
-                    Graphics.setMemoryPoolsValue("4096");
+                    Graphics.setMemoryPoolsValue("3072");
                     break;
 
                 case 4:
+                    Graphics.setMemoryPoolsValue("4096");
+                    break;
+
+                case 5:
                     Graphics.setMemoryPoolsValue("0");
                     break;
             }

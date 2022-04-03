@@ -17,7 +17,6 @@
             Program.Client.dShadowBox.SelectedIndex = 1;
             Program.Client.dofBox.SelectedIndex = 1;
             Program.Client.distBox.SelectedIndex = 1;
-            Program.Client.memPoolBox.SelectedIndex = 0;
         }
 
         public static void setUltra()

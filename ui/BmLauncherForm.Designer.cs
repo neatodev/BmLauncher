@@ -764,6 +764,7 @@ namespace BmLauncherWForm.ui
             "512 (Default)",
             "1024",
             "2048",
+            "3072",
             "4096",
             "Infinite"});
             this.memPoolBox.Location = new System.Drawing.Point(95, 222);

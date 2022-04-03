@@ -363,7 +363,7 @@ namespace BmLauncherWForm.infrastructure
             }
 
             texApplied();
-            if (client.memPoolBox.SelectedIndex != 2 || client.memPoolBox.SelectedIndex != 3 || client.memPoolBox.SelectedIndex != 4)
+            if (client.memPoolBox.SelectedIndex != 2 && client.memPoolBox.SelectedIndex != 3 && client.memPoolBox.SelectedIndex != 4 && client.memPoolBox.SelectedIndex != 5)
             {
                 client.memPoolBox.SelectedIndex = 2;
             }
@@ -392,9 +392,8 @@ namespace BmLauncherWForm.infrastructure
                 return lineToCheck;
             }
 
-            if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio") && !(lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")))
+            if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio") && !(lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=3072") || lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")))
             {
-                Console.WriteLine(lineToCheck);
                 lineToCheck = TexFixLines[2];
                 return lineToCheck;
             }

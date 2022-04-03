@@ -262,7 +262,7 @@ namespace BmLauncherWForm.data
             switch (Int16.Parse(Graphics.getMemoryPoolsValue()))
             {
                 case 0:
-                    Program.Client.memPoolBox.SelectedIndex = 4;
+                    Program.Client.memPoolBox.SelectedIndex = 5;
                     break;
 
                 case 512:
@@ -277,8 +277,12 @@ namespace BmLauncherWForm.data
                     Program.Client.memPoolBox.SelectedIndex = 2;
                     break;
 
-                case 4096:
+                case 3072:
                     Program.Client.memPoolBox.SelectedIndex = 3;
+                    break;
+
+                case 4096:
+                    Program.Client.memPoolBox.SelectedIndex = 4;
                     break;
             }
 
