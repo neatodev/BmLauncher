@@ -29,13 +29,13 @@ namespace BmLauncherWForm.ui
         {
             Random number = new Random();
 
-            if ((number.NextDouble() * (100.0 - 1.0) + 1.0) <= 10.0)
+            if ((number.NextDouble() * (100.0 - 1.0) + 1.0) <= 7.0)
             {
                 Process.Start("https://en.wikipedia.org/wiki/Baguette");
             }
             else
             {
-                Process.Start("https://steamcommunity.com/id/EV3RGREEN");
+                Process.Start("https://www.nexusmods.com/users/6875632?tab=user+files");
             }
 
         }
