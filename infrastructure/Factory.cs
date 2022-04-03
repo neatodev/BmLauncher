@@ -363,7 +363,11 @@ namespace BmLauncherWForm.infrastructure
             }
 
             texApplied();
-            client.memPoolBox.SelectedIndex = 2;
+            if (client.memPoolBox.SelectedIndex != 2 || client.memPoolBox.SelectedIndex != 3 || client.memPoolBox.SelectedIndex != 4)
+            {
+                client.memPoolBox.SelectedIndex = 2;
+            }
+
             ConfigInfo.IsReadOnly = true;
             logger.Debug("applyTexfix - applied parameter fixes for Texture Pack support to {0}", ConfigFile);
         }
@@ -388,8 +392,9 @@ namespace BmLauncherWForm.infrastructure
                 return lineToCheck;
             }
 
-            if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio"))
+            if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio") && !(lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")))
             {
+                Console.WriteLine(lineToCheck);
                 lineToCheck = TexFixLines[2];
                 return lineToCheck;
             }
