@@ -13,14 +13,14 @@ namespace BmLauncherWForm.infrastructure
     internal class NvidiaWorker
     {
         // logger for easy debugging
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         private static string aoActive = "0";
         private static string aoValue = "0";
 
         public static bool HasHbao = true;
-        private readonly DriverSettingsSession _session;
         private readonly DriverSettingsProfile _prof;
+        private readonly DriverSettingsSession _session;
 
         /// <summary>
         ///     Created in Program, instantiated by GuiInitializer.
@@ -40,7 +40,7 @@ namespace BmLauncherWForm.infrastructure
             {
                 Console.WriteLine(e);
                 DriverSettingsProfile profile =
-                    DriverSettingsProfile.CreateProfile(_session, "Batman: Arkham Asylum", null);
+                    DriverSettingsProfile.CreateProfile(_session, "Batman: Arkham Asylum");
                 ProfileApplication profApp = ProfileApplication.CreateApplication(profile, "shippingpc-bmgame.exe");
                 profile = profApp.Profile;
                 profile.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 0);
@@ -72,7 +72,11 @@ namespace BmLauncherWForm.infrastructure
                 _prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 0);
                 _session.Save();
             }
-            logger.Debug("setNVSettings - setting AmbientOcclusionModeActive to {0}, setting AmbientOcclusionMode to {1}", _prof.GetSetting(KnownSettingId.AmbientOcclusionModeActive).CurrentValue, _prof.GetSetting(KnownSettingId.AmbientOcclusionMode).CurrentValue);
+
+            logger.Debug(
+                "setNVSettings - setting AmbientOcclusionModeActive to {0}, setting AmbientOcclusionMode to {1}",
+                _prof.GetSetting(KnownSettingId.AmbientOcclusionModeActive).CurrentValue,
+                _prof.GetSetting(KnownSettingId.AmbientOcclusionMode).CurrentValue);
         }
 
         /// <summary>
@@ -94,7 +98,8 @@ namespace BmLauncherWForm.infrastructure
                 _prof.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 0);
                 _prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 0);
                 Program.Client.nvBox.Checked = false;
-                logger.Warn("getNVSettings - couldn't find ambient occlusion settings. Generating settings with default(0) values now.");
+                logger.Warn(
+                    "getNVSettings - couldn't find ambient occlusion settings. Generating settings with default(0) values now.");
             }
 
             if (!aoActive.Contains("1") || !aoValue.Contains("2") || compValue != 48)
@@ -108,6 +113,7 @@ namespace BmLauncherWForm.infrastructure
             {
                 Program.Client.nvBox.Checked = true;
             }
+
             logger.Debug("getNVSettings - hbao+ is currently {0}", HasHbao);
         }
     }

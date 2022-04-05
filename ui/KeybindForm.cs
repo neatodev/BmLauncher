@@ -11,7 +11,6 @@ namespace BmLauncherWForm.ui
     /**
      * Keybind editor class that uses buttons as inputreaders.
      */
-
     public partial class KeybindForm : Form
     {
         public List<Button> ButtonList = new List<Button>();
@@ -19,7 +18,6 @@ namespace BmLauncherWForm.ui
         /**
          * constructor for the KeybindForm that adds all the button to a static list
          */
-
         public KeybindForm()
         {
             InitializeComponent();

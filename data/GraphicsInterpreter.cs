@@ -9,7 +9,7 @@ namespace BmLauncherWForm.data
     internal class GraphicsInterpreter
     {
         // logger for easy debugging
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         private static bool charCheck;
         private static bool charNormalCheck;
@@ -357,12 +357,12 @@ namespace BmLauncherWForm.data
                                 if (Program.Client.texelBox.SelectedIndex == 2)
                                 {
                                     lineToCheck = "ShadowFadeExponent=2.200000";
-
                                 }
                                 else
                                 {
                                     lineToCheck = "ShadowFadeExponent=1.000000";
                                 }
+
                                 break;
 
                             case "0.003000":
@@ -467,18 +467,17 @@ namespace BmLauncherWForm.data
                                 if (Program.Client.texelBox.SelectedIndex == 2)
                                 {
                                     lineToCheck = "ShadowSlopeScaleDepthBias=8.000000";
-
                                 }
                                 else
                                 {
                                     lineToCheck = "ShadowSlopeScaleDepthBias=10.000000";
                                 }
+
                                 break;
 
                             case "0.003000":
                                 lineToCheck = "ShadowSlopeScaleDepthBias=5.000000";
                                 break;
-
                         }
                     }
 
@@ -525,7 +524,8 @@ namespace BmLauncherWForm.data
                 return;
             }
 
-            if ((lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")) && !poolCheck)
+            if ((lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=4096") ||
+                 lineToCheck.Equals("PoolSize=0")) && !poolCheck)
             {
                 poolCheck = true;
             }

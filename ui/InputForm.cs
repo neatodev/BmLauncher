@@ -85,7 +85,7 @@ namespace BmLauncherWForm.ui
                 }
             }
 
-            this.Close();
+            Close();
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace BmLauncherWForm.ui
 
             if (_keyPressed.Contains("ESCAPE"))
             {
-                this.Close();
+                Close();
             }
             else
             {

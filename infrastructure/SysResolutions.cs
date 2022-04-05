@@ -18,14 +18,14 @@ namespace BmLauncherWForm.infrastructure
         // string list to store resolution values
         public static List<string> ResolutionList;
 
-        [DllImport("user32.dll")]
-        public static extern bool EnumDisplaySettings(
-            string deviceName, int modeNum, ref DEVMODE devMode);
-
         public SysResolutions()
         {
             logger = LogManager.GetCurrentClassLogger();
         }
+
+        [DllImport("user32.dll")]
+        public static extern bool EnumDisplaySettings(
+            string deviceName, int modeNum, ref DEVMODE devMode);
 
         /// <summary>
         ///     Getter for user resolutions.
@@ -41,8 +41,9 @@ namespace BmLauncherWForm.infrastructure
                 tempList.Add(vDevMode.dmPelsWidth + "x" + vDevMode.dmPelsHeight);
                 i++;
             }
+
             int maxLength = tempList.Max(x => x.Length);
-            var orderedList = tempList.OrderBy(x => x.PadLeft(maxLength, '0'));
+            IOrderedEnumerable<string> orderedList = tempList.OrderBy(x => x.PadLeft(maxLength, '0'));
             ResolutionList = orderedList.Distinct().ToList();
             logger.Debug("getResolutions - found a total of {0} available resolutions.", ResolutionList.Count);
         }

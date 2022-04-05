@@ -12,7 +12,7 @@ namespace BmLauncherWForm.ui
 
     {
         // logger for easy debugging
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         private static bool firstLaunch;
         private static bool readWarning;
@@ -39,11 +39,11 @@ namespace BmLauncherWForm.ui
             {
                 logger.Info("No configuration changes made.");
             }
+
             launchButton.Enabled = false;
 
             using (Process launchBmGame = new Process())
             {
-
                 Factory.InputFileInfo.IsReadOnly = true;
                 if (Factory.TexmodDetected)
                 {
@@ -61,6 +61,7 @@ namespace BmLauncherWForm.ui
                     logger.Info("Launching game application. Logging has concluded at {0}, on {1}.",
                         DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
                 }
+
                 LogManager.Flush();
                 Application.Exit();
             }
@@ -247,6 +248,7 @@ namespace BmLauncherWForm.ui
                     MessageBoxIcon.Warning);
                 readWarning = true;
             }
+
             ChangedConfig = true;
             applyButton.Enabled = true;
         }
@@ -278,18 +280,18 @@ namespace BmLauncherWForm.ui
         private void ManualModeBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                   "This option removes the 'read-only' flag of the configuration files, allowing for manual edits.\r\n" +
-                   "The launcher will close if you choose this option and any unsaved changes will be lost.\r\n\r\n" +
-                   "Do you wish to continue?", @"Enable Manual Editing",
-                   MessageBoxButtons.YesNo,
-                   MessageBoxIcon.Warning);
+                "This option removes the 'read-only' flag of the configuration files, allowing for manual edits.\r\n" +
+                "The launcher will close if you choose this option and any unsaved changes will be lost.\r\n\r\n" +
+                "Do you wish to continue?", @"Enable Manual Editing",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
                 Factory.ConfigInfo.IsReadOnly = false;
                 Factory.UserEngineInfo.IsReadOnly = false;
                 logger.Info("Closing launcher and disabling read-only flags. Logging has concluded at {0}, on {1}.",
-                        DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                    DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
                 LogManager.Flush();
                 Application.Exit();
             }

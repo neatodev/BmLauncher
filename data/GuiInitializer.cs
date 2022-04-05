@@ -10,7 +10,7 @@ namespace BmLauncherWForm.data
     internal class GuiInitializer
     {
         // logger for easy debugging
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         public void init()
         {
@@ -210,6 +210,7 @@ namespace BmLauncherWForm.data
                     {
                         Program.Client.texelBox.SelectedIndex = 2;
                     }
+
                     break;
 
                 case "0.002000":

@@ -52,6 +52,7 @@
             {
                 Program.Client.nvBox.Checked = true;
             }
+
             Program.Client.dofBox.SelectedIndex = 0;
             Program.Client.memPoolBox.SelectedIndex = 3;
         }

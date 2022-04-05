@@ -10,7 +10,7 @@ namespace BmLauncherWForm.data
     internal class GraphicsWriter
     {
         // logger for easy debugging
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         private static bool isHbao;
 
@@ -78,6 +78,7 @@ namespace BmLauncherWForm.data
                     Graphics.setLanguage("esn");
                     break;
             }
+
             logger.Debug("setLang - set language to {0}", Graphics.getLanguage());
         }
 
@@ -111,6 +112,7 @@ namespace BmLauncherWForm.data
                 Graphics.setBloom("True");
                 Graphics.setHighQualityBloom("True");
             }
+
             logger.Debug("setBloom - set bloom to {0}", Graphics.isBloom());
         }
 
@@ -149,13 +151,15 @@ namespace BmLauncherWForm.data
             {
                 Graphics.setAmbientOcclusion("True");
             }
+
             logger.Debug("setAO - set ambient occlusion to {0}", Graphics.isAmbientOcclusion());
         }
 
         private static void setSphericalHarmonic()
         {
             Graphics.setDisableSphericalHarmonicLights(Program.Client.sphericBox.SelectedIndex == 0 ? "True" : "False");
-            logger.Debug("setSphericalHarmonic - set disable spherical harmonic lights to {0}", Graphics.isDisableSphericalHarmonicLights());
+            logger.Debug("setSphericalHarmonic - set disable spherical harmonic lights to {0}",
+                Graphics.isDisableSphericalHarmonicLights());
         }
 
         private static void setDynamicShadows()
@@ -193,8 +197,9 @@ namespace BmLauncherWForm.data
             {
                 int framecap = Int32.Parse(Program.Client.maxSmoothTextBox.Text.Trim());
                 framecap = framecap + 2;
-                Graphics.setMaxSmoothedFramerate(framecap.ToString() + ".000000");
+                Graphics.setMaxSmoothedFramerate(framecap + ".000000");
             }
+
             logger.Debug("setMaxSmoothedFrames - set max smoothed frames to {0}", Graphics.getMaxSmoothedFramerate());
         }
 
@@ -216,6 +221,7 @@ namespace BmLauncherWForm.data
                     Graphics.setDetailMode("2");
                     break;
             }
+
             logger.Debug("setDetailMode - set detail mode to {0}", Graphics.getDetailMode());
         }
 
@@ -241,6 +247,7 @@ namespace BmLauncherWForm.data
                     Graphics.setMultiSampling("10");
                     break;
             }
+
             logger.Debug("setAAMode - set multisampling mode to {0}", Graphics.getMultiSampling());
         }
 
@@ -262,6 +269,7 @@ namespace BmLauncherWForm.data
                     Graphics.setMaxAnisotropy("16");
                     break;
             }
+
             logger.Debug("setAnisotropy - set anisotropy to {0}", Graphics.getMaxAnisotropy());
         }
 
@@ -295,6 +303,7 @@ namespace BmLauncherWForm.data
                     Graphics.setMemoryPoolsValue("0");
                     break;
             }
+
             logger.Debug("setMemoryPools - set memory pools to {0}", Graphics.getMemoryPoolsValue());
         }
 
@@ -320,6 +329,7 @@ namespace BmLauncherWForm.data
                     Graphics.setShadowTexels("0.002000");
                     break;
             }
+
             logger.Debug("setShadowTexels - set shadow depth bias to {0}", Graphics.getShadowTexels());
         }
 
@@ -345,6 +355,7 @@ namespace BmLauncherWForm.data
                     Graphics.setMaxShadowResolution("4096");
                     break;
             }
+
             logger.Debug("setMaxShadowRes - set max shadow resolution to {0}", Graphics.getMaxShadowResolution());
         }
 
@@ -366,6 +377,7 @@ namespace BmLauncherWForm.data
                     Graphics.setPhysX("2");
                     break;
             }
+
             logger.Debug("setPhysX - set physx to {0}", Graphics.getPhysX());
         }
 

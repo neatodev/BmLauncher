@@ -42,8 +42,6 @@ namespace BmLauncherWForm.infrastructure
 
         private static KeybindInterpreter kInterpreter;
 
-        private GraphicsInterpreter gInterpreter;
-
         // FileInfo used to control the readonly properties of the BmEngine file
         public static readonly FileInfo ConfigInfo = new FileInfo(ConfigFile);
 
@@ -71,8 +69,7 @@ namespace BmLauncherWForm.infrastructure
         private static readonly string[] TexFixLines =
         {
             "TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
-            "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)",
-            "PoolSize=2048"
+            "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)", "PoolSize=2048"
         };
 
         // string array containing all lines to disable startup movies
@@ -82,14 +79,16 @@ namespace BmLauncherWForm.infrastructure
             ";StartupMovies=Black"
         };
 
+        // boolean used to determine whether to launch game normally or via texmod
+        public static bool TexmodDetected = false;
+
+        private GraphicsInterpreter gInterpreter;
+
         // keybind form associated to the factory
         public KeybindForm Keybinds = new KeybindForm();
 
         // integer used for switch cases by GraphicsInterpreter
         public int LineInt = 21;
-
-        // boolean used to determine whether to launch game normally or via texmod
-        public static bool TexmodDetected = false;
 
         /// <summary>
         ///     Constructor for the Factory class. Initializes the client and GPU name and extracts the NvAPIWrapper for NVIDIA
@@ -106,7 +105,8 @@ namespace BmLauncherWForm.infrastructure
             {
                 client.TexmodLabel.Text = "Texmod not found.";
                 client.TexmodLabel.ForeColor = Color.Firebrick;
-                client.basicToolTip.SetToolTip(client.TexmodLabel, "Texmod has not been found.\r\n\r\nIf you intend to use Texmod, place or create 'texmod_autoload.exe' in the same folder as the launcher.");
+                client.basicToolTip.SetToolTip(client.TexmodLabel,
+                    "Texmod has not been found.\r\n\r\nIf you intend to use Texmod, place or create 'texmod_autoload.exe' in the same folder as the launcher.");
             }
         }
 
@@ -221,7 +221,9 @@ namespace BmLauncherWForm.infrastructure
                     file.Write(UserEnginePremade);
                     UserEngineInfo.IsReadOnly = true;
                 }
-                logger.Debug("readConfigFile - Replacing BmEngine & UserEngine with custom made Advanced Launcher files.");
+
+                logger.Debug(
+                    "readConfigFile - Replacing BmEngine & UserEngine with custom made Advanced Launcher files.");
             }
 
             for (int i = 0; i < confLines.Length; i++)
@@ -242,6 +244,7 @@ namespace BmLauncherWForm.infrastructure
                     gInterpreter.interpretGraphics(confLines[i], true, LineInt);
                 }
             }
+
             logger.Info("readConfigFile - processed BmEngine & UserEngine.");
 
             new GuiInitializer().init();
@@ -262,6 +265,7 @@ namespace BmLauncherWForm.infrastructure
                 {
                     file.Write(UserInputPremade);
                 }
+
                 logger.Debug("readInputFile - generated UserInput at: {0}", InputFile);
             }
 
@@ -277,12 +281,14 @@ namespace BmLauncherWForm.infrastructure
                 {
                     file.Write(UserInputPremade);
                 }
+
                 logger.Debug("readInputFile - replaced UserInput with custom made Advanced Launcher files.");
 
                 inputLines = File.ReadAllLines(InputFile);
             }
 
-            logger.Debug("readInputFile - starting interpretKeys reading process."); kInterpreter = new KeybindInterpreter();
+            logger.Debug("readInputFile - starting interpretKeys reading process.");
+            kInterpreter = new KeybindInterpreter();
             for (int i = 0; i < inputLines.Length; i++)
             {
                 InputList.Add(inputLines[i]);
@@ -317,6 +323,7 @@ namespace BmLauncherWForm.infrastructure
 
                 file.Close();
             }
+
             ConfigInfo.IsReadOnly = true;
             logger.Debug("writeGraphFile - saved graphics parameters to {0}", ConfigFile);
         }
@@ -342,6 +349,7 @@ namespace BmLauncherWForm.infrastructure
 
                 file.Close();
             }
+
             logger.Debug("writeInputFile - saved input parameters to {0}", InputFile);
         }
 
@@ -363,7 +371,8 @@ namespace BmLauncherWForm.infrastructure
             }
 
             texApplied();
-            if (client.memPoolBox.SelectedIndex != 2 && client.memPoolBox.SelectedIndex != 3 && client.memPoolBox.SelectedIndex != 4 && client.memPoolBox.SelectedIndex != 5)
+            if (client.memPoolBox.SelectedIndex != 2 && client.memPoolBox.SelectedIndex != 3 &&
+                client.memPoolBox.SelectedIndex != 4 && client.memPoolBox.SelectedIndex != 5)
             {
                 client.memPoolBox.SelectedIndex = 2;
             }
@@ -392,7 +401,9 @@ namespace BmLauncherWForm.infrastructure
                 return lineToCheck;
             }
 
-            if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio") && !(lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=3072") || lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")))
+            if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio") &&
+                !(lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=3072") ||
+                  lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")))
             {
                 lineToCheck = TexFixLines[2];
                 return lineToCheck;
@@ -490,9 +501,9 @@ namespace BmLauncherWForm.infrastructure
             List<string> gpuList = new List<string>();
             string gpu = "";
             ManagementObjectSearcher search = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
-            foreach (var o in search.Get())
+            foreach (ManagementBaseObject o in search.Get())
             {
-                var obj = (ManagementObject)o;
+                ManagementObject obj = (ManagementObject)o;
                 foreach (PropertyData data in obj.Properties)
                 {
                     if (data.Name == "Description")
@@ -574,10 +585,11 @@ namespace BmLauncherWForm.infrastructure
                     byte[] bytes = Resources.NVSetter;
                     stream.Write(bytes, 0, bytes.Length);
                 }
+
                 logger.Debug("ExecNvSetter - creating NVSetter.exe in working directory.");
             }
 
-            ProcessStartInfo nvProcess = new ProcessStartInfo("NVSetter.exe") { Verb = "runas" };
+            ProcessStartInfo nvProcess = new ProcessStartInfo("NVSetter.exe") {Verb = "runas"};
             Process.Start(nvProcess);
             logger.Debug("ExecNvSetter - Executing NVSetter.exe");
         }

@@ -22,7 +22,7 @@ namespace BmLauncherWForm
     internal static class Program
     {
         // logger for easy debugging
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         public static Factory MyFactory;
 
@@ -55,19 +55,19 @@ namespace BmLauncherWForm
 
         private static void SetupLogger()
         {
-            var config = new LoggingConfiguration();
-            var logconsole = new ConsoleTarget("logconsole");
+            LoggingConfiguration config = new LoggingConfiguration();
+            ConsoleTarget logconsole = new ConsoleTarget("logconsole");
             if (!Directory.Exists("logs"))
             {
                 Directory.CreateDirectory("logs");
             }
 
-            var logfile = new FileTarget("logfile")
+            FileTarget logfile = new FileTarget("logfile")
             {
                 FileName = Directory.GetCurrentDirectory() + "\\logs\\bmlauncher_report__" + CurrentTime + ".log"
             };
-            var logDirectory = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\logs");
-            var oldestAllowedArchive = DateTime.Now - new TimeSpan(3, 0, 0, 0);
+            DirectoryInfo logDirectory = new DirectoryInfo(Directory.GetCurrentDirectory() + "\\logs");
+            DateTime oldestAllowedArchive = DateTime.Now - new TimeSpan(3, 0, 0, 0);
             foreach (FileInfo file in logDirectory.GetFiles())
             {
                 if (file.CreationTime < oldestAllowedArchive)

@@ -10,11 +10,11 @@ namespace BmLauncherWForm.data
     /// </summary>
     internal class KeybindInterpreter
     {
-        // logger for easy debugging
-        private static Logger logger = LogManager.GetCurrentClassLogger();
-
         // part of a string that is constant for every line
         private const string NameConstant = ".Bindings=(Name=\"";
+
+        // logger for easy debugging
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public KeybindInterpreter()
         {

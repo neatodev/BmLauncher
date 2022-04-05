@@ -29,7 +29,7 @@ namespace BmLauncherWForm.ui
         {
             Random number = new Random();
 
-            if ((number.NextDouble() * (100.0 - 1.0) + 1.0) <= 7.0)
+            if ((number.NextDouble() * (100.0 - 1.0)) + 1.0 <= 7.0)
             {
                 Process.Start("https://en.wikipedia.org/wiki/Baguette");
             }
@@ -37,7 +37,6 @@ namespace BmLauncherWForm.ui
             {
                 Process.Start("https://www.nexusmods.com/users/6875632?tab=user+files");
             }
-
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
