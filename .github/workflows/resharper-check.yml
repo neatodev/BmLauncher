@@ -1,0 +1,17 @@
+name: ReSharper
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  resharper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      
+      - name: Linting & Suggestions
+        uses: glassechidna/resharper-action@v1
+        with:
+          solution: BmLauncherWForm.sln
