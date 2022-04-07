@@ -53,6 +53,7 @@
             Program.Client.aaBox.SelectedIndex = 0;
             Program.Client.maxShadowBox.SelectedIndex = 3;
             Program.Client.texelBox.SelectedIndex = 1;
+            Program.Client.physxBox.SelectedIndex = Program.Client.gpInfoLabel.Text.Contains("NVIDIA") ? 1 : 0;
             if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
             {
                 Program.Client.nvBox.Checked = true;
