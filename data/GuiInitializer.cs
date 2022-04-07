@@ -202,14 +202,7 @@ namespace BmLauncherWForm.data
                     break;
 
                 case "0.008000":
-                    if (Graphics.getShadowSlope() == "10.0f")
-                    {
-                        Program.Client.texelBox.SelectedIndex = 1;
-                    }
-                    else
-                    {
-                        Program.Client.texelBox.SelectedIndex = 2;
-                    }
+                    Program.Client.texelBox.SelectedIndex = Graphics.getShadowSlope() == "10.000000" ? 1 : 2;
 
                     break;
 
