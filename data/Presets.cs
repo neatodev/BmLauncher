@@ -24,9 +24,13 @@
             setCommon();
             Program.Client.aaBox.SelectedIndex = 0;
             Program.Client.maxShadowBox.SelectedIndex = 2;
-            Program.Client.texelBox.SelectedIndex = 1;
+            Program.Client.texelBox.SelectedIndex = 0;
             Program.Client.physxBox.SelectedIndex = Program.Client.gpInfoLabel.Text.Contains("NVIDIA") ? 1 : 0;
             Program.Client.memPoolBox.SelectedIndex = 2;
+            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            {
+                Program.Client.nvBox.Checked = true;
+            }
         }
 
         public static void setOptimized()
@@ -46,6 +50,7 @@
         public static void setReborn()
         {
             setCommon();
+            Program.Client.aaBox.SelectedIndex = 0;
             Program.Client.maxShadowBox.SelectedIndex = 3;
             Program.Client.texelBox.SelectedIndex = 1;
             if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
