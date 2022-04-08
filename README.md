@@ -4,6 +4,7 @@ This is a replacement application for the original BmLauncher of the game. Along
 
 - Tooltips for every configuration option
 - Option to disable Startup Movies
+- Texmod Autoload support
 - Compatibility Fixes for [HD Texture Packs](https://steamcommunity.com/sharedfiles/filedetails/?id=1159691355)
 - NVIDIA API Implementation (Enable HBAO+ using the Launcher!) (Powered by [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper))
 - Extensive Logging Functionality (Powered by [NLog](https://github.com/NLog/NLog))
@@ -16,7 +17,7 @@ Works with both the Steam and EGS Version!
 
 ## Preview
 
-![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/76242354-e3edf400-6236-11ea-805d-7ce97b110ae8.png)
+![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/162538015-58b05f47-3931-4e3f-b403-b1cb40781bf7.png)
 
 ## Download
 
