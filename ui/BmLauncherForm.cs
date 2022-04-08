@@ -40,30 +40,44 @@ namespace BmLauncherWForm.ui
                 logger.Info("No configuration changes made.");
             }
 
-            launchButton.Enabled = false;
 
             using (Process launchBmGame = new Process())
             {
-                Factory.InputFileInfo.IsReadOnly = true;
-                if (Factory.TexmodDetected)
+                try
                 {
-                    launchBmGame.StartInfo.FileName = "texmod_autoload.exe";
-                    launchBmGame.StartInfo.CreateNoWindow = true;
-                    launchBmGame.Start();
-                    logger.Info("Launching Texmod. Logging has concluded at {0}, on {1}.",
-                        DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                    Factory.InputFileInfo.IsReadOnly = true;
+                    if (Factory.TexmodDetected)
+                    {
+                        launchBmGame.StartInfo.FileName = "texmod_autoload.exe";
+                        launchBmGame.StartInfo.CreateNoWindow = true;
+                        launchBmGame.Start();
+                        logger.Info("Launching Texmod. Logging has concluded at {0}, on {1}.",
+                            DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                        launchButton.Enabled = false;
+                        LogManager.Flush();
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        launchBmGame.StartInfo.FileName = "ShippingPC-BmGame.exe";
+                        launchBmGame.StartInfo.CreateNoWindow = true;
+                        launchBmGame.Start();
+                        logger.Info("Launching game application. Logging has concluded at {0}, on {1}.",
+                            DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                        launchButton.Enabled = false;
+                        LogManager.Flush();
+                        Application.Exit();
+                    }
                 }
-                else
+                catch (Exception err)
                 {
-                    launchBmGame.StartInfo.FileName = "ShippingPC-BmGame.exe";
-                    launchBmGame.StartInfo.CreateNoWindow = true;
-                    launchBmGame.Start();
-                    logger.Info("Launching game application. Logging has concluded at {0}, on {1}.",
-                        DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
+                    MessageBox.Show(
+                        "Couldn't find ShippingPC_BmGame.exe or texmod_autoload.exe.\r\nPlease place the Launcher files in the correct folder.\r\n" +
+                        "\r\nThe correct install folder is: \\Batman Arkham Asylum GOTY\\Binaries.",
+                        @"Could not start game!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
-
-                LogManager.Flush();
-                Application.Exit();
             }
         }
 
