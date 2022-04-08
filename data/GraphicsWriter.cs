@@ -170,7 +170,7 @@ namespace BmLauncherWForm.data
 
         private static void setHbaoPlus()
         {
-            if (!Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (!Program.Client.gpInfoLabel.Text.Contains("NVIDIA") || Program.pid != PlatformID.Win32NT)
             {
                 return;
             }

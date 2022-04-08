@@ -560,7 +560,8 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         private void ExtractWrapper()
         {
-            if (!client.gpInfoLabel.Text.Contains("NVIDIA") || File.Exists("NvAPIWrapper.dll"))
+            if (!client.gpInfoLabel.Text.Contains("NVIDIA") ||
+                (File.Exists("NvAPIWrapper.dll") && Program.pid != PlatformID.Win32NT))
             {
                 return;
             }

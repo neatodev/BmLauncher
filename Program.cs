@@ -32,6 +32,9 @@ namespace BmLauncherWForm
 
         private static readonly string CurrentTime = DateTime.Now.ToString("dd-MM-yy__hh-mm-ss");
 
+        public static readonly OperatingSystem os = Environment.OSVersion;
+        public static readonly PlatformID pid = os.Platform;
+
         // Mutex with this applications GUID as name
         private static readonly Mutex Mutex = new Mutex(true, "{cbb275f6-724f-4e82-a403-e333dcf6c0bf}");
 

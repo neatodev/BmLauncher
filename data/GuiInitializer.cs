@@ -313,7 +313,7 @@ namespace BmLauncherWForm.data
         /// </summary>
         private static void initHBAONVIDIA()
         {
-            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && Program.pid == PlatformID.Win32NT)
             {
                 Program.NvWorker = new NvidiaWorker();
                 Program.Client.nvBox.Enabled = true;

@@ -29,6 +29,11 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public NvidiaWorker()
         {
+            if (Program.pid != PlatformID.Win32NT)
+            {
+                return;
+            }
+
             NVIDIA.Initialize();
             logger.Debug("Constructor - NVIDIA API initialized.");
             _session = DriverSettingsSession.CreateAndLoad();

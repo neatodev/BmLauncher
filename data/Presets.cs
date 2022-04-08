@@ -1,4 +1,6 @@
-﻿namespace BmLauncherWForm.data
+﻿using System;
+
+namespace BmLauncherWForm.data
 {
     /// <summary>
     ///     Simple Class to store values for the presets.
@@ -25,9 +27,10 @@
             Program.Client.aaBox.SelectedIndex = 0;
             Program.Client.maxShadowBox.SelectedIndex = 2;
             Program.Client.texelBox.SelectedIndex = 0;
-            Program.Client.physxBox.SelectedIndex = Program.Client.gpInfoLabel.Text.Contains("NVIDIA") ? 1 : 0;
+            Program.Client.physxBox.SelectedIndex =
+                Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && Program.pid == PlatformID.Win32NT ? 1 : 0;
             Program.Client.memPoolBox.SelectedIndex = 2;
-            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && Program.pid != PlatformID.Win32NT)
             {
                 Program.Client.nvBox.Checked = true;
             }
@@ -41,7 +44,7 @@
             Program.Client.memPoolBox.SelectedIndex = 2;
             Program.Client.texelBox.SelectedIndex = 0;
             Program.Client.physxBox.SelectedIndex = 0;
-            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && Program.pid == PlatformID.Win32NT)
             {
                 Program.Client.nvBox.Checked = false;
             }
@@ -53,8 +56,9 @@
             Program.Client.aaBox.SelectedIndex = 0;
             Program.Client.maxShadowBox.SelectedIndex = 3;
             Program.Client.texelBox.SelectedIndex = 1;
-            Program.Client.physxBox.SelectedIndex = Program.Client.gpInfoLabel.Text.Contains("NVIDIA") ? 1 : 0;
-            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            Program.Client.physxBox.SelectedIndex =
+                Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && Program.pid == PlatformID.Win32NT ? 1 : 0;
+            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && Program.pid == PlatformID.Win32NT)
             {
                 Program.Client.nvBox.Checked = true;
             }
