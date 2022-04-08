@@ -524,7 +524,8 @@ namespace BmLauncherWForm.data
                 return;
             }
 
-            if ((lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=3072") || lineToCheck.Equals("PoolSize=4096") ||
+            if ((lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=3072") ||
+                 lineToCheck.Equals("PoolSize=4096") ||
                  lineToCheck.Equals("PoolSize=0")) && !poolCheck)
             {
                 poolCheck = true;
