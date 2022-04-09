@@ -1,5 +1,6 @@
 ﻿using BmLauncherWForm.infrastructure;
 using NLog;
+using NvAPIWrapper.Native.Exceptions;
 using System;
 
 namespace BmLauncherWForm.data
@@ -313,12 +314,20 @@ namespace BmLauncherWForm.data
         /// </summary>
         private static void initHBAONVIDIA()
         {
-            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && !WineChecker.IsWine())
             {
-                Program.NvWorker = new NvidiaWorker();
-                Program.Client.nvBox.Enabled = true;
-                Program.Client.nvidiaToolTip.Active = true;
-                logger.Debug("initHBAONVIDIA - initialized hbao+ possibility as true.");
+                try
+                {
+                    Program.NvWorker = new NvidiaWorker();
+                    Program.Client.nvBox.Enabled = true;
+                    Program.Client.nvidiaToolTip.Active = true;
+                    logger.Debug("initHBAONVIDIA - initialized hbao+ possibility as true.");
+                }
+                catch (NVIDIANotSupportedException e)
+                {
+                    logger.Warn("initHBAONVIDIA - Caught NVIDIANotSupportedException: {0}", e);
+                    Program.Client.nvBox.Enabled = false;
+                }
             }
             else
             {

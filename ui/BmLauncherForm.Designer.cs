@@ -223,6 +223,7 @@ namespace BmLauncherWForm.ui
             // 
             // displayBox
             // 
+            this.displayBox.AutoSize = true;
             this.displayBox.BackColor = System.Drawing.Color.Transparent;
             this.displayBox.Controls.Add(this.langBox);
             this.displayBox.Controls.Add(this.langLabel);
@@ -240,7 +241,7 @@ namespace BmLauncherWForm.ui
             this.displayBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.displayBox.Location = new System.Drawing.Point(19, 16);
             this.displayBox.Name = "displayBox";
-            this.displayBox.Size = new System.Drawing.Size(489, 103);
+            this.displayBox.Size = new System.Drawing.Size(491, 118);
             this.displayBox.TabIndex = 12;
             this.displayBox.TabStop = false;
             this.displayBox.Text = "Display";
@@ -515,6 +516,7 @@ namespace BmLauncherWForm.ui
             // 
             // graphicsBox
             // 
+            this.graphicsBox.AutoSize = true;
             this.graphicsBox.BackColor = System.Drawing.Color.Transparent;
             this.graphicsBox.Controls.Add(this.frameCheckBox);
             this.graphicsBox.Controls.Add(this.miscBox);
@@ -549,9 +551,9 @@ namespace BmLauncherWForm.ui
             this.graphicsBox.Controls.Add(this.nvidiaBox);
             this.graphicsBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.graphicsBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.graphicsBox.Location = new System.Drawing.Point(19, 162);
+            this.graphicsBox.Location = new System.Drawing.Point(19, 180);
             this.graphicsBox.Name = "graphicsBox";
-            this.graphicsBox.Size = new System.Drawing.Size(489, 277);
+            this.graphicsBox.Size = new System.Drawing.Size(491, 296);
             this.graphicsBox.TabIndex = 32;
             this.graphicsBox.TabStop = false;
             this.graphicsBox.Text = "Advanced Graphics";
@@ -578,7 +580,7 @@ namespace BmLauncherWForm.ui
             this.miscBox.Controls.Add(this.label1);
             this.miscBox.Controls.Add(this.fov2);
             this.miscBox.Controls.Add(this.fov1);
-            this.miscBox.Location = new System.Drawing.Point(211, 185);
+            this.miscBox.Location = new System.Drawing.Point(211, 188);
             this.miscBox.Name = "miscBox";
             this.miscBox.Size = new System.Drawing.Size(101, 86);
             this.miscBox.TabIndex = 50;
@@ -821,7 +823,7 @@ namespace BmLauncherWForm.ui
             this.nvidiaBox.Controls.Add(this.physxLabel);
             this.nvidiaBox.Location = new System.Drawing.Point(318, 195);
             this.nvidiaBox.Name = "nvidiaBox";
-            this.nvidiaBox.Size = new System.Drawing.Size(165, 76);
+            this.nvidiaBox.Size = new System.Drawing.Size(167, 79);
             this.nvidiaBox.TabIndex = 49;
             this.nvidiaBox.TabStop = false;
             this.nvidiaBox.Text = "NVIDIA Settings";
@@ -832,7 +834,7 @@ namespace BmLauncherWForm.ui
             this.nvBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.nvBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nvBox.ForeColor = System.Drawing.Color.LimeGreen;
-            this.nvBox.Location = new System.Drawing.Point(19, 51);
+            this.nvBox.Location = new System.Drawing.Point(18, 49);
             this.nvBox.Name = "nvBox";
             this.nvBox.Size = new System.Drawing.Size(142, 19);
             this.nvBox.TabIndex = 48;
@@ -877,12 +879,13 @@ namespace BmLauncherWForm.ui
             // 
             // keyButton
             // 
+            this.keyButton.AutoSize = true;
             this.keyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.keyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.keyButton.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.keyButton.Location = new System.Drawing.Point(19, 445);
+            this.keyButton.Location = new System.Drawing.Point(19, 480);
             this.keyButton.Name = "keyButton";
-            this.keyButton.Size = new System.Drawing.Size(489, 30);
+            this.keyButton.Size = new System.Drawing.Size(491, 30);
             this.keyButton.TabIndex = 48;
             this.keyButton.Text = "Keybinds";
             this.basicToolTip.SetToolTip(this.keyButton, "Opens a configuration window for keyboard+mouse settings.");
@@ -895,9 +898,9 @@ namespace BmLauncherWForm.ui
             this.ultraButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ultraButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ultraButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ultraButton.Location = new System.Drawing.Point(184, 125);
+            this.ultraButton.Location = new System.Drawing.Point(185, 142);
             this.ultraButton.Name = "ultraButton";
-            this.ultraButton.Size = new System.Drawing.Size(159, 31);
+            this.ultraButton.Size = new System.Drawing.Size(160, 31);
             this.ultraButton.TabIndex = 33;
             this.ultraButton.Text = "Ultra Preset";
             this.basicToolTip.SetToolTip(this.ultraButton, "Highly demanding!");
@@ -910,9 +913,9 @@ namespace BmLauncherWForm.ui
             this.optiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.optiButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optiButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.optiButton.Location = new System.Drawing.Point(19, 125);
+            this.optiButton.Location = new System.Drawing.Point(19, 142);
             this.optiButton.Name = "optiButton";
-            this.optiButton.Size = new System.Drawing.Size(159, 31);
+            this.optiButton.Size = new System.Drawing.Size(160, 31);
             this.optiButton.TabIndex = 34;
             this.optiButton.Text = "Optimized Preset";
             this.basicToolTip.SetToolTip(this.optiButton, "Provides a great experience with reasonable performance.");
@@ -921,14 +924,15 @@ namespace BmLauncherWForm.ui
             // 
             // applyButton
             // 
+            this.applyButton.AutoSize = true;
             this.applyButton.BackColor = System.Drawing.Color.Transparent;
             this.applyButton.Enabled = false;
             this.applyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.applyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.applyButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.applyButton.Location = new System.Drawing.Point(414, 481);
+            this.applyButton.Location = new System.Drawing.Point(412, 516);
             this.applyButton.Name = "applyButton";
-            this.applyButton.Size = new System.Drawing.Size(94, 25);
+            this.applyButton.Size = new System.Drawing.Size(98, 27);
             this.applyButton.TabIndex = 35;
             this.applyButton.Text = "Apply Settings";
             this.applyButton.UseVisualStyleBackColor = false;
@@ -936,13 +940,14 @@ namespace BmLauncherWForm.ui
             // 
             // texgroupButton
             // 
+            this.texgroupButton.AutoSize = true;
             this.texgroupButton.BackColor = System.Drawing.Color.Transparent;
             this.texgroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.texgroupButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.texgroupButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.texgroupButton.Location = new System.Drawing.Point(114, 481);
+            this.texgroupButton.Location = new System.Drawing.Point(114, 516);
             this.texgroupButton.Name = "texgroupButton";
-            this.texgroupButton.Size = new System.Drawing.Size(151, 25);
+            this.texgroupButton.Size = new System.Drawing.Size(151, 27);
             this.texgroupButton.TabIndex = 37;
             this.texgroupButton.Text = "Apply Texture Pack Fix";
             this.basicToolTip.SetToolTip(this.texgroupButton, "This is only required if you are using the HD Texture Pack.");
@@ -955,7 +960,7 @@ namespace BmLauncherWForm.ui
             this.gpLabel.BackColor = System.Drawing.Color.Transparent;
             this.gpLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gpLabel.Location = new System.Drawing.Point(16, 568);
+            this.gpLabel.Location = new System.Drawing.Point(16, 603);
             this.gpLabel.Name = "gpLabel";
             this.gpLabel.Size = new System.Drawing.Size(73, 13);
             this.gpLabel.TabIndex = 38;
@@ -967,7 +972,7 @@ namespace BmLauncherWForm.ui
             this.gpInfoLabel.BackColor = System.Drawing.Color.Transparent;
             this.gpInfoLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpInfoLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gpInfoLabel.Location = new System.Drawing.Point(87, 568);
+            this.gpInfoLabel.Location = new System.Drawing.Point(87, 603);
             this.gpInfoLabel.Name = "gpInfoLabel";
             this.gpInfoLabel.Size = new System.Drawing.Size(137, 13);
             this.gpInfoLabel.TabIndex = 39;
@@ -979,7 +984,7 @@ namespace BmLauncherWForm.ui
             this.credLabel.BackColor = System.Drawing.Color.Transparent;
             this.credLabel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.credLabel.LinkColor = System.Drawing.Color.DimGray;
-            this.credLabel.Location = new System.Drawing.Point(451, 567);
+            this.credLabel.Location = new System.Drawing.Point(451, 602);
             this.credLabel.Name = "credLabel";
             this.credLabel.Size = new System.Drawing.Size(59, 13);
             this.credLabel.TabIndex = 41;
@@ -989,15 +994,16 @@ namespace BmLauncherWForm.ui
             // 
             // launchButton
             // 
+            this.launchButton.AutoSize = true;
             this.launchButton.BackColor = System.Drawing.Color.Transparent;
             this.launchButton.BackgroundImage = global::BmLauncherWForm.Properties.Resources.LauncherStart1;
             this.launchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.launchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.launchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.launchButton.Location = new System.Drawing.Point(19, 512);
+            this.launchButton.Location = new System.Drawing.Point(19, 547);
             this.launchButton.Name = "launchButton";
             this.launchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.launchButton.Size = new System.Drawing.Size(489, 53);
+            this.launchButton.Size = new System.Drawing.Size(491, 53);
             this.launchButton.TabIndex = 36;
             this.launchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.basicToolTip.SetToolTip(this.launchButton, "Currently selected settings will automatically be applied.");
@@ -1017,13 +1023,14 @@ namespace BmLauncherWForm.ui
             // 
             // disableIntroButton
             // 
+            this.disableIntroButton.AutoSize = true;
             this.disableIntroButton.BackColor = System.Drawing.Color.Transparent;
             this.disableIntroButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.disableIntroButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.disableIntroButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.disableIntroButton.Location = new System.Drawing.Point(268, 481);
+            this.disableIntroButton.Location = new System.Drawing.Point(268, 516);
             this.disableIntroButton.Name = "disableIntroButton";
-            this.disableIntroButton.Size = new System.Drawing.Size(143, 25);
+            this.disableIntroButton.Size = new System.Drawing.Size(143, 27);
             this.disableIntroButton.TabIndex = 49;
             this.disableIntroButton.Text = "Disable Intro Movies";
             this.basicToolTip.SetToolTip(this.disableIntroButton, "Find intro videos annoying? Click this to jump straight to the main menu.");
@@ -1035,7 +1042,7 @@ namespace BmLauncherWForm.ui
             this.TexmodLabel.AutoSize = true;
             this.TexmodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TexmodLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.TexmodLabel.Location = new System.Drawing.Point(305, 567);
+            this.TexmodLabel.Location = new System.Drawing.Point(305, 602);
             this.TexmodLabel.Name = "TexmodLabel";
             this.TexmodLabel.Size = new System.Drawing.Size(109, 13);
             this.TexmodLabel.TabIndex = 51;
@@ -1044,13 +1051,14 @@ namespace BmLauncherWForm.ui
             // 
             // ManualModeBtn
             // 
+            this.ManualModeBtn.AutoSize = true;
             this.ManualModeBtn.BackColor = System.Drawing.Color.Transparent;
             this.ManualModeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ManualModeBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManualModeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ManualModeBtn.Location = new System.Drawing.Point(19, 481);
+            this.ManualModeBtn.Location = new System.Drawing.Point(19, 516);
             this.ManualModeBtn.Name = "ManualModeBtn";
-            this.ManualModeBtn.Size = new System.Drawing.Size(92, 25);
+            this.ManualModeBtn.Size = new System.Drawing.Size(94, 27);
             this.ManualModeBtn.TabIndex = 52;
             this.ManualModeBtn.Text = "Manual Mode";
             this.basicToolTip.SetToolTip(this.ManualModeBtn, "This disables the read-only flags of the configuration files.");
@@ -1063,9 +1071,9 @@ namespace BmLauncherWForm.ui
             this.rebornButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rebornButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rebornButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rebornButton.Location = new System.Drawing.Point(349, 125);
+            this.rebornButton.Location = new System.Drawing.Point(350, 142);
             this.rebornButton.Name = "rebornButton";
-            this.rebornButton.Size = new System.Drawing.Size(159, 31);
+            this.rebornButton.Size = new System.Drawing.Size(160, 31);
             this.rebornButton.TabIndex = 53;
             this.rebornButton.Text = "Asylum Reborn Preset";
             this.basicToolTip.SetToolTip(this.rebornButton, "Experience the Asylum anew. Will provide the intended experience but is extremely" +
@@ -1116,11 +1124,14 @@ namespace BmLauncherWForm.ui
             // 
             // BmLauncherForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(527, 583);
+            this.ClientSize = new System.Drawing.Size(528, 622);
+            this.Controls.Add(this.ultraButton);
             this.Controls.Add(this.rebornButton);
             this.Controls.Add(this.ManualModeBtn);
             this.Controls.Add(this.TexmodLabel);
@@ -1136,7 +1147,6 @@ namespace BmLauncherWForm.ui
             this.Controls.Add(this.optiButton);
             this.Controls.Add(this.graphicsBox);
             this.Controls.Add(this.displayBox);
-            this.Controls.Add(this.ultraButton);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.DarkRed;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

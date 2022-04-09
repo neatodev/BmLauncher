@@ -29,29 +29,38 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public NvidiaWorker()
         {
-            NVIDIA.Initialize();
-            logger.Debug("Constructor - NVIDIA API initialized.");
-            _session = DriverSettingsSession.CreateAndLoad();
             try
             {
-                _session.FindProfileByName("Batman: Arkham Asylum");
-            }
-            catch (NVIDIAApiException e)
-            {
-                Console.WriteLine(e);
-                DriverSettingsProfile profile =
-                    DriverSettingsProfile.CreateProfile(_session, "Batman: Arkham Asylum");
-                ProfileApplication profApp = ProfileApplication.CreateApplication(profile, "shippingpc-bmgame.exe");
-                profile = profApp.Profile;
-                profile.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 0);
-                profile.SetSetting(KnownSettingId.AmbientOcclusionMode, 0);
-                _session.Save();
-                logger.Warn("Constructor - NVIDIA profile not found. Creating profile: {0}", profile.ToString());
-            }
+                NVIDIA.Initialize();
+                logger.Debug("Constructor - NVIDIA API initialized.");
+                _session = DriverSettingsSession.CreateAndLoad();
+                try
+                {
+                    _session.FindProfileByName("Batman: Arkham Asylum");
+                }
+                catch (NVIDIAApiException e)
+                {
+                    Console.WriteLine(e);
+                    DriverSettingsProfile profile =
+                        DriverSettingsProfile.CreateProfile(_session, "Batman: Arkham Asylum");
+                    ProfileApplication profApp = ProfileApplication.CreateApplication(profile, "shippingpc-bmgame.exe");
+                    profile = profApp.Profile;
+                    profile.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 0);
+                    profile.SetSetting(KnownSettingId.AmbientOcclusionMode, 0);
+                    _session.Save();
+                    logger.Warn("Constructor - NVIDIA profile not found. Creating profile: {0}", profile.ToString());
+                }
 
-            _prof = _session.FindProfileByName("Batman: Arkham Asylum");
-            getNVSettings();
-            logger.Info("Constructor - NVIDIA profile fully processed.");
+                _prof = _session.FindProfileByName("Batman: Arkham Asylum");
+                getNVSettings();
+                logger.Info("Constructor - NVIDIA profile fully processed.");
+            }
+            catch (NVIDIANotSupportedException e)
+            {
+                NVIDIA.Initialize();
+                Program.Client.nvBox.Enabled = false;
+                logger.Warn("Constructor - Caught NVIDIANotSupportedException: {0}.", e);
+            }
         }
 
         /// <summary>
@@ -60,23 +69,30 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public void setNVSettings()
         {
-            if (Program.Client.nvBox.Checked)
+            try
             {
-                _prof.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 1);
-                _prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 2);
-                _session.Save();
-            }
-            else
-            {
-                _prof.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 0);
-                _prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 0);
-                _session.Save();
-            }
+                if (Program.Client.nvBox.Checked && Program.Client.nvBox.Enabled)
+                {
+                    _prof.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 1);
+                    _prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 2);
+                    _session.Save();
+                }
+                else if (Program.Client.nvBox.Enabled)
+                {
+                    _prof.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 0);
+                    _prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 0);
+                    _session.Save();
+                }
 
-            logger.Debug(
-                "setNVSettings - setting AmbientOcclusionModeActive to {0}, setting AmbientOcclusionMode to {1}",
-                _prof.GetSetting(KnownSettingId.AmbientOcclusionModeActive).CurrentValue,
-                _prof.GetSetting(KnownSettingId.AmbientOcclusionMode).CurrentValue);
+                logger.Debug(
+                    "setNVSettings - setting AmbientOcclusionModeActive to {0}, setting AmbientOcclusionMode to {1}",
+                    _prof.GetSetting(KnownSettingId.AmbientOcclusionModeActive).CurrentValue,
+                    _prof.GetSetting(KnownSettingId.AmbientOcclusionMode).CurrentValue);
+            }
+            catch (NullReferenceException e)
+            {
+                logger.Warn("setNVSettings - Caught NullReferenceException: {0}", e);
+            }
         }
 
         /// <summary>

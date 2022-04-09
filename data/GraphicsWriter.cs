@@ -1,5 +1,6 @@
 ﻿using BmLauncherWForm.infrastructure;
 using NLog;
+using NvAPIWrapper.Native.Exceptions;
 using System;
 
 namespace BmLauncherWForm.data
@@ -170,12 +171,21 @@ namespace BmLauncherWForm.data
 
         private static void setHbaoPlus()
         {
-            if (!Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            if (!Program.Client.gpInfoLabel.Text.Contains("NVIDIA") || WineChecker.IsWine())
             {
                 return;
             }
 
-            Program.NvWorker.setNVSettings();
+            try
+            {
+                Program.NvWorker.setNVSettings();
+            }
+            catch (NVIDIANotSupportedException e)
+            {
+                logger.Warn("setHbaoPlus - Caught NVIDIANotSupportedException: {0}", e);
+                return;
+            }
+
             if (NvidiaWorker.HasHbao || !Program.Client.nvBox.Checked || isHbao)
             {
                 return;
