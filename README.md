@@ -4,6 +4,8 @@ This is a replacement application for the original BmLauncher of the game. Along
 
 - Tooltips for every configuration option
 - Option to disable Startup Movies
+- Texmod Autoload Support
+- Experimental Wine (Linux) Support
 - Compatibility Fixes for [HD Texture Packs](https://steamcommunity.com/sharedfiles/filedetails/?id=1159691355)
 - NVIDIA API Implementation (Enable HBAO+ using the Launcher!) (Powered by [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper))
 - Extensive Logging Functionality (Powered by [NLog](https://github.com/NLog/NLog))
@@ -12,11 +14,11 @@ Works with both the Steam and EGS Version!
 
 **This Application depends on .NET Framework 4.5**. If you are using Windows 8 (or newer), you shouldn't have any issues executing it. Windows 7 SP1 (and older) might need to install [.NET Framework 4.5](https://download.microsoft.com/download/B/A/4/BA4A7E71-2906-4B2D-A0E1-80CF16844F5F/dotNetFx45_Full_setup.exe) manually. **Other Environments than Windows are not supported.**
 
-**This application has only been tested on Windows 7 SP1, Windows 8, Windows 8.1 and Windows 10. It supports the Steam and Epic Games Store version and nothing else. Linux is not supported!**
+**This application has only been tested on Windows 7 SP1, Windows 8, Windows 8.1, Windows 10 and Wine. It supports the Steam and Epic Games Store version and nothing else.**
 
 ## Preview
 
-![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/76242354-e3edf400-6236-11ea-805d-7ce97b110ae8.png)
+![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/162581484-8cf710cb-b133-44c1-b2ed-537fe6b84ccb.png)
 
 ## Download
 
