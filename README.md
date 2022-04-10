@@ -5,7 +5,7 @@ This is a replacement application for the original BmLauncher of the game. Along
 - Tooltips for every configuration option
 - Option to disable Startup Movies
 - Texmod Autoload Support
-- Experimental Wine (Linux) Support
+- Experimental Wine (Linux) Support (More Information at the bottom)
 - Compatibility Fixes for [HD Texture Packs](https://steamcommunity.com/sharedfiles/filedetails/?id=1159691355)
 - NVIDIA API Implementation (Enable HBAO+ using the Launcher!) (Powered by [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper))
 - Extensive Logging Functionality (Powered by [NLog](https://github.com/NLog/NLog))
@@ -22,7 +22,7 @@ Works with both the Steam and EGS Version!
 
 ## Download
 
-See: [Current Release](https://github.com/neatodev/BmLauncher/releases)
+See: [Current Release](https://github.com/neatodev/BmLauncher/releases/latest)
 
 ## Installation
 
@@ -41,9 +41,29 @@ To do that, just right-click the application, select Properties and enable the h
 
 ![Unblock Image](https://user-images.githubusercontent.com/49599979/75610370-e2268100-5b10-11ea-978d-c257a2466dc8.png)
 
+## Hint for Linux users
+
+To achieve the best results when using the Launcher, you should install the Calibri font for 
+
+Protontricks:
+`protontricks 35140 -q calibri`
+
+or
+
+Winetricks:
+`WINEPREFIX=<path-to-SteamLibrary>/steamapps/compatdata/35140/pfx winetricks -q calibri`
+
+Furthermore, to run Arkham Asylum properly on Linux, the following fix is needed:
+
+`protontricks 35140 -q d3dx9 d3dcompiler_43`
+
+If you wish to make full use of PhysX for Arkham Asylum on Linux you also need to copy Arkham City's [PhysXDevice.dll](https://drive.google.com/file/d/1hcM3y34HN2yLYmd1S_cV1q2MrOU6q_5w/view) into the same folder as the Launcher (Batman Arkham Asylum GOTY\Binaries).
+
+This help section and the working Proton/Wine support was only made possible through heavy cooperation with [ThisNekoGuy](https://github.com/ThisNekoGuy).
+
 ## Bug Reports
 
-To file a bug report, or if you have suggestions for the Launcher in general, please file an [issue](https://github.com/neatodev/BmLauncher/issues/new). I read these regularly and should normally be able to respond within a day. If you are using version 1.5+ (which you should), please also include the most recent bmlauncher_report in the issue (if available). You can find the reports in the 'Batman Arkham Asylum GOTY\Binaries\logs' folder.
+To file a bug report, or if you have suggestions for the Launcher in general, please file an [issue](https://github.com/neatodev/BmLauncher/issues/new). I read these regularly and should normally be able to respond within a day. If you are using version 1.6+ (which you should), please also include the most recent bmlauncher_report in the issue (if available). You can find the reports in the 'Batman Arkham Asylum GOTY\Binaries\logs' folder.
 
 ## Known Issues
 
