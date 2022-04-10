@@ -1013,7 +1013,7 @@ namespace BmLauncherWForm.ui
             this.launchButton.BackgroundImage = global::BmLauncherWForm.Properties.Resources.LauncherStart1;
             this.launchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.launchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.launchButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.launchButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.launchButton.Location = new System.Drawing.Point(19, 547);
             this.launchButton.Name = "launchButton";
             this.launchButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
