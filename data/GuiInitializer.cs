@@ -329,6 +329,13 @@ namespace BmLauncherWForm.data
                     Program.Client.nvBox.Enabled = false;
                 }
             }
+            else if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            {
+                Program.Client.nvBox.Enabled = false;
+                Program.Client.nvidiaToolTip.Active = true;
+                logger.Debug(
+                    "initHBAONVIDIA - initialized hbao+ possibility as false. You're using an NVIDIA card on a Linux machine.");
+            }
             else
             {
                 Program.Client.amdToolTip.Active = true;
