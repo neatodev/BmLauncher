@@ -115,7 +115,7 @@ namespace BmLauncherWForm.ui
             // 
             this.msaaLabel.AutoSize = true;
             this.msaaLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.msaaLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.msaaLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.msaaLabel.Location = new System.Drawing.Point(13, 22);
             this.msaaLabel.Name = "msaaLabel";
             this.msaaLabel.Size = new System.Drawing.Size(79, 15);
@@ -127,6 +127,7 @@ namespace BmLauncherWForm.ui
             // resLabel
             // 
             this.resLabel.AutoSize = true;
+            this.resLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.resLabel.Location = new System.Drawing.Point(6, 49);
             this.resLabel.Name = "resLabel";
             this.resLabel.Size = new System.Drawing.Size(69, 15);
@@ -137,6 +138,7 @@ namespace BmLauncherWForm.ui
             // vsyncLabel
             // 
             this.vsyncLabel.AutoSize = true;
+            this.vsyncLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.vsyncLabel.Location = new System.Drawing.Point(285, 22);
             this.vsyncLabel.Name = "vsyncLabel";
             this.vsyncLabel.Size = new System.Drawing.Size(79, 15);
@@ -147,6 +149,7 @@ namespace BmLauncherWForm.ui
             // detailLabel
             // 
             this.detailLabel.AutoSize = true;
+            this.detailLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.detailLabel.Location = new System.Drawing.Point(286, 49);
             this.detailLabel.Name = "detailLabel";
             this.detailLabel.Size = new System.Drawing.Size(78, 15);
@@ -157,6 +160,7 @@ namespace BmLauncherWForm.ui
             // fscreenLabel
             // 
             this.fscreenLabel.AutoSize = true;
+            this.fscreenLabel.ForeColor = System.Drawing.Color.Black;
             this.fscreenLabel.Location = new System.Drawing.Point(6, 22);
             this.fscreenLabel.Name = "fscreenLabel";
             this.fscreenLabel.Size = new System.Drawing.Size(66, 15);
@@ -238,7 +242,7 @@ namespace BmLauncherWForm.ui
             this.displayBox.Controls.Add(this.vsyncLabel);
             this.displayBox.Controls.Add(this.resLabel);
             this.displayBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.displayBox.ForeColor = System.Drawing.SystemColors.InfoText;
             this.displayBox.Location = new System.Drawing.Point(19, 16);
             this.displayBox.Name = "displayBox";
             this.displayBox.Size = new System.Drawing.Size(491, 118);
@@ -266,6 +270,7 @@ namespace BmLauncherWForm.ui
             // langLabel
             // 
             this.langLabel.AutoSize = true;
+            this.langLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.langLabel.Location = new System.Drawing.Point(302, 76);
             this.langLabel.Name = "langLabel";
             this.langLabel.Size = new System.Drawing.Size(62, 15);
@@ -290,6 +295,7 @@ namespace BmLauncherWForm.ui
             // smoothFrameLabel
             // 
             this.smoothFrameLabel.AutoSize = true;
+            this.smoothFrameLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.smoothFrameLabel.Location = new System.Drawing.Point(6, 76);
             this.smoothFrameLabel.Name = "smoothFrameLabel";
             this.smoothFrameLabel.Size = new System.Drawing.Size(92, 15);
@@ -318,7 +324,7 @@ namespace BmLauncherWForm.ui
             // 
             this.dofLabel.AutoSize = true;
             this.dofLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dofLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dofLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.dofLabel.Location = new System.Drawing.Point(4, 138);
             this.dofLabel.Name = "dofLabel";
             this.dofLabel.Size = new System.Drawing.Size(88, 15);
@@ -346,7 +352,7 @@ namespace BmLauncherWForm.ui
             // 
             this.aoLabel.AutoSize = true;
             this.aoLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aoLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.aoLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.aoLabel.Location = new System.Drawing.Point(253, 80);
             this.aoLabel.Name = "aoLabel";
             this.aoLabel.Size = new System.Drawing.Size(113, 15);
@@ -375,7 +381,7 @@ namespace BmLauncherWForm.ui
             this.lensFlareLabel.AutoSize = true;
             this.lensFlareLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lensFlareLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lensFlareLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lensFlareLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.lensFlareLabel.Location = new System.Drawing.Point(21, 109);
             this.lensFlareLabel.Name = "lensFlareLabel";
             this.lensFlareLabel.Size = new System.Drawing.Size(71, 15);
@@ -401,7 +407,7 @@ namespace BmLauncherWForm.ui
             // 
             this.bloomLabel.AutoSize = true;
             this.bloomLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bloomLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bloomLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.bloomLabel.Location = new System.Drawing.Point(46, 80);
             this.bloomLabel.Name = "bloomLabel";
             this.bloomLabel.Size = new System.Drawing.Size(46, 15);
@@ -431,7 +437,7 @@ namespace BmLauncherWForm.ui
             // 
             this.anisoLabel.AutoSize = true;
             this.anisoLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.anisoLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.anisoLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.anisoLabel.Location = new System.Drawing.Point(245, 22);
             this.anisoLabel.Name = "anisoLabel";
             this.anisoLabel.Size = new System.Drawing.Size(121, 15);
@@ -458,7 +464,7 @@ namespace BmLauncherWForm.ui
             // 
             this.dshadowLabel.AutoSize = true;
             this.dshadowLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dshadowLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dshadowLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.dshadowLabel.Location = new System.Drawing.Point(258, 109);
             this.dshadowLabel.Name = "dshadowLabel";
             this.dshadowLabel.Size = new System.Drawing.Size(108, 15);
@@ -486,7 +492,7 @@ namespace BmLauncherWForm.ui
             // 
             this.maxShadowLabel.AutoSize = true;
             this.maxShadowLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxShadowLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.maxShadowLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.maxShadowLabel.Location = new System.Drawing.Point(270, 138);
             this.maxShadowLabel.Name = "maxShadowLabel";
             this.maxShadowLabel.Size = new System.Drawing.Size(96, 15);
@@ -550,7 +556,7 @@ namespace BmLauncherWForm.ui
             this.graphicsBox.Controls.Add(this.msaaLabel);
             this.graphicsBox.Controls.Add(this.nvidiaBox);
             this.graphicsBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.graphicsBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.graphicsBox.ForeColor = System.Drawing.SystemColors.InfoText;
             this.graphicsBox.Location = new System.Drawing.Point(19, 180);
             this.graphicsBox.Name = "graphicsBox";
             this.graphicsBox.Size = new System.Drawing.Size(491, 296);
@@ -580,6 +586,7 @@ namespace BmLauncherWForm.ui
             this.miscBox.Controls.Add(this.label1);
             this.miscBox.Controls.Add(this.fov2);
             this.miscBox.Controls.Add(this.fov1);
+            this.miscBox.ForeColor = System.Drawing.SystemColors.InfoText;
             this.miscBox.Location = new System.Drawing.Point(211, 188);
             this.miscBox.Name = "miscBox";
             this.miscBox.Size = new System.Drawing.Size(101, 86);
@@ -594,6 +601,7 @@ namespace BmLauncherWForm.ui
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label5.Location = new System.Drawing.Point(6, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
@@ -604,6 +612,7 @@ namespace BmLauncherWForm.ui
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label3.Location = new System.Drawing.Point(6, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
@@ -614,6 +623,7 @@ namespace BmLauncherWForm.ui
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(6, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
@@ -624,6 +634,7 @@ namespace BmLauncherWForm.ui
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label1.Location = new System.Drawing.Point(6, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
@@ -634,6 +645,7 @@ namespace BmLauncherWForm.ui
             // 
             this.fov2.AutoSize = true;
             this.fov2.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
+            this.fov2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.fov2.Location = new System.Drawing.Point(6, 48);
             this.fov2.Name = "fov2";
             this.fov2.Size = new System.Drawing.Size(61, 13);
@@ -644,6 +656,7 @@ namespace BmLauncherWForm.ui
             // 
             this.fov1.AutoSize = true;
             this.fov1.Font = new System.Drawing.Font("Calibri", 8F, System.Drawing.FontStyle.Bold);
+            this.fov1.ForeColor = System.Drawing.SystemColors.InfoText;
             this.fov1.Location = new System.Drawing.Point(6, 37);
             this.fov1.Name = "fov1";
             this.fov1.Size = new System.Drawing.Size(79, 13);
@@ -669,7 +682,7 @@ namespace BmLauncherWForm.ui
             // 
             this.mBlurLabel.AutoSize = true;
             this.mBlurLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mBlurLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.mBlurLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.mBlurLabel.Location = new System.Drawing.Point(16, 196);
             this.mBlurLabel.Name = "mBlurLabel";
             this.mBlurLabel.Size = new System.Drawing.Size(76, 15);
@@ -696,7 +709,7 @@ namespace BmLauncherWForm.ui
             // 
             this.distLabel.AutoSize = true;
             this.distLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.distLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.distLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.distLabel.Location = new System.Drawing.Point(26, 167);
             this.distLabel.Name = "distLabel";
             this.distLabel.Size = new System.Drawing.Size(66, 15);
@@ -722,7 +735,7 @@ namespace BmLauncherWForm.ui
             // 
             this.fogLabel.AutoSize = true;
             this.fogLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fogLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.fogLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.fogLabel.Location = new System.Drawing.Point(12, 51);
             this.fogLabel.Name = "fogLabel";
             this.fogLabel.Size = new System.Drawing.Size(80, 15);
@@ -749,7 +762,7 @@ namespace BmLauncherWForm.ui
             // 
             this.sphericalLabel.AutoSize = true;
             this.sphericalLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sphericalLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sphericalLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.sphericalLabel.Location = new System.Drawing.Point(216, 51);
             this.sphericalLabel.Name = "sphericalLabel";
             this.sphericalLabel.Size = new System.Drawing.Size(150, 15);
@@ -780,7 +793,7 @@ namespace BmLauncherWForm.ui
             // 
             this.memPoolLabel.AutoSize = true;
             this.memPoolLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memPoolLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.memPoolLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.memPoolLabel.Location = new System.Drawing.Point(33, 225);
             this.memPoolLabel.Name = "memPoolLabel";
             this.memPoolLabel.Size = new System.Drawing.Size(59, 15);
@@ -808,7 +821,7 @@ namespace BmLauncherWForm.ui
             // 
             this.shadowTexelLabel.AutoSize = true;
             this.shadowTexelLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shadowTexelLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.shadowTexelLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.shadowTexelLabel.Location = new System.Drawing.Point(258, 167);
             this.shadowTexelLabel.Name = "shadowTexelLabel";
             this.shadowTexelLabel.Size = new System.Drawing.Size(108, 15);
@@ -821,6 +834,7 @@ namespace BmLauncherWForm.ui
             this.nvidiaBox.Controls.Add(this.nvBox);
             this.nvidiaBox.Controls.Add(this.physxBox);
             this.nvidiaBox.Controls.Add(this.physxLabel);
+            this.nvidiaBox.ForeColor = System.Drawing.SystemColors.InfoText;
             this.nvidiaBox.Location = new System.Drawing.Point(318, 195);
             this.nvidiaBox.Name = "nvidiaBox";
             this.nvidiaBox.Size = new System.Drawing.Size(167, 79);
@@ -867,7 +881,7 @@ namespace BmLauncherWForm.ui
             // 
             this.physxLabel.AutoSize = true;
             this.physxLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.physxLabel.ForeColor = System.Drawing.Color.Black;
+            this.physxLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.physxLabel.Location = new System.Drawing.Point(5, 27);
             this.physxLabel.Name = "physxLabel";
             this.physxLabel.Size = new System.Drawing.Size(43, 15);
@@ -897,7 +911,7 @@ namespace BmLauncherWForm.ui
             this.ultraButton.BackColor = System.Drawing.Color.Transparent;
             this.ultraButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ultraButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ultraButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ultraButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.ultraButton.Location = new System.Drawing.Point(185, 142);
             this.ultraButton.Name = "ultraButton";
             this.ultraButton.Size = new System.Drawing.Size(160, 31);
@@ -912,7 +926,7 @@ namespace BmLauncherWForm.ui
             this.optiButton.BackColor = System.Drawing.Color.Transparent;
             this.optiButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.optiButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optiButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.optiButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.optiButton.Location = new System.Drawing.Point(19, 142);
             this.optiButton.Name = "optiButton";
             this.optiButton.Size = new System.Drawing.Size(160, 31);
@@ -929,7 +943,7 @@ namespace BmLauncherWForm.ui
             this.applyButton.Enabled = false;
             this.applyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.applyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.applyButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.applyButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.applyButton.Location = new System.Drawing.Point(412, 516);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(98, 27);
@@ -944,7 +958,7 @@ namespace BmLauncherWForm.ui
             this.texgroupButton.BackColor = System.Drawing.Color.Transparent;
             this.texgroupButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.texgroupButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.texgroupButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.texgroupButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.texgroupButton.Location = new System.Drawing.Point(114, 516);
             this.texgroupButton.Name = "texgroupButton";
             this.texgroupButton.Size = new System.Drawing.Size(151, 27);
@@ -959,7 +973,7 @@ namespace BmLauncherWForm.ui
             this.gpLabel.AutoSize = true;
             this.gpLabel.BackColor = System.Drawing.Color.Transparent;
             this.gpLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gpLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.gpLabel.Location = new System.Drawing.Point(16, 603);
             this.gpLabel.Name = "gpLabel";
             this.gpLabel.Size = new System.Drawing.Size(73, 13);
@@ -1027,7 +1041,7 @@ namespace BmLauncherWForm.ui
             this.disableIntroButton.BackColor = System.Drawing.Color.Transparent;
             this.disableIntroButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.disableIntroButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.disableIntroButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.disableIntroButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.disableIntroButton.Location = new System.Drawing.Point(268, 516);
             this.disableIntroButton.Name = "disableIntroButton";
             this.disableIntroButton.Size = new System.Drawing.Size(143, 27);
@@ -1055,7 +1069,7 @@ namespace BmLauncherWForm.ui
             this.ManualModeBtn.BackColor = System.Drawing.Color.Transparent;
             this.ManualModeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ManualModeBtn.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManualModeBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ManualModeBtn.ForeColor = System.Drawing.SystemColors.InfoText;
             this.ManualModeBtn.Location = new System.Drawing.Point(19, 516);
             this.ManualModeBtn.Name = "ManualModeBtn";
             this.ManualModeBtn.Size = new System.Drawing.Size(94, 27);
@@ -1070,7 +1084,7 @@ namespace BmLauncherWForm.ui
             this.rebornButton.BackColor = System.Drawing.Color.Transparent;
             this.rebornButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rebornButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rebornButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.rebornButton.ForeColor = System.Drawing.SystemColors.InfoText;
             this.rebornButton.Location = new System.Drawing.Point(350, 142);
             this.rebornButton.Name = "rebornButton";
             this.rebornButton.Size = new System.Drawing.Size(160, 31);
@@ -1106,7 +1120,7 @@ namespace BmLauncherWForm.ui
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label4.Location = new System.Drawing.Point(334, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(177, 13);

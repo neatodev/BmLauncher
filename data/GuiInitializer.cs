@@ -247,7 +247,7 @@ namespace BmLauncherWForm.data
         {
             int framecap = Int32.Parse(Graphics.getMaxSmoothedFramerate()
                 .Substring(0, Graphics.getMaxSmoothedFramerate().LastIndexOf(".")));
-            framecap = framecap - 2;
+            framecap -= 2;
             Program.Client.maxSmoothTextBox.Text = framecap.ToString();
             logger.Debug("initLang - initialized framerate cap as {0}", Graphics.getMaxSmoothedFramerate());
         }

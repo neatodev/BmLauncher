@@ -206,7 +206,7 @@ namespace BmLauncherWForm.data
             else
             {
                 int framecap = Int32.Parse(Program.Client.maxSmoothTextBox.Text.Trim());
-                framecap = framecap + 2;
+                framecap += 2;
                 Graphics.setMaxSmoothedFramerate(framecap + ".000000");
             }
 
