@@ -2,6 +2,7 @@
 using NLog;
 using NvAPIWrapper.Native.Exceptions;
 using System;
+using System.IO;
 
 namespace BmLauncherWForm.data
 {
@@ -76,7 +77,20 @@ namespace BmLauncherWForm.data
             initMaxSmoothedFrames();
             initMemoryPoolsValue();
             initResolutions();
-            initHBAONVIDIA();
+            try
+            {
+                initHBAONVIDIA();
+            }
+            catch (FileNotFoundException e)
+            {
+                Program.Client.amdToolTip.Active = true;
+                Program.Client.amdToolTip.ShowAlways = true;
+                Program.Client.nvBox.Enabled = false;
+                logger.Warn(
+                    "init - could not call initHBAONVIDIA() - This is fine if you're not using an NVIDIA GPU. Exception: {0}",
+                    e);
+            }
+
             logger.Info("init - initialized all values to the gui.");
         }
 
@@ -314,6 +328,15 @@ namespace BmLauncherWForm.data
         /// </summary>
         private static void initHBAONVIDIA()
         {
+            if (!Program.Client.gpInfoLabel.Text.Contains("NVIDIA"))
+            {
+                Program.Client.amdToolTip.Active = true;
+                Program.Client.amdToolTip.ShowAlways = true;
+                Program.Client.nvBox.Enabled = false;
+                logger.Debug("initHBAONVIDIA - initialized hbao+ possibility as false.");
+                return;
+            }
+
             if (Program.Client.gpInfoLabel.Text.Contains("NVIDIA") && !WineChecker.IsWine())
             {
                 try
@@ -335,13 +358,6 @@ namespace BmLauncherWForm.data
                 Program.Client.nvidiaToolTip.Active = true;
                 logger.Debug(
                     "initHBAONVIDIA - initialized hbao+ possibility as false. You're using an NVIDIA card on a Linux machine.");
-            }
-            else
-            {
-                Program.Client.amdToolTip.Active = true;
-                Program.Client.amdToolTip.ShowAlways = true;
-                Program.Client.nvBox.Enabled = false;
-                logger.Debug("initHBAONVIDIA - initialized hbao+ possibility as false.");
             }
         }
     }

@@ -2,6 +2,7 @@
 using NLog;
 using NvAPIWrapper.Native.Exceptions;
 using System;
+using System.IO;
 
 namespace BmLauncherWForm.data
 {
@@ -29,7 +30,17 @@ namespace BmLauncherWForm.data
             setDynamicShadows();
             setFogVolumes();
             setFullScreen();
-            setHbaoPlus();
+            try
+            {
+                setHbaoPlus();
+            }
+            catch (FileNotFoundException e)
+            {
+                logger.Warn(
+                    "writeAll - could not call setHbaoPlus() - This is fine if you're not using an NVIDIA GPU. Exception: {0}",
+                    e);
+            }
+
             setLensFlares();
             setMaxShadowRes();
             setMaxSmoothedFrames();

@@ -540,7 +540,7 @@ namespace BmLauncherWForm.infrastructure
 
             if (gpu.Contains("Radeon") || gpu.Contains("AMD") || gpu.Contains("Intel"))
             {
-                gpu = gpu + " (PhysX not recommended)";
+                gpu += " (PhysX not recommended)";
                 if (gpu.Contains("Radeon") || gpu.Contains("AMD"))
                 {
                     client.gpInfoLabel.ForeColor = Color.Red;

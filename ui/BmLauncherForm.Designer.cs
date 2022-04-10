@@ -1056,7 +1056,7 @@ namespace BmLauncherWForm.ui
             this.TexmodLabel.AutoSize = true;
             this.TexmodLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TexmodLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.TexmodLabel.Location = new System.Drawing.Point(305, 602);
+            this.TexmodLabel.Location = new System.Drawing.Point(324, 602);
             this.TexmodLabel.Name = "TexmodLabel";
             this.TexmodLabel.Size = new System.Drawing.Size(109, 13);
             this.TexmodLabel.TabIndex = 51;
