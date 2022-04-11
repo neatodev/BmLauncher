@@ -22,7 +22,9 @@ Works with both the Steam and EGS Version!
 
 ## Download
 
-See: [Current Release](https://github.com/neatodev/BmLauncher/releases/latest)
+**See: [Current Release](https://github.com/neatodev/BmLauncher/releases/latest)**
+
+If you enjoy this application, please consider giving a small, one-time donation: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=LG7YTKP4JYN5S)
 
 ## Installation
 
@@ -68,7 +70,6 @@ To file a bug report, or if you have suggestions for the Launcher in general, pl
 ## Known Issues
 
 **NVAPI_ACCESS_DENIED**: See [my response](https://github.com/neatodev/BmLauncher/issues/3#issuecomment-681074403) to Issue [#3](https://github.com/neatodev/BmLauncher/issues/3) for a solution.
-
 
 ## About this Project
 
