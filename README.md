@@ -24,7 +24,8 @@ Works with both the Steam and EGS Version!
 
 **See: [Current Release](https://github.com/neatodev/BmLauncher/releases/latest)**
 
-If you enjoy this application, please consider giving a small, one-time donation: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=LG7YTKP4JYN5S)
+If you enjoy this application, please consider giving a small, one-time donation: 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=LG7YTKP4JYN5S)
 
 ## Installation
 
