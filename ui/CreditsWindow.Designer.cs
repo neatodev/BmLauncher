@@ -42,14 +42,18 @@ namespace BmLauncherWForm.ui
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.credBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // rockCred
             // 
             this.rockCred.AutoSize = true;
+            this.rockCred.ForeColor = System.Drawing.SystemColors.InfoText;
             this.rockCred.Location = new System.Drawing.Point(9, 9);
             this.rockCred.Name = "rockCred";
             this.rockCred.Size = new System.Drawing.Size(186, 13);
@@ -73,6 +77,7 @@ namespace BmLauncherWForm.ui
             // writtenLabel
             // 
             this.writtenLabel.AutoSize = true;
+            this.writtenLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.writtenLabel.Location = new System.Drawing.Point(6, 12);
             this.writtenLabel.Name = "writtenLabel";
             this.writtenLabel.Size = new System.Drawing.Size(110, 13);
@@ -106,6 +111,7 @@ namespace BmLauncherWForm.ui
             // collabLabel
             // 
             this.collabLabel.AutoSize = true;
+            this.collabLabel.ForeColor = System.Drawing.SystemColors.InfoText;
             this.collabLabel.Location = new System.Drawing.Point(6, 45);
             this.collabLabel.Name = "collabLabel";
             this.collabLabel.Size = new System.Drawing.Size(105, 13);
@@ -169,15 +175,40 @@ namespace BmLauncherWForm.ui
             this.linkLabel2.Text = "HD Texture Pack";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.linkLabel3);
+            this.groupBox3.Location = new System.Drawing.Point(12, 169);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(180, 30);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.linkLabel3.LinkColor = System.Drawing.Color.DarkGoldenrod;
+            this.linkLabel3.Location = new System.Drawing.Point(33, 11);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(117, 13);
+            this.linkLabel3.TabIndex = 5;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Support the Project";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
             // CreditsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(204, 175);
+            this.ClientSize = new System.Drawing.Size(204, 208);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.credBox);
             this.Controls.Add(this.rockCred);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -194,6 +225,8 @@ namespace BmLauncherWForm.ui
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +245,7 @@ namespace BmLauncherWForm.ui
         private LinkLabel linkLabel1;
         private GroupBox groupBox2;
         private LinkLabel linkLabel2;
+        private GroupBox groupBox3;
+        private LinkLabel linkLabel3;
     }
 }

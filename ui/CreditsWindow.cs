@@ -48,5 +48,10 @@ namespace BmLauncherWForm.ui
         {
             Process.Start("https://github.com/neatodev/BmLauncher#batman-arkham-asylum---advanced-launcher");
         }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.paypal.com/donate/?hosted_button_id=LG7YTKP4JYN5S");
+        }
     }
 }
