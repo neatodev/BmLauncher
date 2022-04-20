@@ -89,6 +89,10 @@ namespace BmLauncherWForm.data
                 case 4:
                     Graphics.setLanguage("esn");
                     break;
+
+                default:
+                    Graphics.setLanguage("nochange");
+                    break;
             }
 
             logger.Debug("setLang - set language to {0}", Graphics.getLanguage());

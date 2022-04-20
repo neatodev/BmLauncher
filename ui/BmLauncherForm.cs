@@ -94,6 +94,17 @@ namespace BmLauncherWForm.ui
         private void applyButton_Click(object sender, EventArgs e)
         {
             Program.MyFactory.writeGraphFile();
+            if (langBox.SelectedIndex != 5)
+            {
+                try
+                {
+                    langBox.Items.RemoveAt(5);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                }
+            }
+
             applyButton.Enabled = false;
             ChangedConfig = false;
         }

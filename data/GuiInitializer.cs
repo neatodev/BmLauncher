@@ -96,29 +96,30 @@ namespace BmLauncherWForm.data
 
         private static void initLang()
         {
-            if (Graphics.getLanguage().Equals("int"))
+            switch (Graphics.getLanguage())
             {
-                Program.Client.langBox.SelectedIndex = 0;
-            }
+                case "int":
+                    Program.Client.langBox.SelectedIndex = 0;
+                    break;
 
-            if (Graphics.getLanguage().Equals("deu"))
-            {
-                Program.Client.langBox.SelectedIndex = 1;
-            }
+                case "deu":
+                    Program.Client.langBox.SelectedIndex = 1;
+                    break;
 
-            if (Graphics.getLanguage().Equals("fra"))
-            {
-                Program.Client.langBox.SelectedIndex = 2;
-            }
+                case "fra":
+                    Program.Client.langBox.SelectedIndex = 2;
+                    break;
 
-            if (Graphics.getLanguage().Equals("ita"))
-            {
-                Program.Client.langBox.SelectedIndex = 3;
-            }
+                case "ita":
+                    Program.Client.langBox.SelectedIndex = 3;
+                    break;
 
-            if (Graphics.getLanguage().Equals("esn"))
-            {
-                Program.Client.langBox.SelectedIndex = 4;
+                case "esn":
+                    Program.Client.langBox.SelectedIndex = 4;
+                    break;
+                default:
+                    Program.Client.langBox.SelectedIndex = Program.Client.langBox.Items.Add("Unofficial");
+                    break;
             }
 
             logger.Debug("initLang - initialized language as {0}", Graphics.getLanguage());

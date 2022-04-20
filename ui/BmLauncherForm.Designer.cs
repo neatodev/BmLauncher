@@ -264,7 +264,9 @@ namespace BmLauncherWForm.ui
             this.langBox.Name = "langBox";
             this.langBox.Size = new System.Drawing.Size(110, 23);
             this.langBox.TabIndex = 37;
-            this.basicToolTip.SetToolTip(this.langBox, "Sets the voice & text language in the game.");
+            this.basicToolTip.SetToolTip(this.langBox, "Sets the voice & text language in the game.\r\n\r\nIf you have an unofficial language" +
+        " patch installed, it most likely replaces \'English\'.\r\nOtherwise, \'Unofficial\' sh" +
+        "ould be selected automatically.\r\n");
             this.langBox.SelectedIndexChanged += new System.EventHandler(this.langBox_SelectedIndexChanged);
             // 
             // langLabel
@@ -276,7 +278,9 @@ namespace BmLauncherWForm.ui
             this.langLabel.Size = new System.Drawing.Size(62, 15);
             this.langLabel.TabIndex = 36;
             this.langLabel.Text = "Language:";
-            this.basicToolTip.SetToolTip(this.langLabel, "Sets the voice & text language in the game.\r\n");
+            this.basicToolTip.SetToolTip(this.langLabel, "Sets the voice & text language in the game.\r\n\r\nIf you have an unofficial language" +
+        " patch installed, it most likely replaces \'English\'.\r\nOtherwise, \'Unofficial\' sh" +
+        "ould be selected automatically.\r\n\r\n");
             // 
             // maxSmoothTextBox
             // 

@@ -38,6 +38,11 @@ namespace BmLauncherWForm.data
                     }
                     else
                     {
+                        if (Graphics.getLanguage() == "nochange")
+                        {
+                            return lineToCheck;
+                        }
+
                         lineToCheck = "Language=" + Graphics.getLanguage();
                     }
 
