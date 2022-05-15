@@ -12,9 +12,9 @@ This is a replacement application for the original BmLauncher of the game. Along
 
 Works with both the Steam and EGS Version!
 
-**This Application depends on .NET Framework 4.5**. If you are using Windows 8 (or newer), you shouldn't have any issues executing it. Windows 7 SP1 (and older) might need to install [.NET Framework 4.5](https://download.microsoft.com/download/B/A/4/BA4A7E71-2906-4B2D-A0E1-80CF16844F5F/dotNetFx45_Full_setup.exe) manually. **Other Environments than Windows are not supported.**
+**This Application depends on .NET Framework 4.8**. If you are using Windows 8 (or newer), you shouldn't have any issues executing it. Windows 7 SP1 (and older) might need to install [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-offline-installer) manually. **Other Environments than Windows are not supported.**
 
-**This application has only been tested on Windows 7 SP1, Windows 8, Windows 8.1, Windows 10 and Wine. It supports the Steam and Epic Games Store version and nothing else.**
+**This application has only been tested on Windows 7 SP1, Windows 8, Windows 8.1, Windows 10 and Wine. It supports the Steam, GOG and Epic Games Store version and nothing else.**
 
 ## Preview
 
