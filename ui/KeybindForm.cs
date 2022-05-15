@@ -54,6 +54,7 @@ namespace BmLauncherWForm.ui
             if (inputsOk)
             {
                 Program.MyFactory.writeInputFile();
+                Program.MyFactory.writeBmInputFile();
                 applyKeyButton.Enabled = false;
             }
             else
@@ -186,6 +187,17 @@ namespace BmLauncherWForm.ui
         private void speedLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new SpeedrunHint().ShowDialog();
+        }
+
+        private void SensitivityBar_Scroll(object sender, EventArgs e)
+        {
+            SensitivityValueLabel.Text = SensitivityBar.Value.ToString();
+            applyKeyButton.Enabled = true;
+        }
+
+        private void MouseSmoothBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            applyKeyButton.Enabled = true;
         }
     }
 }

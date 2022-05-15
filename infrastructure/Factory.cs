@@ -32,6 +32,10 @@ namespace BmLauncherWForm.infrastructure
         public static string InputFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
                                          "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\UserInput.ini";
 
+        // location of the UserInput configuration file
+        public static string BmInputFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
+                                           "\\Square Enix\\Batman Arkham Asylum GOTY\\BmGame\\Config\\BmInput.ini";
+
         // folder containing all configuration files
         private static readonly string ConfigDirectory =
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) +
@@ -55,6 +59,9 @@ namespace BmLauncherWForm.infrastructure
 
         // contains all lines (as strings) of the UserInput file
         public static List<string> InputList = new List<string>();
+
+        // contains all lines (as strings) of the BMInput file
+        public static List<string> BMInList = new List<string>();
 
         // prepackaged BmEngine file, used in case file is missing
         private static readonly string BmEnginePremade = Resources.BmEngine;
@@ -119,6 +126,7 @@ namespace BmLauncherWForm.infrastructure
             readDirectory();
             readConfigFile();
             readInputFile();
+            readBMInput();
             client.applyButton.Enabled = false;
             client.ChangedConfig = false;
         }
@@ -301,6 +309,29 @@ namespace BmLauncherWForm.infrastructure
             logger.Info("readInputFile - processed UserInput.");
         }
 
+        private void readBMInput()
+        {
+            if (!File.Exists(BmInputFile))
+            {
+                logger.Warn("readBMInput - BMInput not found at {0}. Generating it now.", Path.Combine(BmInputFile));
+                File.Create(BmInputFile).Dispose();
+                StreamWriter fakeInputFile = new StreamWriter(BmInputFile);
+                fakeInputFile.Write(Resources.BmInput);
+                fakeInputFile.Close();
+                logger.Debug("readBMInput - generated BMInput at: {0}", InputFile);
+            }
+
+            string[] bmlist = File.ReadAllLines(BmInputFile);
+            for (int i = 0; i < bmlist.Length; i++)
+            {
+                BMInList.Add(bmlist[i]);
+            }
+
+            logger.Debug("readBMInput - Reading BMInput.ini.");
+            kInterpreter.processBMInput(bmlist[5]);
+            kInterpreter.processBMInput(bmlist[7]);
+        }
+
         /// <summary>
         ///     Method is called when 'Apply Settings' or 'Start Game' gets pressed.
         ///     Utilizes GraphicsWriter helper class to change Parameters in Graphics class.
@@ -351,6 +382,36 @@ namespace BmLauncherWForm.infrastructure
             }
 
             logger.Debug("writeInputFile - saved input parameters to {0}", InputFile);
+        }
+
+        public void writeBmInputFile()
+        {
+            logger.Debug("writeBmInputFile - writing BmInput.ini.");
+            using (StreamWriter file = new StreamWriter(BmInputFile))
+            {
+                for (int i = 0; i < BMInList.Count; i++)
+                {
+                    if (i == 5)
+                    {
+                        file.WriteLine("MouseSensitivity=" + Keybinds.SensitivityValueLabel.Text + ".0");
+                    }
+                    else if (i == 7)
+                    {
+                        if (Keybinds.MouseSmoothBox.SelectedIndex == 0)
+                        {
+                            file.WriteLine("bEnableMouseSmoothing=true");
+                        }
+                        else
+                        {
+                            file.WriteLine("bEnableMouseSmoothing=false");
+                        }
+                    }
+                    else
+                    {
+                        file.WriteLine(BMInList[i]);
+                    }
+                }
+            }
         }
 
         /// <summary>

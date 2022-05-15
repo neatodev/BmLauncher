@@ -21,6 +21,31 @@ namespace BmLauncherWForm.data
             logger = LogManager.GetCurrentClassLogger();
         }
 
+        public void processBMInput(string line)
+        {
+            if (line.Contains("MouseSensitivity"))
+            {
+                int desiredlength = line.Substring(line.LastIndexOf("=") + 1).Length -
+                                    line.Substring(line.LastIndexOf(".")).Length;
+                int value = Int16.Parse(line.Substring(line.LastIndexOf("=") + 1, desiredlength));
+                Program.MyFactory.Keybinds.SensitivityBar.Value = value;
+                Program.MyFactory.Keybinds.SensitivityValueLabel.Text = value.ToString();
+            }
+
+            if (line.Contains("bEnableMouseSmoothing"))
+            {
+                switch (line.Substring(line.LastIndexOf("=") + 1))
+                {
+                    case "true":
+                        Program.MyFactory.Keybinds.MouseSmoothBox.SelectedIndex = 0;
+                        break;
+                    case "false":
+                        Program.MyFactory.Keybinds.MouseSmoothBox.SelectedIndex = 1;
+                        break;
+                }
+            }
+        }
+
         /// <summary>
         ///     Reads or writes Keybind parameters from UserInput file
         /// </summary>

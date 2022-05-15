@@ -77,8 +77,16 @@ namespace BmLauncherWForm.ui
             this.helpLabel = new System.Windows.Forms.LinkLabel();
             this.controlLabel = new System.Windows.Forms.Label();
             this.speedLabel = new System.Windows.Forms.LinkLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SensitivityValueLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.SensitivityBar = new System.Windows.Forms.TrackBar();
+            this.MouseSmoothBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.movBox.SuspendLayout();
             this.actionBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SensitivityBar)).BeginInit();
             this.SuspendLayout();
             // 
             // fwLabel
@@ -590,18 +598,18 @@ namespace BmLauncherWForm.ui
             // applyKeyButton
             // 
             this.applyKeyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.applyKeyButton.Location = new System.Drawing.Point(12, 385);
+            this.applyKeyButton.Location = new System.Drawing.Point(12, 488);
             this.applyKeyButton.Name = "applyKeyButton";
             this.applyKeyButton.Size = new System.Drawing.Size(364, 23);
             this.applyKeyButton.TabIndex = 42;
-            this.applyKeyButton.Text = "Apply Keybinds";
+            this.applyKeyButton.Text = "Apply Settings";
             this.applyKeyButton.UseVisualStyleBackColor = true;
             this.applyKeyButton.Click += new System.EventHandler(this.applyKeyButton_Click);
             // 
             // resetButton
             // 
             this.resetButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(382, 385);
+            this.resetButton.Location = new System.Drawing.Point(382, 488);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(101, 23);
             this.resetButton.TabIndex = 43;
@@ -612,7 +620,7 @@ namespace BmLauncherWForm.ui
             // helpLabel
             // 
             this.helpLabel.AutoSize = true;
-            this.helpLabel.Location = new System.Drawing.Point(455, 409);
+            this.helpLabel.Location = new System.Drawing.Point(455, 512);
             this.helpLabel.Name = "helpLabel";
             this.helpLabel.Size = new System.Drawing.Size(29, 13);
             this.helpLabel.TabIndex = 44;
@@ -624,7 +632,7 @@ namespace BmLauncherWForm.ui
             // 
             this.controlLabel.AutoSize = true;
             this.controlLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.controlLabel.Location = new System.Drawing.Point(9, 411);
+            this.controlLabel.Location = new System.Drawing.Point(9, 514);
             this.controlLabel.Name = "controlLabel";
             this.controlLabel.Size = new System.Drawing.Size(297, 13);
             this.controlLabel.TabIndex = 45;
@@ -642,12 +650,85 @@ namespace BmLauncherWForm.ui
             this.speedLabel.Text = "Speedrunner?";
             this.speedLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.speedLabel_LinkClicked);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.SensitivityValueLabel);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.SensitivityBar);
+            this.groupBox1.Controls.Add(this.MouseSmoothBox);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 385);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(471, 97);
+            this.groupBox1.TabIndex = 56;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Mouse Settings:";
+            // 
+            // SensitivityValueLabel
+            // 
+            this.SensitivityValueLabel.AutoSize = true;
+            this.SensitivityValueLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SensitivityValueLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SensitivityValueLabel.Location = new System.Drawing.Point(122, 31);
+            this.SensitivityValueLabel.Name = "SensitivityValueLabel";
+            this.SensitivityValueLabel.Size = new System.Drawing.Size(37, 15);
+            this.SensitivityValueLabel.TabIndex = 60;
+            this.SensitivityValueLabel.Text = "Value";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(13, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 15);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Mouse Sensitivity:";
+            // 
+            // SensitivityBar
+            // 
+            this.SensitivityBar.Location = new System.Drawing.Point(9, 49);
+            this.SensitivityBar.Maximum = 100;
+            this.SensitivityBar.Minimum = 1;
+            this.SensitivityBar.Name = "SensitivityBar";
+            this.SensitivityBar.Size = new System.Drawing.Size(451, 45);
+            this.SensitivityBar.TabIndex = 58;
+            this.SensitivityBar.Value = 1;
+            this.SensitivityBar.Scroll += new System.EventHandler(this.SensitivityBar_Scroll);
+            // 
+            // MouseSmoothBox
+            // 
+            this.MouseSmoothBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MouseSmoothBox.FormattingEnabled = true;
+            this.MouseSmoothBox.Items.AddRange(new object[] {
+            "Enabled (Default)",
+            "Disabled"});
+            this.MouseSmoothBox.Location = new System.Drawing.Point(332, 16);
+            this.MouseSmoothBox.Name = "MouseSmoothBox";
+            this.MouseSmoothBox.Size = new System.Drawing.Size(128, 23);
+            this.MouseSmoothBox.TabIndex = 57;
+            this.MouseSmoothBox.SelectedIndexChanged += new System.EventHandler(this.MouseSmoothBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(216, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 15);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Mouse Smoothing:";
+            // 
             // KeybindForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ClientSize = new System.Drawing.Size(495, 426);
+            this.ClientSize = new System.Drawing.Size(495, 534);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.speedLabel);
             this.Controls.Add(this.controlLabel);
             this.Controls.Add(this.helpLabel);
@@ -668,6 +749,9 @@ namespace BmLauncherWForm.ui
             this.movBox.PerformLayout();
             this.actionBox.ResumeLayout(false);
             this.actionBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SensitivityBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -721,5 +805,11 @@ namespace BmLauncherWForm.ui
         private LinkLabel helpLabel;
         private Label controlLabel;
         private LinkLabel speedLabel;
+        private GroupBox groupBox1;
+        private Label label1;
+        public ComboBox MouseSmoothBox;
+        protected internal TrackBar SensitivityBar;
+        private Label label2;
+        public Label SensitivityValueLabel;
     }
 }
