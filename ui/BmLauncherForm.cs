@@ -315,6 +315,7 @@ namespace BmLauncherWForm.ui
             {
                 Factory.ConfigInfo.IsReadOnly = false;
                 Factory.UserEngineInfo.IsReadOnly = false;
+                Factory.BmInputFileInfo.IsReadOnly = false;
                 logger.Info("Closing launcher and disabling read-only flags. Logging has concluded at {0}, on {1}.",
                     DateTime.Now.ToString("HH:mm:ss"), DateTime.Now.ToString("D", new CultureInfo("en-GB")));
                 LogManager.Flush();

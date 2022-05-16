@@ -54,6 +54,8 @@ namespace BmLauncherWForm.infrastructure
 
         public static readonly FileInfo InputFileInfo = new FileInfo(InputFile);
 
+        public static readonly FileInfo BmInputFileInfo = new FileInfo(BmInputFile);
+
         // contains all lines (as strings) of the BmEngine file
         private static readonly List<string> ConfigList = new List<string>();
 
@@ -386,6 +388,8 @@ namespace BmLauncherWForm.infrastructure
 
         public void writeBmInputFile()
         {
+            BmInputFileInfo.IsReadOnly = false;
+
             logger.Debug("writeBmInputFile - writing BmInput.ini.");
             using (StreamWriter file = new StreamWriter(BmInputFile))
             {
@@ -411,7 +415,11 @@ namespace BmLauncherWForm.infrastructure
                         file.WriteLine(BMInList[i]);
                     }
                 }
+
+                file.Close();
             }
+
+            BmInputFileInfo.IsReadOnly = true;
         }
 
         /// <summary>

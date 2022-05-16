@@ -597,6 +597,7 @@ namespace BmLauncherWForm.ui
             // 
             // applyKeyButton
             // 
+            this.applyKeyButton.Enabled = false;
             this.applyKeyButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.applyKeyButton.Location = new System.Drawing.Point(12, 488);
             this.applyKeyButton.Name = "applyKeyButton";
