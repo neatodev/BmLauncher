@@ -323,6 +323,8 @@ namespace BmLauncherWForm.infrastructure
                 logger.Debug("readBMInput - generated BMInput at: {0}", InputFile);
             }
 
+            BmInputFileInfo.IsReadOnly = false;
+
             string[] bmlist = File.ReadAllLines(BmInputFile);
             for (int i = 0; i < bmlist.Length; i++)
             {
