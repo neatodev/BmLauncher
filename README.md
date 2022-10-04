@@ -1,6 +1,6 @@
 # Batman: Arkham Asylum - Advanced Launcher
 
-This is a replacement application for the original BmLauncher of the game. Alongside the vastly superior configuration options, this Launcher also offers:
+This is a replacement application for the original BmLauncher of the game. Alongside vastly superior configuration options, this Launcher also offers:
 
 - Tooltips for every configuration option
 - Option to disable Startup Movies
