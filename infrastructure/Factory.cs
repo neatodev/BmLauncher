@@ -547,15 +547,26 @@ namespace BmLauncherWForm.infrastructure
         ///     Works exactly like applyTexfix().
         ///     Calls introFix() method to correct the input string.
         /// </summary>
-        public void applyIntroFix()
+        public void SetIntroFix()
         {
             ConfigInfo.IsReadOnly = false;
             using (StreamWriter file = new StreamWriter(ConfigFile))
             {
-                for (int i = 0; i < ConfigList.Count; i++)
+                if (client.disableIntroButton.Text == "Disable Intro Movies")
                 {
-                    ConfigList[i] = introFix(ConfigList[i]);
-                    file.WriteLine(ConfigList[i]);
+                    for (int i = 0; i < ConfigList.Count; i++)
+                    {
+                        ConfigList[i] = introFix(ConfigList[i]);
+                        file.WriteLine(ConfigList[i]);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < ConfigList.Count; i++)
+                    {
+                        ConfigList[i] = introDefault(ConfigList[i]);
+                        file.WriteLine(ConfigList[i]);
+                    }
                 }
 
                 file.Close();
@@ -601,6 +612,35 @@ namespace BmLauncherWForm.infrastructure
             return lineToCheck;
         }
 
+        private string introDefault(string lineToCheck)
+        {
+            if (lineToCheck.Contains("StartupMovies=baa_logo_run_v5_h264"))
+            {
+                lineToCheck = StartUpMovieLines[0].Substring(1);
+                return lineToCheck;
+            }
+
+            if (lineToCheck.Contains("StartupMovies=UTlogo"))
+            {
+                lineToCheck = StartUpMovieLines[1].Substring(1);
+                return lineToCheck;
+            }
+
+            if (lineToCheck.Contains("StartupMovies=Legal"))
+            {
+                lineToCheck = StartUpMovieLines[2].Substring(1);
+                return lineToCheck;
+            }
+
+            if (lineToCheck.Contains("StartupMovies=Black"))
+            {
+                lineToCheck = StartUpMovieLines[3].Substring(1);
+                return lineToCheck;
+            }
+
+            return lineToCheck;
+        }
+
         /// <summary>
         ///     Method that disables disableIntroButton.
         ///     Used by Factory for applyIntroFix() method.
@@ -608,8 +648,15 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public void introApplied()
         {
-            client.disableIntroButton.Text = @"Intro Movies disabled!";
-            client.disableIntroButton.Enabled = false;
+            if (client.disableIntroButton.Text == "Disable Intro Movies")
+            {
+                client.disableIntroButton.Text = "Enable Intro Movies";
+            }
+            else
+            {
+                client.disableIntroButton.Text = "Disable Intro Movies";
+
+            }
         }
 
         /// <summary>

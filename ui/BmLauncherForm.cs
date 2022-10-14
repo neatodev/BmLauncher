@@ -281,7 +281,7 @@ namespace BmLauncherWForm.ui
         private void disableIntroButton_Click(object sender, EventArgs e)
         {
             ChangedConfig = true;
-            Program.MyFactory.applyIntroFix();
+            Program.MyFactory.SetIntroFix();
         }
 
         private void maxSmoothTextBox_TextChanged(object sender, EventArgs e)
