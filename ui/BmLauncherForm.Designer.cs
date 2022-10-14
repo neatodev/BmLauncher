@@ -967,7 +967,7 @@ namespace BmLauncherWForm.ui
             this.texgroupButton.Name = "texgroupButton";
             this.texgroupButton.Size = new System.Drawing.Size(151, 27);
             this.texgroupButton.TabIndex = 37;
-            this.texgroupButton.Text = "Apply Texture Pack Fix";
+            this.texgroupButton.Text = "Enable Texture Pack Fix";
             this.basicToolTip.SetToolTip(this.texgroupButton, "This is only required if you are using the HD Texture Pack.");
             this.texgroupButton.UseVisualStyleBackColor = false;
             this.texgroupButton.Click += new System.EventHandler(this.texgroupButton_Click);

@@ -439,7 +439,7 @@ namespace BmLauncherWForm.infrastructure
             ConfigInfo.IsReadOnly = false;
             using (StreamWriter file = new StreamWriter(ConfigFile))
             {
-                if (client.texgroupButton.Text == "Apply Texture Pack Fix")
+                if (client.texgroupButton.Text == "Enable Texture Pack Fix")
                 {
                     for (int i = 0; i < ConfigList.Count; i++)
                     {
@@ -533,13 +533,13 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public void texApplied()
         {
-            if (client.texgroupButton.Text.Equals("Apply Texture Pack Fix"))
+            if (client.texgroupButton.Text.Equals("Enable Texture Pack Fix"))
             {
                 client.texgroupButton.Text = "Disable Texture Pack Fix";
             }
             else
             {
-                client.texgroupButton.Text = "Apply Texture Pack Fix";
+                client.texgroupButton.Text = "Enable Texture Pack Fix";
             }
         }
 
@@ -648,7 +648,7 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public void introApplied()
         {
-            if (client.disableIntroButton.Text == "Disable Intro Movies")
+            if (client.disableIntroButton.Text.Equals("Disable Intro Movies"))
             {
                 client.disableIntroButton.Text = "Enable Intro Movies";
             }
