@@ -81,6 +81,13 @@ namespace BmLauncherWForm.infrastructure
             "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=4096,LODBias=0)", "PoolSize=2048"
         };
 
+        // string array containing all default texture lines
+        private static readonly string[] TexFixDefaults =
+        {
+            "TEXTUREGROUP_Character=(MinLODSize=512,MaxLODSize=2048,LODBias=0)",
+            "TEXTUREGROUP_CharacterNormalMap=(MinLODSize=512,MaxLODSize=2048,LODBias=0)", "PoolSize=512"
+        };
+
         // string array containing all lines to disable startup movies
         private static readonly string[] StartUpMovieLines =
         {
@@ -427,15 +434,26 @@ namespace BmLauncherWForm.infrastructure
         /// <summary>
         ///     Calls texfix method to change Texturegroup parameters in BmEngine file.
         /// </summary>
-        public void applyTexfix()
+        public void SetTexfix()
         {
             ConfigInfo.IsReadOnly = false;
             using (StreamWriter file = new StreamWriter(ConfigFile))
             {
-                for (int i = 0; i < ConfigList.Count; i++)
+                if (client.texgroupButton.Text == "Apply Texture Pack Fix")
                 {
-                    ConfigList[i] = texfix(ConfigList[i]);
-                    file.WriteLine(ConfigList[i]);
+                    for (int i = 0; i < ConfigList.Count; i++)
+                    {
+                        ConfigList[i] = texfix(ConfigList[i]);
+                        file.WriteLine(ConfigList[i]);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < ConfigList.Count; i++)
+                    {
+                        ConfigList[i] = texdefault(ConfigList[i]);
+                        file.WriteLine(ConfigList[i]);
+                    }
                 }
 
                 file.Close();
@@ -483,6 +501,31 @@ namespace BmLauncherWForm.infrastructure
             return lineToCheck;
         }
 
+        private string texdefault(string lineToCheck)
+        {
+            if (lineToCheck.Contains("TEXTUREGROUP_Character=(MinLODSize="))
+            {
+                lineToCheck = TexFixDefaults[0];
+                return lineToCheck;
+            }
+
+            if (lineToCheck.Contains("TEXTUREGROUP_CharacterNormalMap=(MinLODSize="))
+            {
+                lineToCheck = TexFixDefaults[1];
+                return lineToCheck;
+            }
+
+            if (lineToCheck.Contains("PoolSize") && !lineToCheck.Contains("CommonAudio") &&
+                (lineToCheck.Equals("PoolSize=2048") || lineToCheck.Equals("PoolSize=3072") ||
+                  lineToCheck.Equals("PoolSize=4096") || lineToCheck.Equals("PoolSize=0")))
+            {
+                lineToCheck = TexFixDefaults[2];
+                return lineToCheck;
+            }
+
+            return lineToCheck;
+        }
+
         /// <summary>
         ///     Method that disables texgroupButton.
         ///     Used by Factory for applyTexfix() method.
@@ -490,8 +533,14 @@ namespace BmLauncherWForm.infrastructure
         /// </summary>
         public void texApplied()
         {
-            client.texgroupButton.Text = @"Texture Pack Fix applied!";
-            client.texgroupButton.Enabled = false;
+            if (client.texgroupButton.Text.Equals("Apply Texture Pack Fix"))
+            {
+                client.texgroupButton.Text = "Disable Texture Pack Fix";
+            }
+            else
+            {
+                client.texgroupButton.Text = "Apply Texture Pack Fix";
+            }
         }
 
         /// <summary>
@@ -660,7 +709,7 @@ namespace BmLauncherWForm.infrastructure
                 logger.Debug("ExecNvSetter - creating NVSetter.exe in working directory.");
             }
 
-            ProcessStartInfo nvProcess = new ProcessStartInfo("NVSetter.exe") {Verb = "runas"};
+            ProcessStartInfo nvProcess = new ProcessStartInfo("NVSetter.exe") { Verb = "runas" };
             Process.Start(nvProcess);
             logger.Debug("ExecNvSetter - Executing NVSetter.exe");
         }

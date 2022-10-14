@@ -26,7 +26,7 @@ namespace BmLauncherWForm.ui
 
         private void texgroupButton_Click(object sender, EventArgs e)
         {
-            Program.MyFactory.applyTexfix();
+            Program.MyFactory.SetTexfix();
         }
 
         private void launchButton_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace BmLauncherWForm.ui
                         Application.Exit();
                     }
                 }
-                catch (Exception err)
+                catch (Exception)
                 {
                     MessageBox.Show(
                         "Couldn't find ShippingPC_BmGame.exe or texmod_autoload.exe.\r\nPlease place the Launcher files in the correct folder.\r\n" +
