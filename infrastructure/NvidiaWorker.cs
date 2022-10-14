@@ -108,9 +108,8 @@ namespace BmLauncherWForm.infrastructure
                 aoValue = _prof.GetSetting(KnownSettingId.AmbientOcclusionMode).ToString();
                 compValue = Int16.Parse(_prof.GetSetting(2916165).CurrentValue.ToString());
             }
-            catch (NullReferenceException e)
+            catch (Exception)
             {
-                Console.WriteLine(e);
                 _prof.SetSetting(KnownSettingId.AmbientOcclusionModeActive, 0);
                 _prof.SetSetting(KnownSettingId.AmbientOcclusionMode, 0);
                 Program.Client.nvBox.Checked = false;
