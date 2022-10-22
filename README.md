@@ -32,9 +32,11 @@ If you enjoy this application, please consider giving a small, one-time donation
 
 Drag the contents of the .zip file into the 'Batman Arkham Asylum GOTY\Binaries' folder.
 
-To find this folder for the *Steam* version, just right-click the game in Steam, select Properties->Local Files->Browse Local Files.
+To find this folder for the *Steam* version, just right-click the game in Steam, select Properties->Local Files->Browse Local Files and navigate from there.
 
-Since *EGS* doesn't have an option like this, your best bet is to just open your C:\Program Files\ folder and look for the installation there.
+To find it for the *EGS* version, right-click the game and select "Manage". Then click the folder icon in the "Installation" tab and navigate from there.
+
+For the *GOG* version, click the icon next to the PLAY button and select "Manage installation->Show folder" and navigate from there.
 
 
 ## Usage
@@ -77,10 +79,7 @@ To file a bug report, or if you have suggestions for the Launcher in general, pl
 
 This is my first programming project using C#. I created it in a very short timespan and only incrementally patched up issues. So for any fellow programmer looking through the source code, expect some messy implementations and the occasional disregard for C# Code Conventions. I have cleaned up the code quite a bit, it's not perfect yet, but as it stands it works just fine and I am occupied with other projects. Please keep this in mind.
 
-### License
-
-This work is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by].
+#### License
 
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
