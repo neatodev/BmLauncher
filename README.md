@@ -1,4 +1,8 @@
-# Batman: Arkham Asylum - Advanced Launcher
+# THIS PROJECT IS ARCHIVED. 
+# A NEW VERSION RUNNING .NET 6 IS [AVAILABLE HERE](https://github.com/neatodev/BmLauncherAsylumNET6)!
+# THIS VERSION IS NO LONGER SUPPORTED!
+
+# Batman: Arkham Asylum - Advanced Launcher [OUTDATED]
 
 This is a replacement application for the original BmLauncher of the game. Alongside vastly superior configuration options, this Launcher also offers:
 
@@ -19,14 +23,6 @@ Works with both the Steam and EGS Version!
 ## Preview
 
 ![BMLauncher Preview](https://user-images.githubusercontent.com/49599979/195911308-4c53fa9e-8f6e-49dc-a626-c5cda228498a.png)
-
-## Download
-
-**See: [Current Release](https://github.com/neatodev/BmLauncher/releases/latest)**
-
-If you enjoy this application, please consider giving a small, one-time donation: 
-
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?hosted_button_id=LG7YTKP4JYN5S)
 
 ## Installation
 
